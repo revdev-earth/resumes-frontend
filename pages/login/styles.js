@@ -44,3 +44,9 @@ export const Input = styled.div`
 		//outline-color:;
 	}
 `;
+
+export const Message = styled.div`
+	position: absolute;
+	top: -20px;
+	right: 0px; ;
+`;

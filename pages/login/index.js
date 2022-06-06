@@ -1,4 +1,5 @@
-import { Form, Container, Input } from "./styles";
+import { Form, Container, Input, Message } from "./styles";
+import Link from "next/link";
 
 const LogIn = () => {
 	return (
@@ -14,6 +15,9 @@ const LogIn = () => {
 
 					<Input>
 						<label for="last">Last name</label>
+						<Message>
+							<Link href={"/forgotPassword"}>Forgot password?</Link>
+						</Message>
 						<input type="password" id="last" name="last" />
 					</Input>
 
