@@ -1,10 +1,29 @@
-import styled from 'styled-components'
+import styled from "styled-components";
+import Link from "next/link";
 
-const Title = styled.h1`
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.primary};
-`
+const Header = styled.header`
+	font-size: 50px;
+	//color: ${({ theme }) => theme.colors.primary};
+`;
 
 export default function Home() {
-  return <Title>My page</Title>
+	return (
+		<Header>
+			<h1>My page</h1>
+
+			<nav>
+				<ul>
+					<li>
+						<Link href="/">Home</Link>
+					</li>
+					<li>
+						<Link href="/login">Log In</Link>
+					</li>
+					<li>
+						<Link href="/register">Register</Link>
+					</li>
+				</ul>
+			</nav>
+		</Header>
+	);
 }
