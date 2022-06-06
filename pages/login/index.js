@@ -1,6 +1,7 @@
 import { Form, Container, Input, Message } from "./styles";
 import Link from "next/link";
 import LayoutPages from "../../components/layoutPages";
+import InputGroup from "../../components/InputGroup";
 
 const LogIn = () => {
 	return (
@@ -10,18 +11,18 @@ const LogIn = () => {
 					<h2>Log In</h2>
 
 					<Form action="/send-data-here" method="post">
-						<Input>
+						<InputGroup>
 							<label for="first">Email</label>
 							<input type="text" id="first" name="first" />
-						</Input>
+						</InputGroup>
 
-						<Input>
+						<InputGroup>
 							<label for="last">password</label>
 							<Message>
 								<Link href={"/forgotPassword"}>Forgot password?</Link>
 							</Message>
 							<input type="password" id="last" name="last" />
-						</Input>
+						</InputGroup>
 
 						<button type="submit">Submit</button>
 					</Form>
