@@ -1,4 +1,4 @@
-import { Form, Container, Input, Message } from "./styles";
+import { Form, Container, Message } from "./styles";
 import Link from "next/link";
 import LayoutPages from "../../components/layoutPages";
 import InputGroup from "../../components/InputGroup";
