@@ -48,5 +48,5 @@ table {
   h4 {font-size: 28px;}
   h5 {font-size: 20px;}
   h6 {font-size: 12px;}
-  p, a {font-size: 12px;}
+  p, a {font-size: 16px;}
 `;

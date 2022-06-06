@@ -11,12 +11,12 @@ const LogIn = () => {
 
 					<Form action="/send-data-here" method="post">
 						<Input>
-							<label for="first">First name</label>
+							<label for="first">Email</label>
 							<input type="text" id="first" name="first" />
 						</Input>
 
 						<Input>
-							<label for="last">Last name</label>
+							<label for="last">password</label>
 							<Message>
 								<Link href={"/forgotPassword"}>Forgot password?</Link>
 							</Message>
@@ -25,6 +25,9 @@ const LogIn = () => {
 
 						<button type="submit">Submit</button>
 					</Form>
+					<Link href="/register">
+						<p>Or create account.</p>
+					</Link>
 				</Container>
 			</LayoutPages>
 		</>

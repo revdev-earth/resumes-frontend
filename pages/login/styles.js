@@ -32,7 +32,7 @@ export const Input = styled.div`
 	}
 
 	input {
-		margin-bottom: 30px;
+		margin-bottom: 40px;
 		padding: 10px;
 		width: 100%;
 		background-color: transparent;
