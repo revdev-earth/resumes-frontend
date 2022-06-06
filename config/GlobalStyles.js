@@ -1,13 +1,47 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
-  }
+*{
+  margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+	font-family: 'Roboto';
+	vertical-align: baseline;
+}
+  article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
 
+	font-size: 18px;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+	h1, h2, h3, h4, h5, h6{
+		
+		font-style: normal;
+		font-weight: 700;
+	}   
   h1 {font-size: 64px;}
   h2 {font-size: 56px;}
   h3 {font-size: 48px;}
