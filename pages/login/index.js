@@ -2,6 +2,7 @@ import { Form, Container, Message } from "./styles";
 import Link from "next/link";
 import LayoutPages from "../../components/layoutPages";
 import InputGroup from "../../components/InputGroup";
+import Button from "../../components/Button";
 
 const LogIn = () => {
 	return (
@@ -24,7 +25,7 @@ const LogIn = () => {
 							<input type="password" id="last" name="last" />
 						</InputGroup>
 
-						<button type="submit">Submit</button>
+						<Button type="submit">Submit</Button>
 					</Form>
 					<Link href="/register">
 						<p>Or create account.</p>

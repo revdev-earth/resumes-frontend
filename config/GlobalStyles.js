@@ -49,4 +49,6 @@ table {
   h5 {font-size: 20px;}
   h6 {font-size: 12px;}
   p, a {font-size: 16px;}
+
+	a { cursor: pointer}
 `;
