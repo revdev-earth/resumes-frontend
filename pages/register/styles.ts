@@ -17,4 +17,17 @@ export const Container = styled.div`
 export const Form = styled.form`
 	display: flex;
 	flex-direction: column;
-`;
+	`;
+
+	export const CheckTerminos = styled.form`
+	display: flex;
+	gap: 15px;
+	margin-bottom: 30px;;
+	text-align: left;
+
+	input{
+		width: 30px;
+		height: 30px;
+		border: 2px solid ${({theme}) => theme.colors.black};
+	}
+	`

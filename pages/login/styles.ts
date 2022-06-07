@@ -21,6 +21,6 @@ export const Form = styled.form`
 
 export const Message = styled.div`
 	position: absolute;
-	top: -20px;
+	top: -23px;
 	right: 0px; ;
 `;

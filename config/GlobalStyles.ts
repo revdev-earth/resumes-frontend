@@ -50,5 +50,11 @@ table {
   h6 {font-size: 12px;}
   p, a {font-size: 16px;}
 
-	a { cursor: pointer}
+	a { 
+		cursor: pointer;
+
+		&:visited{
+			color: ${({ theme }) => theme.colors.black};
+		}
+		}
 `;

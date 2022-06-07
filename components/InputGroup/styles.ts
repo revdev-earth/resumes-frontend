@@ -7,7 +7,7 @@ export const ContainerInputGroup = styled.div`
 		position: absolute;
 		top: 0;
 		left: 0;
-		transform: translate(10px, 10px);
+		transform: translate(10px, 20px);
 		transform-origin: left;
 		transition: transform 0.25s;
 	}
@@ -16,6 +16,7 @@ export const ContainerInputGroup = styled.div`
 		margin-bottom: 40px;
 		padding: 10px;
 		width: 100%;
+		height: 60px;
 		background-color: transparent;
 		outline: 1px solid #333;
 		border-radius: 8px;

@@ -1,4 +1,4 @@
-import { Form, Container } from "./styles";
+import { Form, Container, CheckTerminos } from "./styles";
 import Link from "next/link";
 import LayoutPages from "../../components/layoutPages";
 import InputGroup from "../../components/InputGroup";
@@ -25,6 +25,13 @@ const Register = () => {
 						<label htmlFor="last">password</label>
 						<input type="password" id="last" name="last" />
 					</InputGroup>
+
+					<CheckTerminos>
+						<input type="checkbox" name="terminosCondiciones" id="" />
+						<p>
+							Agree the end user license agreement and the privacuty policy.
+						</p>
+					</CheckTerminos>
 
 					<Button primary type="submit">
 						Create account
