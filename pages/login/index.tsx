@@ -13,22 +13,24 @@ const LogIn = () => {
 
 					<Form action="/send-data-here" method="post">
 						<InputGroup>
-							<label for="first">Email</label>
+							<label htmlFor="first">Email</label>
 							<input type="text" id="first" name="first" />
 						</InputGroup>
 
 						<InputGroup>
-							<label for="last">password</label>
+							<label htmlFor="last">password</label>
 							<Message>
 								<Link href={"/forgotPassword"}>Forgot password?</Link>
 							</Message>
 							<input type="password" id="last" name="last" />
 						</InputGroup>
 
-						<Button type="submit">Submit</Button>
+						<Button primary type="submit">
+							Log in
+						</Button>
 					</Form>
 					<Link href="/register">
-						<p>Or create account.</p>
+						<a>Or create account.</a>
 					</Link>
 				</Container>
 			</LayoutPages>
