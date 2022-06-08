@@ -18,7 +18,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-
+	background-color: ${({theme}) => theme.colors.white1};
 	font-size: 18px;
 }
 ol, ul {
