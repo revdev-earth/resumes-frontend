@@ -6,14 +6,11 @@ const Header = () => {
 		<HeaderContainer>
 			<Link href="/">
 				<a>
-					<h1>resumes</h1>
+					<h1>Resumes</h1>
 				</a>
 			</Link>
 			<nav>
 				<ul>
-					<li>
-						<Link href="/">Home</Link>
-					</li>
 					<li>
 						<Link href="/login">Log In</Link>
 					</li>

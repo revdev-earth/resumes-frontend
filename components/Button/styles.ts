@@ -18,6 +18,7 @@ export const ContainerButton = styled.button<ButtonProps>`
   }) => {
     const defaultStyle = `
       display: inline-block;
+			padding: 0 20px;
       min-width: 150px;
 			height: 60px;
       color: ${({theme}) =>theme.colors.white1};
