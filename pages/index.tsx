@@ -20,7 +20,7 @@ export default function Home() {
 						<Link href="/login">Log In</Link>
 					</li>
 					<li>
-						<Link href="/register">Register</Link>
+						<Link href="/createAccount">Register</Link>
 					</li>
 				</ul>
 			</nav>
