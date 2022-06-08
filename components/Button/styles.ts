@@ -31,7 +31,7 @@ export const ContainerButton = styled.button<ButtonProps>`
       text-decoration: none;
       outline: none;
 			border-radius: 8px;
-      transition: all 0.3s linear;
+      transition: all 0.2s linear;
       cursor: pointer;
     `
 
