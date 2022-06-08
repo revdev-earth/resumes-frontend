@@ -60,7 +60,7 @@ const LogIn = () => {
 							Log in
 						</Button>
 					</Form>
-					<Link href="/register">
+					<Link href="/createAccount">
 						<a>Or create account.</a>
 					</Link>
 				</Container>
