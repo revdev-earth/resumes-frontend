@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Form, Container, Message } from "./styles";
 import Link from "next/link";
-import LayoutPages from "../../components/layoutPages";
+import LayoutPages from "../../components/LayoutPages";
 import InputGroup from "../../components/InputGroup";
 import Button from "../../components/Button";
 

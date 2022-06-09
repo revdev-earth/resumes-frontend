@@ -1,6 +1,6 @@
 import { Form, Container, CheckTerminos } from "./styles";
 import Link from "next/link";
-import LayoutPages from "../../components/layoutPages";
+import LayoutPages from "../../components/LayoutPages";
 import InputGroup from "../../components/InputGroup";
 import Button from "../../components/Button";
 import { useState } from "react";
