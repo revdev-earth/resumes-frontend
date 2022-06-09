@@ -1,7 +1,10 @@
 import Header from "../components/Header";
 import Button from "../components/Button";
 import LinksUser from "../components/LinksUsers";
+import TemplateList from "../components/TemplateList";
 import { FirstSection, SecondSection, ThirdSection } from "./styles";
+
+import Link from "next/link";
 
 export default function Home() {
 	return (
@@ -20,27 +23,15 @@ export default function Home() {
 				<SecondSection>
 					<h3>Templates</h3>
 					<ul>
-						<li>
-							<p>1</p>
-							<Button primary>Usar!</Button>
-						</li>
-						<li>
-							<p>2</p>
-							<Button primary>Usar!</Button>
-						</li>
-						<li>
-							<p>3</p>
-							<Button primary>Usar!</Button>
-						</li>
-						<li>
-							<p>4</p>
-							<Button primary>Usar!</Button>
-						</li>
-						<li>
-							<p>5</p>
-							<Button primary>Usar!</Button>
-						</li>
+						<TemplateList />
+						<TemplateList />
+						<TemplateList />
+						<TemplateList />
+						<TemplateList />
 					</ul>
+					<Link href="/templates">
+						<Button primary>More Templates</Button>
+					</Link>
 				</SecondSection>
 				<ThirdSection>
 					<h3>Links Users</h3>
