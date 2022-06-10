@@ -31,7 +31,7 @@ export const BottomSection = styled.div`
   export const Title = styled.h4` 
   position: relative;
   margin-left: 15px;
-
+  
   &::after{
     content: "";
     position: absolute;
@@ -40,5 +40,5 @@ export const BottomSection = styled.div`
     height: 30px;
     background-color: ${({theme}) => theme.colors.green};
   }
-  
   `
+  export const LinkTitle = styled.div` `

@@ -18,6 +18,6 @@ h5{
 
   img {
     height: 24px;
-    fill: red
+    color: #fff;
   }
 `

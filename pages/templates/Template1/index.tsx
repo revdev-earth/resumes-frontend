@@ -1,6 +1,7 @@
 import { Template1Container, TopSection, BottomSection, Title } from "./styles";
 import LayoutPages from "../../../components/LayoutPages";
 import InputTxt from "../../../components/InputTxt";
+import LinkTitle from "../../../components/LinkTitle";
 
 const data = {
 	name: "",
@@ -79,12 +80,18 @@ const Template1 = () => {
 							{data.experience.map(({ enterpriseName, date, description }) => {
 								return (
 									<>
-										<InputTxt type="text" value={enterpriseName} />
+										<InputTxt type="text" title value={enterpriseName} />
 										<InputTxt type="textarea" value={date} />
 										<InputTxt type="text" value={description} />
 									</>
 								);
 							})}
+						</div>
+					</div>
+					<div>
+						<Title>Projects</Title>
+						<div>
+							<LinkTitle>Title</LinkTitle>
 						</div>
 					</div>
 				</BottomSection>
