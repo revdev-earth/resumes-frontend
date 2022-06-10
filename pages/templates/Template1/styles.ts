@@ -26,19 +26,23 @@ h5 {
 }
   `
 export const BottomSection = styled.div` 
+  display: grid;
+  grid-template-columns: 450px 250px;
   padding: 30px;
+
+  
   `
-  export const Title = styled.h4` 
+export const Title = styled.h4` 
   position: relative;
-  margin-left: 15px;
+  padding-left: 15px;
+  margin: 20px 0;
   
   &::after{
     content: "";
     position: absolute;
-    left: -15px;
+    left: 0;
     width: 10px;
     height: 30px;
     background-color: ${({theme}) => theme.colors.green};
   }
-  `
-  export const LinkTitle = styled.div` `
+`

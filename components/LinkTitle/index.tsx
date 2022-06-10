@@ -1,10 +1,10 @@
 import { LinkTitleContainer } from "./styles";
-
-const LinkTitle = ({ children }) => {
+import InputTxt from "../InputTxt";
+const LinkTitle = ({ children, title }) => {
 	return (
 		<LinkTitleContainer>
 			<img src="/assets/link.svg" alt="" />
-			<h5>{children}</h5>
+			<InputTxt type="text" text value={title} />
 		</LinkTitleContainer>
 	);
 };

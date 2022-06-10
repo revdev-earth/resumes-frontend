@@ -1,7 +1,11 @@
 import { Template1Container, TopSection, BottomSection, Title } from "./styles";
 import LayoutPages from "../../../components/LayoutPages";
 import InputTxt from "../../../components/InputTxt";
-import LinkTitle from "../../../components/LinkTitle";
+
+import WhoIAm from "./_components/Who";
+import Experience from "./_components/Experience";
+import Projects from "./_components/Projects";
+import Social from "./_components/Social";
 
 const data = {
 	name: "",
@@ -71,28 +75,12 @@ const Template1 = () => {
 				</TopSection>
 				<BottomSection>
 					<div>
-						<div>
-							<Title>Who am i</Title>
-							<InputTxt type="text" value={data.resume} />
-						</div>
-						<div>
-							<Title>Experience</Title>
-							{data.experience.map(({ enterpriseName, date, description }) => {
-								return (
-									<>
-										<InputTxt type="text" title value={enterpriseName} />
-										<InputTxt type="textarea" value={date} />
-										<InputTxt type="text" value={description} />
-									</>
-								);
-							})}
-						</div>
+						<WhoIAm resume={data.resume} />
+						<Experience experience={data.experience} />
 					</div>
 					<div>
-						<Title>Projects</Title>
-						<div>
-							<LinkTitle>Title</LinkTitle>
-						</div>
+						<Projects projects={data.projects} />
+						<Social social={data.social} />
 					</div>
 				</BottomSection>
 			</Template1Container>

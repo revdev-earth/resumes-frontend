@@ -9,7 +9,6 @@ export type InputProps = {
 };
 
 const InputTxt = ({ type = "text", ...arg }) => {
-	console.log(`Title ${arg.title}`);
 	return <InputTxtContainer type={type} {...arg} />;
 };
 

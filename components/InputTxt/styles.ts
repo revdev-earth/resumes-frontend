@@ -11,21 +11,28 @@ font-size: 18px;
 
 export const InputTxtContainer = styled.input<InputProps >`
 ${({title: isTitle,
-  text: isText,
-  textarea: isTextArea}) => (
+  date: isDate,
+  text: isText}) => (
     `${defaultStyle} 
     ${isTitle && title}
-    ${isTextArea && textarea}
-    ${isText && text}`
+    ${isText && text}
+    ${isDate && date}`
     )
   }
   
 `
 
 const title = css`
-  
+  font-weight: 600;
 `
 
-const textarea = css``
+const text = css`
+margin-top: 5px;
+`
 
-const text = css``
+const date = css`
+margin-top: 0px;
+font-size: 16px;
+padding: 5px 20px;
+width: 170px;
+`

@@ -7,10 +7,6 @@ gap: 10px;
 width: 250px;
 transition: all .3s ease-in-out;
 
-&:hover {
-  transform: scale(1.1);
-}
-
 h5{
     color: ${({theme}) => { theme.colors.green}}
 
