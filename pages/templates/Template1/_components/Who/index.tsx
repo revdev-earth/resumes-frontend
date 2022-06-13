@@ -1,11 +1,13 @@
 import InputTxt from "../../../../../components/InputTxt";
 import { Title } from "../../styles";
+import { WhoIamcontainer } from "./styles";
+
 const WhoIAm = ({ resume }) => {
 	return (
-		<div>
+		<WhoIamcontainer>
 			<Title>Who am i</Title>
-			<InputTxt type="text" value={resume} />
-		</div>
+			<textarea value={resume} />
+		</WhoIamcontainer>
 	);
 };
 

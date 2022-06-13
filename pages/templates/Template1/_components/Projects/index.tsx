@@ -1,4 +1,4 @@
-import InputTxt from "../../../../../components/InputTxt";
+import { ItemProject } from "./styles";
 import { Title } from "../../styles";
 import LinkTitle from "../../../../../components/LinkTitle";
 
@@ -8,10 +8,10 @@ const Projects = ({ projects }) => {
 			<Title>Projects</Title>
 			<div>
 				{projects.map(({ title, description }) => (
-					<>
+					<ItemProject>
 						<LinkTitle title="title">{title}</LinkTitle>
-						<InputTxt type="textarea" text value={description} />
-					</>
+						<textarea value={description} />
+					</ItemProject>
 				))}
 			</div>
 		</div>

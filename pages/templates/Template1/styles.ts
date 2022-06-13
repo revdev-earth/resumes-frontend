@@ -1,12 +1,14 @@
 import styled from 'styled-components'
 
 export const Template1Container = styled.main`
+box-sizing: border-box;
 overflow: hidden;
 display: flex;
 flex-direction: column;
 margin-top: 50px;
 width: 795px;
-height: 1125px;
+//height: 1125px;
+height: auto;
 border-radius: 8px;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
 inset 0px -1px 4px rgba(0, 0, 0, 0.25),
@@ -21,10 +23,12 @@ export const TopSection = styled.div`
 height: 150px;
 background-color: ${({theme}) => theme.colors.green};
 justify-self: flex-start;
-h5 {
-  margin-top: 10px;
+
+input {
+  margin-top: 0;
 }
-  `
+
+`
 export const BottomSection = styled.div` 
   display: grid;
   grid-template-columns: 450px 250px;
@@ -41,7 +45,7 @@ export const Title = styled.h4`
     content: "";
     position: absolute;
     left: 0;
-    width: 10px;
+    width: 5px;
     height: 30px;
     background-color: ${({theme}) => theme.colors.green};
   }

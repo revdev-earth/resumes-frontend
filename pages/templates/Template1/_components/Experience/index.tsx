@@ -1,21 +1,23 @@
 import InputTxt from "../../../../../components/InputTxt";
 import { Title } from "../../styles";
+import { ExperienceContainer, ItemExperience } from "./styles";
+
 const Experience = ({ experience }) => {
 	return (
-		<div>
+		<ExperienceContainer>
 			<Title>Experience</Title>
 			<ul>
 				{experience.map(({ enterpriseName, date, description }) => {
 					return (
-						<>
+						<ItemExperience>
 							<InputTxt type="text" title value={enterpriseName} />
-							<InputTxt type="date" date value={date} />
-							<InputTxt type="textarea" text value={description} />
-						</>
+							<input type="date" value={date} />
+							<textarea value={description} />
+						</ItemExperience>
 					);
 				})}
 			</ul>
-		</div>
+		</ExperienceContainer>
 	);
 };
 

@@ -56,5 +56,10 @@ table {
 		&:visited{
 			color: ${({ theme }) => theme.colors.black};
 		}
-		}
+	}
+
+	textarea{
+		resize: horizontal;
+    overflow: hidden;
+	}
 `;

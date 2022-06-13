@@ -3,7 +3,9 @@ import styled from 'styled-components'
 export const LinkTitleContainer = styled.div`
 display: flex;
 align-items: center;
-gap: 10px;
+gap: 5px;
+margin-top: 15px;
+padding-left: 10px;
 width: 250px;
 transition: all .3s ease-in-out;
 
@@ -15,5 +17,9 @@ h5{
   img {
     height: 24px;
     color: #fff;
+  }
+
+  input{
+    margin-top: 0;
   }
 `

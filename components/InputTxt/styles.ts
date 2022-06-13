@@ -28,6 +28,7 @@ const title = css`
 
 const text = css`
 margin-top: 5px;
+
 `
 
 const date = css`
