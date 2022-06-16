@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 import { Template1Container, TopSection, BottomSection, Title } from "./styles";
 import LayoutPages from "../../../components/LayoutPages";
 import InputTxt from "../../../components/InputTxt";
@@ -96,9 +98,13 @@ const data = {
 };
 
 const Template1 = () => {
+	const templateRef = useRef<HTMLBRElement>(null);
+
+	console.log("Teplate 1: ", templateRef); // { current: <h1_object> }
+
 	return (
 		<LayoutPages>
-			<Template1Container>
+			<Template1Container ref={templateRef}>
 				<TopSection>
 					<h3>{data.name}</h3>
 					<InputTxt type="text" title value={data.profecion} />

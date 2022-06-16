@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Template1Container = styled.main`
+export const Template1Container = styled.section`
 box-sizing: border-box;
 overflow: hidden;
 display: flex;
