@@ -5,6 +5,7 @@ export const ItemEducation = styled.li`
   flex-direction: column;
   gap: 15px;
   border-bottom: 1px solid ${({theme}) => theme.colors.green};
+  width: 425px;
   
   > div {
     padding-right: 10px;

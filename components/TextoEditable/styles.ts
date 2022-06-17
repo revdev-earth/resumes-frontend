@@ -1,11 +1,7 @@
 import styled from 'styled-components'
 
 export const Content = styled.div`
-
-> div {
   position: relative;
-  width: 425px;
-
 
   p {
     position: relative;
@@ -41,7 +37,7 @@ position: relative;
     textarea{
       resize: horizontal;
       padding: 10px;
-      width: 425px;
+
       height: ${({heightTxt}) => heightTxt}px;
       background-color: transparent;
       font-size: 16px;

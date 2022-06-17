@@ -2,14 +2,44 @@ import styled, {css} from 'styled-components'
 import {InputProps } from './index'
 
 const defaultStyle = css`
-margin-top: 15px;
-padding: 10px;
-width: 425px;
-background-color: transparent;
-font-size: 18px; 
+width: auto;
+
+p, input {
+  font-size: 18px; 
+  padding: 10px;
+
+
+  img {
+    background-color: red;
+  }
+}
+
+
+img {
+  width: 24px;
+}
+
+>div {
+  position: relative;
+  input {
+    background-color: transparent;
+    border: 1px solid ${({theme}) => theme.colors.green};
+  }
+  img {
+    position: absolute;
+    top: 0;
+    right: -30px;
+    padding: 5px;
+    background-color: ${({theme}) => theme.colors.success};
+    background-color: red;
+      width: 24px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+}
 ` 
 
-export const InputTxtContainer = styled.input<InputProps >`
+export const InputTxtContainer = styled.div<InputProps >`
 ${({title: isTitle,
   date: isDate,
   text: isText}) => (

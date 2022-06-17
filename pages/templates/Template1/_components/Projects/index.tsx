@@ -1,6 +1,7 @@
 import { ItemProject } from "./styles";
 import { Title } from "../../styles";
 import LinkTitle from "../../../../../components/LinkTitle";
+import TextoEditable from "../../../../../components/TextoEditable";
 
 const Projects = ({ projects }) => {
 	return (
@@ -10,7 +11,7 @@ const Projects = ({ projects }) => {
 				{projects.map(({ title, description }) => (
 					<ItemProject>
 						<LinkTitle title="title">{title}</LinkTitle>
-						<textarea value={description} />
+						<TextoEditable txt={description} />
 					</ItemProject>
 				))}
 			</div>

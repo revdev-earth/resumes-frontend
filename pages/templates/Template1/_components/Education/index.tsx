@@ -1,6 +1,7 @@
 import InputTxt from "../../../../../components/InputTxt";
 import { Title } from "../../styles";
 import { ItemEducation } from "./styles";
+import TextoEditable from "../../../../../components/TextoEditable";
 
 const Education = ({ education }) => {
 	return (
@@ -16,7 +17,7 @@ const Education = ({ education }) => {
 								<InputTxt type="text" text value={courseName} />
 								<InputTxt type="date" value={date} />
 							</div>
-							<textarea value={description} />
+							<TextoEditable txt={description} />
 						</ItemEducation>
 					);
 				})}

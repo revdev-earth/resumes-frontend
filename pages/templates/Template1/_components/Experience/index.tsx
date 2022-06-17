@@ -1,6 +1,7 @@
 import InputTxt from "../../../../../components/InputTxt";
 import { Title } from "../../styles";
 import { ExperienceContainer, ItemExperience } from "./styles";
+import TextoEditable from "../../../../../components/TextoEditable";
 
 const Experience = ({ experience }) => {
 	return (
@@ -12,7 +13,7 @@ const Experience = ({ experience }) => {
 						<ItemExperience>
 							<InputTxt type="text" title value={enterpriseName} />
 							<input type="date" value={date} />
-							<textarea value={description} />
+							<TextoEditable txt={description} />
 						</ItemExperience>
 					);
 				})}

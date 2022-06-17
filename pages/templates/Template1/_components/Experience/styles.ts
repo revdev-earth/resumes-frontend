@@ -12,6 +12,7 @@ ul {
 export const ItemExperience = styled.div`
 display: flex;
 flex-direction: column;
+width: 425px;
 
 
 &:last-child {

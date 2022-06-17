@@ -1,5 +1,4 @@
 import { useRef, useState, useEffect } from "react";
-import LayoutPages from "../../components/LayoutPages";
 import { Content, EditarTxt } from "./styles";
 
 const TextoEditable = ({ txt }) => {
@@ -24,26 +23,19 @@ const TextoEditable = ({ txt }) => {
 	};
 
 	return (
-		<LayoutPages>
-			<Content>
-				<div>
-					{editar ? (
-						<EditarTxt heightTxt={heightTxt}>
-							<img src="/assets/check-solid.svg" onClick={editorChange} />
-							<textarea value={texto} onChange={handleInputChange} />
-						</EditarTxt>
-					) : (
-						<p ref={textoRef}>
-							{texto}{" "}
-							<img
-								src="/assets/pen-to-square-solid.svg"
-								onClick={editorChange}
-							/>{" "}
-						</p>
-					)}
-				</div>
-			</Content>
-		</LayoutPages>
+		<Content>
+			{editar ? (
+				<EditarTxt heightTxt={heightTxt}>
+					<img src="/assets/check-solid.svg" onClick={editorChange} />
+					<textarea value={texto} onChange={handleInputChange} />
+				</EditarTxt>
+			) : (
+				<p ref={textoRef}>
+					{texto}{" "}
+					<img src="/assets/pen-to-square-solid.svg" onClick={editorChange} />{" "}
+				</p>
+			)}
+		</Content>
 	);
 };
 

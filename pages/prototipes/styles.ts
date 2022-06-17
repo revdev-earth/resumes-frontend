@@ -4,7 +4,6 @@ export const Content = styled.div`
 
 > div {
   position: relative;
-  width: 425px;
   
   p {
     position: relative;
