@@ -9,7 +9,7 @@ const Projects = ({ projects }) => {
 			<Title>Projects</Title>
 			<div>
 				{projects.map(({ title, description }) => (
-					<ItemProject>
+					<ItemProject key={Math.random() * 10}>
 						<LinkTitle title="title">{title}</LinkTitle>
 						<TextoEditable txt={description} />
 					</ItemProject>

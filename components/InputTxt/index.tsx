@@ -10,9 +10,13 @@ export type InputProps = {
 	value?: string;
 };
 
-const InputTxt = ({ type = "text", ...arg }) => {
+const InputTxt = ({ type = "text", txt, ...arg }) => {
 	const [editar, setEditar] = useState(false);
-	const [texto, setTexto] = useState("Description");
+	const [texto, setTexto] = useState("");
+
+	useEffect(() => {
+		setTexto(txt);
+	}, [texto]);
 
 	const handleInputChange = (event) => {
 		setTexto(event.target.value);
@@ -23,7 +27,7 @@ const InputTxt = ({ type = "text", ...arg }) => {
 	};
 
 	return (
-		<InputTxtContainer>
+		<InputTxtContainer {...arg}>
 			{editar ? (
 				<p>
 					{texto}

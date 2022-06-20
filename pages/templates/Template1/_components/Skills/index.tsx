@@ -8,10 +8,10 @@ const Skills = ({ skills }) => {
 			<Title>Skills</Title>
 			<ul>
 				{skills.map(({ title, years }) => (
-					<ItemSkill>
-						<InputTxt type="text" value={title} />
+					<ItemSkill key={Math.random() * 10}>
+						<InputTxt type="text" txt={title} />
 						<div>
-							<InputTxt type="text" value={years} />
+							<InputTxt type="text" txt={years} />
 							years
 						</div>
 					</ItemSkill>

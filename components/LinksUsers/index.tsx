@@ -7,7 +7,6 @@ import { useState } from "react";
 
 const LinksUser = () => {
 	const [all, setAll] = useState(false);
-	console.log(all);
 
 	return (
 		<LinkUserContainer all={all}>

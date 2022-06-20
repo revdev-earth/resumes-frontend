@@ -7,13 +7,33 @@ width: auto;
 p, input {
   font-size: 18px; 
   padding: 10px;
-
+  width: fit-content;
 
   img {
-    background-color: red;
+    background-color: ${({theme}) => console.log("Color theme :: ",theme)};
+    cursor: pointer;
   }
 }
 
+p {
+  position: relative;
+  top: 0;
+  padding-right: 20px;
+  
+  
+  img {
+    position: absolute;
+    top: 6px;
+    right: -15px;
+    display: none;
+  }
+
+  &:hover {
+    img{
+      display: flex;
+    }
+  }
+}
 
 img {
   width: 24px;
@@ -21,6 +41,10 @@ img {
 
 >div {
   position: relative;
+  display: flex;
+  justify-content: start;
+  width: fit-content;
+
   input {
     background-color: transparent;
     border: 1px solid ${({theme}) => theme.colors.green};
@@ -31,10 +55,9 @@ img {
     right: -30px;
     padding: 5px;
     background-color: ${({theme}) => theme.colors.success};
-    background-color: red;
-      width: 24px;
-      border-radius: 5px;
-      cursor: pointer;
+    width: 24px;
+    border-radius: 5px;
+    cursor: pointer;
     }
 }
 ` 
@@ -65,5 +88,4 @@ const date = css`
 margin-top: 0px;
 font-size: 16px;
 padding: 5px 20px;
-width: 170px;
 `

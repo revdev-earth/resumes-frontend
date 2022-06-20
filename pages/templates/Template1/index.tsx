@@ -100,14 +100,12 @@ const data = {
 const Template1 = () => {
 	const templateRef = useRef<HTMLBRElement>(null);
 
-	console.log("Teplate 1: ", templateRef); // { current: <h1_object> }
-
 	return (
 		<LayoutPages>
 			<Template1Container ref={templateRef}>
 				<TopSection>
 					<h3>{data.name}</h3>
-					<InputTxt type="text" title value={data.profecion} />
+					<InputTxt type="text" title txt={data.profecion} />
 				</TopSection>
 				<BottomSection>
 					<div>

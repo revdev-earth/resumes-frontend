@@ -9,13 +9,12 @@ const Education = ({ education }) => {
 			<Title>Education</Title>
 			<ul>
 				{education.map(({ instituteName, courseName, date, description }) => {
-					console.log("institute: ", description);
 					return (
-						<ItemEducation>
-							<InputTxt type="text" title value={instituteName} />
+						<ItemEducation key={Math.random() * 10}>
+							<InputTxt type="text" title txt={instituteName} />
 							<div>
-								<InputTxt type="text" text value={courseName} />
-								<InputTxt type="date" value={date} />
+								<InputTxt type="text" text txt={courseName} />
+								<InputTxt type="date" txt={date} />
 							</div>
 							<TextoEditable txt={description} />
 						</ItemEducation>
