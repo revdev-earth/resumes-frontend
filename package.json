@@ -6,14 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:write": "next lint --cache --fix"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.2",
+    "debounce": "^1.2.1",
     "next": "12.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "@reduxjs/toolkit": "^1.8.2",
-    "debounce": "^1.2.1",
     "react-redux": "^8.0.2",
     "redux": "^4.2.0",
     "styled-components": "^5.3.5"
@@ -24,6 +25,14 @@
     "@types/react-dom": "18.0.5",
     "eslint": "8.18.0",
     "eslint-config-next": "12.1.6",
+    "eslint-config-prettier": "^8.5.0",
+    "husky": ">=6",
+    "lint-staged": ">=10",
+    "prettier": "2.7.1",
     "typescript": "4.7.4"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --cache --fix",
+    "*.{ts,tsx,css,md}": "prettier --write"
   }
 }
