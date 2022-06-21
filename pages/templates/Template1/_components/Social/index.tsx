@@ -7,10 +7,10 @@ const Social = ({ social }) => {
       <Title>Social</Title>
       {social.map(({ link }) => {
         ;<a href={link} key={Math.random() * 10}>
-          <Image src="/assets/link.svg" alt="" />
+          <Image src="/assets/link.svg" alt="" layout="fill" />
         </a>
       })}
-      <Image src="" alt="" />
+      <Image src="" alt="" layout="fill" />
     </div>
   )
 }
