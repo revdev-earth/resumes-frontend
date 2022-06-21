@@ -1,4 +1,4 @@
-import Document from "next/document"
+import Document, { Head, Html, Main, NextScript } from "next/document"
 import { ServerStyleSheet } from "styled-components"
 
 export default class MyDocument extends Document {
@@ -21,5 +21,24 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal()
     }
+  }
+
+  render() {
+    return (
+      <Html>
+        <Head>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          />
+          <meta charSet="utf-8" />
+          {/* <Favicon /> */}
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
   }
 }
