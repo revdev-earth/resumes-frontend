@@ -1,7 +1,7 @@
-import { ItemSkill } from "./styles";
+import { ItemSkill } from "./styles"
 
-import InputTxt from "@components/InputTxt";
-import { Title } from "../../styles";
+import InputTxt from "@components/InputTxt"
+import { Title } from "../../styles"
 const Skills = ({ skills }) => {
   return (
     <div>
@@ -15,7 +15,7 @@ const Skills = ({ skills }) => {
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default Skills;
+export default Skills

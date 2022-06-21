@@ -1,9 +1,9 @@
-import { Form, Container, CheckTerminos } from "./styles";
-import Link from "next/link";
-import LayoutPages from "@components/LayoutPages";
-import InputGroup from "@components/InputGroup";
-import Button from "@components/Button";
-import { useState } from "react";
+import { Form, Container, CheckTerminos } from "./styles"
+import Link from "next/link"
+import LayoutPages from "@components/LayoutPages"
+import InputGroup from "@components/InputGroup"
+import Button from "@components/Button"
+import { useState } from "react"
 
 const Register = () => {
   const [formCA, setFormCA] = useState({
@@ -11,29 +11,29 @@ const Register = () => {
     email: "",
     password: "",
     policy: false,
-  });
+  })
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (formCA.policy === true) {
-      console.log("Se ha creado un nuevo usuario:");
-      console.table(formCA);
+      console.log("Se ha creado un nuevo usuario:")
+      console.table(formCA)
     }
-  };
+  }
 
   const handleInputChange = (e) => {
     setFormCA({
       ...formCA,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
   const handleCheckboxChange = (e) => {
     setFormCA({
       ...formCA,
       [e.target.name]: e.target.checked,
-    });
-  };
+    })
+  }
 
   return (
     <LayoutPages>
@@ -91,7 +91,7 @@ const Register = () => {
         </Link>
       </Container>
     </LayoutPages>
-  );
-};
+  )
+}
 
-export default Register;
+export default Register

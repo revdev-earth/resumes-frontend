@@ -1,6 +1,6 @@
-import Header from "@components/Header";
-import TemplateList from "@components/TemplateList";
-import { TemplatesContainer } from "./styles";
+import Header from "@components/Header"
+import TemplateList from "@components/TemplateList"
+import { TemplatesContainer } from "./styles"
 
 const Templates = () => {
   return (
@@ -28,7 +28,7 @@ const Templates = () => {
         </ul>
       </TemplatesContainer>
     </>
-  );
-};
+  )
+}
 
-export default Templates;
+export default Templates

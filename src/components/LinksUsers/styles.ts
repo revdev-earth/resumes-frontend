@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components"
 
 export const LinkUserContainer = styled.li`
   position: relative;
@@ -10,14 +10,14 @@ export const LinkUserContainer = styled.li`
     padding: 10px;
     width: 140px;
     height: 140px;
-    background-color: ${({theme}) => theme.colors.gray};
+    background-color: ${({ theme }) => theme.colors.gray};
     border-radius: 100%;
   }
 
   > div:last-child {
     position: absolute;
-    bottom: ${({all}) =>  all? "" : "-25px" };
-    top: ${({all}) =>  all? "195px" : "" };
+    bottom: ${({ all }) => (all ? "" : "-25px")};
+    top: ${({ all }) => (all ? "195px" : "")};
 
     left: calc(50% - 25px);
     display: flex;
@@ -27,11 +27,9 @@ export const LinkUserContainer = styled.li`
     border-radius: 100%;
     cursor: pointer;
   }
-
 `
 
 export const Content = styled.div`
-  
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -40,36 +38,33 @@ export const Content = styled.div`
   margin-top: 85px;
   padding: 80px 20px 50px 20px;
   width: 300px;
-  height: ${({all}) =>  all? "80px" : "300px" };
-  background-color: ${({theme}) => theme.colors.white2};
+  height: ${({ all }) => (all ? "80px" : "300px")};
+  background-color: ${({ theme }) => theme.colors.white2};
   border-radius: 8px;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 
   ul {
     overflow: hidden;
-    width: ${({all}) =>  all? "0" : "auto" };
-    
+    width: ${({ all }) => (all ? "0" : "auto")};
+
     li {
       a {
-        transition: all .3s ease-in-out;
+        transition: all 0.3s ease-in-out;
 
         &:focus {
           transform: scale(1.1);
         }
 
         img {
-          height: ${({all}) =>  all? "0" : "24px" };
-
+          height: ${({ all }) => (all ? "0" : "24px")};
         }
       }
     }
-
   }
-  
+
   button {
     overflow: hidden;
-    width: ${({all}) =>  all? "0" : "" };
-    height: ${({all}) =>  all? "0" : "" };
-
+    width: ${({ all }) => (all ? "0" : "")};
+    height: ${({ all }) => (all ? "0" : "")};
   }
-` 
+`

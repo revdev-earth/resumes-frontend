@@ -1,7 +1,7 @@
-import InputTxt from "@components/InputTxt";
-import { Title } from "../../styles";
-import { ExperienceContainer, ItemExperience } from "./styles";
-import TextoEditable from "@components/TextoEditable";
+import InputTxt from "@components/InputTxt"
+import { Title } from "../../styles"
+import { ExperienceContainer, ItemExperience } from "./styles"
+import TextoEditable from "@components/TextoEditable"
 
 const Experience = ({ experience }) => {
   return (
@@ -15,11 +15,11 @@ const Experience = ({ experience }) => {
               <InputTxt type="date" txt={date} />
               <TextoEditable txt={description} />
             </ItemExperience>
-          );
+          )
         })}
       </ul>
     </ExperienceContainer>
-  );
-};
+  )
+}
 
-export default Experience;
+export default Experience

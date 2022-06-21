@@ -1,10 +1,10 @@
-import Header from "@components/Header";
-import Button from "@components/Button";
-import LinksUser from "@components/LinksUsers";
-import TemplateList from "@components/TemplateList";
-import { FirstSection, SecondSection, ThirdSection } from "./styles";
+import Header from "@components/Header"
+import Button from "@components/Button"
+import LinksUser from "@components/LinksUsers"
+import TemplateList from "@components/TemplateList"
+import { FirstSection, SecondSection, ThirdSection } from "./styles"
 
-import Link from "next/link";
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -43,5 +43,5 @@ export default function Home() {
         </ThirdSection>
       </main>
     </>
-  );
+  )
 }

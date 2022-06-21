@@ -1,6 +1,6 @@
-import { Title } from "../../styles";
-import { WhoIamcontainer } from "./styles";
-import TextoEditable from "@components/TextoEditable";
+import { Title } from "../../styles"
+import { WhoIamcontainer } from "./styles"
+import TextoEditable from "@components/TextoEditable"
 
 const WhoIAm = ({ resume }) => {
   return (
@@ -8,7 +8,7 @@ const WhoIAm = ({ resume }) => {
       <Title>Who am i</Title>
       <TextoEditable txt={resume} />
     </WhoIamcontainer>
-  );
-};
+  )
+}
 
-export default WhoIAm;
+export default WhoIAm

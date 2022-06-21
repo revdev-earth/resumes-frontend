@@ -1,7 +1,7 @@
-import { useRef, useState } from "react";
-import LayoutPages from "@components/LayoutPages";
-import { Content } from "./styles";
-import InputTxt from "@components/InputTxt";
+import { useRef, useState } from "react"
+import LayoutPages from "@components/LayoutPages"
+import { Content } from "./styles"
+import InputTxt from "@components/InputTxt"
 
 const Prototipes = () => {
   return (
@@ -11,7 +11,7 @@ const Prototipes = () => {
         <InputTxt />
       </Content>
     </LayoutPages>
-  );
-};
+  )
+}
 
-export default Prototipes;
+export default Prototipes

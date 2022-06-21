@@ -1,28 +1,28 @@
-import { useState } from "react";
-import { Form, Container, Message } from "./styles";
-import Link from "next/link";
-import LayoutPages from "@components/LayoutPages";
-import InputGroup from "@components/InputGroup";
-import Button from "@components/Button";
+import { useState } from "react"
+import { Form, Container, Message } from "./styles"
+import Link from "next/link"
+import LayoutPages from "@components/LayoutPages"
+import InputGroup from "@components/InputGroup"
+import Button from "@components/Button"
 
 const LogIn = () => {
   const [formLogIn, setFormLogIn] = useState({
     email: "",
     password: "",
-  });
+  })
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    console.log(`Email: ${formLogIn.email}, password: ${formLogIn.password}`);
-  };
+    console.log(`Email: ${formLogIn.email}, password: ${formLogIn.password}`)
+  }
 
   const handleInputChange = (event) => {
     setFormLogIn({
       ...formLogIn,
       [event.target.name]: event.target.value,
-    });
-  };
+    })
+  }
 
   return (
     <>
@@ -66,7 +66,7 @@ const LogIn = () => {
         </Container>
       </LayoutPages>
     </>
-  );
-};
+  )
+}
 
-export default LogIn;
+export default LogIn

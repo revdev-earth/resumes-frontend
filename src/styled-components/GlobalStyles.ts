@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
 *{
@@ -18,7 +18,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	background-color: ${({theme}) => theme.colors.white1};
+	background-color: ${({ theme }) => theme.colors.white1};
 	font-size: 18px;
 }
 ol, ul {
@@ -62,4 +62,4 @@ table {
 		resize: horizontal;
     overflow: hidden;
 	}
-`;
+`

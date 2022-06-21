@@ -1,12 +1,11 @@
-import styled from 'styled-components'
+import styled from "styled-components"
 
 export const WhoIamcontainer = styled.div`
+  > div {
+    width: 425px;
 
->div{
-  width:425px;
-
-  textarea {
-    width: 100%;
+    textarea {
+      width: 100%;
+    }
   }
-}
 `

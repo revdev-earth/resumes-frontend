@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components"
 
 export const Content = styled.div`
   position: relative;
@@ -12,7 +12,7 @@ export const Content = styled.div`
         display: block;
       }
     }
-    
+
     img {
       position: absolute;
       display: none;
@@ -20,37 +20,36 @@ export const Content = styled.div`
       right: -20px;
       width: 24px;
       cursor: pointer;
-      
+
       &:hover {
         display: block;
-
       }
     }
   }
 `
 
-export const EditarTxt =styled.div`
-position: relative;
-    
-    textarea{
-      resize: horizontal;
-      padding: 10px;
-      width: 100%;
-      height: ${({heightTxt}) => heightTxt}px;
-      background-color: transparent;
-      font-size: 16px;
-      vertical-align: baseline;
-      border: 1px solid ${({theme}) => theme.colors.green};
-    }
+export const EditarTxt = styled.div`
+  position: relative;
 
-    img {
-      position: absolute;
-      top: 0;
-      right: -30px;
-      padding: 5px;
-      background-color: ${({theme}) => theme.colors.success};
-      width: 24px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+  textarea {
+    resize: horizontal;
+    padding: 10px;
+    width: 100%;
+    height: ${({ heightTxt }) => heightTxt}px;
+    background-color: transparent;
+    font-size: 16px;
+    vertical-align: baseline;
+    border: 1px solid ${({ theme }) => theme.colors.green};
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    right: -30px;
+    padding: 5px;
+    background-color: ${({ theme }) => theme.colors.success};
+    width: 24px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 `

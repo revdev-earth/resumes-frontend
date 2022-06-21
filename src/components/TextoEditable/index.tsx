@@ -1,42 +1,42 @@
-import { useRef, useState, useEffect } from "react";
-import { Content, EditarTxt } from "./styles";
+import { useRef, useState, useEffect } from "react"
+import { Content, EditarTxt } from "./styles"
 
 const TextoEditable = ({ txt }) => {
-	const [editar, setEditar] = useState(false);
-	const [texto, setTexto] = useState(
-		"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae corporis excepturi quaerat ex aliquid, dicta ullam. Ab adipisci minus error inventore quam cumque ipsa excepturi pariatur."
-	);
+  const [editar, setEditar] = useState(false)
+  const [texto, setTexto] = useState(
+    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae corporis excepturi quaerat ex aliquid, dicta ullam. Ab adipisci minus error inventore quam cumque ipsa excepturi pariatur."
+  )
 
-	useEffect(() => {
-		setTexto(txt);
-	}, [texto]);
+  useEffect(() => {
+    setTexto(txt)
+  }, [texto])
 
-	const textoRef = useRef();
-	const heightTxt = textoRef?.current?.clientHeight;
+  const textoRef = useRef()
+  const heightTxt = textoRef?.current?.clientHeight
 
-	const handleInputChange = (event) => {
-		setTexto(event.target.value);
-	};
+  const handleInputChange = (event) => {
+    setTexto(event.target.value)
+  }
 
-	const editorChange = () => {
-		setEditar(!editar);
-	};
+  const editorChange = () => {
+    setEditar(!editar)
+  }
 
-	return (
-		<Content>
-			{editar ? (
-				<EditarTxt heightTxt={heightTxt}>
-					<img src="/assets/check-solid.svg" onClick={editorChange} />
-					<textarea value={texto} onChange={handleInputChange} />
-				</EditarTxt>
-			) : (
-				<p ref={textoRef}>
-					{texto}{" "}
-					<img src="/assets/pen-to-square-solid.svg" onClick={editorChange} />{" "}
-				</p>
-			)}
-		</Content>
-	);
-};
+  return (
+    <Content>
+      {editar ? (
+        <EditarTxt heightTxt={heightTxt}>
+          <img src="/assets/check-solid.svg" onClick={editorChange} />
+          <textarea value={texto} onChange={handleInputChange} />
+        </EditarTxt>
+      ) : (
+        <p ref={textoRef}>
+          {texto}{" "}
+          <img src="/assets/pen-to-square-solid.svg" onClick={editorChange} />{" "}
+        </p>
+      )}
+    </Content>
+  )
+}
 
-export default TextoEditable;
+export default TextoEditable

@@ -1,9 +1,9 @@
 // libraries
-import Head from "next/head";
+import Head from "next/head"
 
 // config
-import { ProviderStyled } from "@styled-components";
-import { ProviderRedux } from "@redux";
+import { ProviderStyled } from "@styled-components"
+import { ProviderRedux } from "@redux"
 
 // JSX
 
@@ -25,5 +25,5 @@ export default function App({ Component, pageProps }) {
         </ProviderStyled>
       </ProviderRedux>
     </>
-  );
+  )
 }

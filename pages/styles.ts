@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components"
 
 export const FirstSection = styled.section`
   position: relative;
@@ -15,7 +15,7 @@ export const FirstSection = styled.section`
     bottom: -100px;
     height: 300px;
     width: 400px;
-    background-color: ${({theme}) => theme.colors.blue};
+    background-color: ${({ theme }) => theme.colors.blue};
   }
 `
 export const SecondSection = styled.section`
@@ -25,14 +25,14 @@ export const SecondSection = styled.section`
   align-items: center;
   gap: 30px;
   padding: 50px 50px;
-  background-color: ${({theme}) => theme.colors.gray};
-  
-  ul{
+  background-color: ${({ theme }) => theme.colors.gray};
+
+  ul {
     width: 1400px;
-    display:flex;
+    display: flex;
     justify-content: space-evenly;
   }
-  `
+`
 
 export const ThirdSection = styled.section`
   position: relative;
@@ -41,7 +41,7 @@ export const ThirdSection = styled.section`
   align-items: center;
   gap: 30px;
   padding: 50px 50px;
-  background-color: ${({theme}) => theme.colors.blue};
+  background-color: ${({ theme }) => theme.colors.blue};
 
   ul {
     display: flex;

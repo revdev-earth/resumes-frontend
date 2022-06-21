@@ -1,7 +1,7 @@
-import { ContainerInputGroup } from "./styles";
+import { ContainerInputGroup } from "./styles"
 
 const InputGroup = ({ children }) => {
-	return <ContainerInputGroup>{children}</ContainerInputGroup>;
-};
+  return <ContainerInputGroup>{children}</ContainerInputGroup>
+}
 
-export default InputGroup;
+export default InputGroup

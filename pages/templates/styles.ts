@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components"
 
 export const TemplatesContainer = styled.div`
   display: flex;
@@ -8,13 +8,13 @@ export const TemplatesContainer = styled.div`
   h2 {
     text-align: center;
   }
-  
-  ul{
+
+  ul {
     margin-top: 50px;
     width: 1400px;
-    display:flex;
+    display: flex;
     justify-content: space-evenly;
-    gap:25px;
+    gap: 25px;
     flex-wrap: wrap;
   }
 `

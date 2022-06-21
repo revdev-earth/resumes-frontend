@@ -1,7 +1,7 @@
-import InputTxt from "@components/InputTxt";
-import { Title } from "../../styles";
-import { ItemEducation } from "./styles";
-import TextoEditable from "@components/TextoEditable";
+import InputTxt from "@components/InputTxt"
+import { Title } from "../../styles"
+import { ItemEducation } from "./styles"
+import TextoEditable from "@components/TextoEditable"
 
 const Education = ({ education }) => {
   return (
@@ -18,11 +18,11 @@ const Education = ({ education }) => {
               </div>
               <TextoEditable txt={description} />
             </ItemEducation>
-          );
+          )
         })}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default Education;
+export default Education

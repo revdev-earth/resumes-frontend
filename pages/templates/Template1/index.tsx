@@ -1,15 +1,15 @@
-import { useRef } from "react";
+import { useRef } from "react"
 
-import { Template1Container, TopSection, BottomSection, Title } from "./styles";
-import LayoutPages from "@components/LayoutPages";
-import InputTxt from "@components/InputTxt";
+import { Template1Container, TopSection, BottomSection, Title } from "./styles"
+import LayoutPages from "@components/LayoutPages"
+import InputTxt from "@components/InputTxt"
 
-import WhoIAm from "./_components/Who";
-import Experience from "./_components/Experience";
-import Projects from "./_components/Projects";
-import Social from "./_components/Social";
-import Education from "./_components/Education";
-import Skills from "./_components/Skills";
+import WhoIAm from "./_components/Who"
+import Experience from "./_components/Experience"
+import Projects from "./_components/Projects"
+import Social from "./_components/Social"
+import Education from "./_components/Education"
+import Skills from "./_components/Skills"
 
 const data = {
   name: "Patrick the Rock",
@@ -95,10 +95,10 @@ const data = {
     { title: "linkedin", link: "" },
     { title: "Github", link: "" },
   ],
-};
+}
 
 const Template1 = () => {
-  const templateRef = useRef<HTMLBRElement>(null);
+  const templateRef = useRef<HTMLBRElement>(null)
 
   return (
     <LayoutPages>
@@ -121,7 +121,7 @@ const Template1 = () => {
         </BottomSection>
       </Template1Container>
     </LayoutPages>
-  );
-};
+  )
+}
 
-export default Template1;
+export default Template1

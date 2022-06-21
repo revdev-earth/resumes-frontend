@@ -1,9 +1,9 @@
 // libraries
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components"
 
 // config
-import { theme } from "./theme";
-import { GlobalStyle } from "./GlobalStyles";
+import { theme } from "./theme"
+import { GlobalStyle } from "./GlobalStyles"
 
 // JSX
 
@@ -13,5 +13,5 @@ export const ProviderStyled = ({ children }) => {
       <GlobalStyle />
       {children}
     </ThemeProvider>
-  );
-};
+  )
+}

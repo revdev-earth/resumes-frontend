@@ -1,7 +1,7 @@
-import { ItemProject } from "./styles";
-import { Title } from "../../styles";
-import LinkTitle from "@components/LinkTitle";
-import TextoEditable from "@components/TextoEditable";
+import { ItemProject } from "./styles"
+import { Title } from "../../styles"
+import LinkTitle from "@components/LinkTitle"
+import TextoEditable from "@components/TextoEditable"
 
 const Projects = ({ projects }) => {
   return (
@@ -16,7 +16,7 @@ const Projects = ({ projects }) => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects

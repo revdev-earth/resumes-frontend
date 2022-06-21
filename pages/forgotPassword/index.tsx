@@ -1,6 +1,6 @@
-import { Form, Container } from "./styles";
-import LayoutPages from "@components/LayoutPages";
-import InputGroup from "@components/InputGroup";
+import { Form, Container } from "./styles"
+import LayoutPages from "@components/LayoutPages"
+import InputGroup from "@components/InputGroup"
 
 const ForgotPassword = () => {
   return (
@@ -20,7 +20,7 @@ const ForgotPassword = () => {
         </Form>
       </Container>
     </LayoutPages>
-  );
-};
+  )
+}
 
-export default ForgotPassword;
+export default ForgotPassword

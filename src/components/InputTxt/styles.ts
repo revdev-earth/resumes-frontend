@@ -1,79 +1,74 @@
-import styled, {css} from 'styled-components'
-import {InputProps } from './index'
+import styled, { css } from "styled-components"
+import { InputProps } from "./index"
 
 const defaultStyle = css`
-width: auto;
+  width: auto;
 
-p, input {
-  font-size: 18px; 
-  padding: 10px;
-  width: fit-content;
-
-  img {
-    background-color: ${({theme}) => console.log("Color theme :: ",theme)};
-    cursor: pointer;
-  }
-}
-
-p {
-  position: relative;
-  top: 0;
-  padding-right: 20px;
-  
-  
-  img {
-    position: absolute;
-    top: 6px;
-    right: -15px;
-    display: none;
-  }
-
-  &:hover {
-    img{
-      display: flex;
-    }
-  }
-}
-
-img {
-  width: 24px;
-}
-
->div {
-  position: relative;
-  display: flex;
-  justify-content: start;
-  width: fit-content;
-
+  p,
   input {
-    background-color: transparent;
-    border: 1px solid ${({theme}) => theme.colors.green};
-  }
-  img {
-    position: absolute;
-    top: 0;
-    right: -30px;
-    padding: 5px;
-    background-color: ${({theme}) => theme.colors.success};
-    width: 24px;
-    border-radius: 5px;
-    cursor: pointer;
-    }
-}
-` 
+    font-size: 18px;
+    padding: 10px;
+    width: fit-content;
 
-export const InputTxtContainer = styled.div<InputProps >`
-${({title: isTitle,
-  date: isDate,
-  text: isText,
-number: isNumber}) => (
+    img {
+      background-color: ${({ theme }) => console.log("Color theme :: ", theme)};
+      cursor: pointer;
+    }
+  }
+
+  p {
+    position: relative;
+    top: 0;
+    padding-right: 20px;
+
+    img {
+      position: absolute;
+      top: 6px;
+      right: -15px;
+      display: none;
+    }
+
+    &:hover {
+      img {
+        display: flex;
+      }
+    }
+  }
+
+  img {
+    width: 24px;
+  }
+
+  > div {
+    position: relative;
+    display: flex;
+    justify-content: start;
+    width: fit-content;
+
+    input {
+      background-color: transparent;
+      border: 1px solid ${({ theme }) => theme.colors.green};
+    }
+    img {
+      position: absolute;
+      top: 0;
+      right: -30px;
+      padding: 5px;
+      background-color: ${({ theme }) => theme.colors.success};
+      width: 24px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+`
+
+export const InputTxtContainer = styled.div<InputProps>`
+  ${({ title: isTitle, date: isDate, text: isText, number: isNumber }) =>
     `${defaultStyle} 
     ${isTitle && title}
     ${isText && text}
     ${isDate && date}
-    ${isNumber && number}`
-    )
-  }
+    ${isNumber && number}`}
 `
 
 const title = css`
@@ -81,18 +76,18 @@ const title = css`
 `
 
 const text = css`
-margin-top: 5px;
+  margin-top: 5px;
 `
 
 const number = css`
-    background-color: red;
+  background-color: red;
   > div {
-    width:30px;
+    width: 30px;
   }
-` 
+`
 
 const date = css`
-margin-top: 0px;
-font-size: 16px;
-padding: 5px 20px;
+  margin-top: 0px;
+  font-size: 16px;
+  padding: 5px 20px;
 `
