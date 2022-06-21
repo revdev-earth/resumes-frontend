@@ -1,4 +1,3 @@
-import InputTxt from "../../../../../components/InputTxt";
 import { Title } from "../../styles";
 
 const Social = ({ social }) => {

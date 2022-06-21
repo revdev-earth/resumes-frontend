@@ -65,14 +65,15 @@ img {
 export const InputTxtContainer = styled.div<InputProps >`
 ${({title: isTitle,
   date: isDate,
-  text: isText}) => (
+  text: isText,
+number: isNumber}) => (
     `${defaultStyle} 
     ${isTitle && title}
     ${isText && text}
-    ${isDate && date}`
+    ${isDate && date}
+    ${isNumber && number}`
     )
   }
-  
 `
 
 const title = css`
@@ -81,8 +82,14 @@ const title = css`
 
 const text = css`
 margin-top: 5px;
-
 `
+
+const number = css`
+    background-color: red;
+  > div {
+    width:30px;
+  }
+` 
 
 const date = css`
 margin-top: 0px;

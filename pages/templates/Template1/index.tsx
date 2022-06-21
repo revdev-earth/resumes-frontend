@@ -87,9 +87,9 @@ const data = {
 	],
 	skills: [
 		{ title: "skill 1", years: 1 },
-		{ title: "skill 1", years: 1 },
-		{ title: "skill 1", years: 1 },
-		{ title: "skill 1", years: 1 },
+		{ title: "skill 2", years: 1 },
+		{ title: "skill 3", years: 1 },
+		{ title: "skill 4", years: 1 },
 	],
 	social: [
 		{ title: "linkedin", link: "" },

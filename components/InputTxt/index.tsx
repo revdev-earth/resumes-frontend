@@ -2,12 +2,13 @@ import { InputTxtContainer } from "./styles";
 import { useState, useEffect } from "react";
 
 export type InputProps = {
-	type?: "text" | "textarea" | "date";
+	type?: "text" | "textarea" | "date" | "number";
 	txt?: string;
 	title?: boolean;
 	text?: boolean;
 	date?: boolean;
 	value?: string;
+	number?: number;
 };
 
 const InputTxt = ({ type = "text", txt, ...arg }) => {
@@ -29,11 +30,6 @@ const InputTxt = ({ type = "text", txt, ...arg }) => {
 	return (
 		<InputTxtContainer {...arg}>
 			{editar ? (
-				<p>
-					{texto}
-					<img src="/assets/pen-to-square-solid.svg" onClick={editorChange} />
-				</p>
-			) : (
 				<div>
 					<input
 						type={type}
@@ -43,6 +39,11 @@ const InputTxt = ({ type = "text", txt, ...arg }) => {
 					/>
 					<img src="/assets/check-solid.svg" onClick={editorChange} />
 				</div>
+			) : (
+				<p>
+					{texto}
+					<img src="/assets/pen-to-square-solid.svg" onClick={editorChange} />
+				</p>
 			)}
 		</InputTxtContainer>
 	);

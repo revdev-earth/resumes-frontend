@@ -12,7 +12,7 @@ const Experience = ({ experience }) => {
 					return (
 						<ItemExperience key={Math.random() * 10}>
 							<InputTxt type="text" title txt={enterpriseName} />
-							<input type="date" value={date} />
+							<InputTxt type="date" txt={date} />
 							<TextoEditable txt={description} />
 						</ItemExperience>
 					);

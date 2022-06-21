@@ -27,8 +27,6 @@ export const Content = styled.div`
       }
     }
   }
-
-}
 `
 
 export const EditarTxt =styled.div`
@@ -37,7 +35,7 @@ position: relative;
     textarea{
       resize: horizontal;
       padding: 10px;
-
+      width: 100%;
       height: ${({heightTxt}) => heightTxt}px;
       background-color: transparent;
       font-size: 16px;

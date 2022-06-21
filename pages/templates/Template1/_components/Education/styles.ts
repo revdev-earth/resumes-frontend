@@ -18,10 +18,15 @@ export const ItemEducation = styled.li`
         width: auto;
       }
     }
+
   }
+  
+
     textarea {
+      width: 100%;
       padding-left: 10px;
       background-color: transparent;
       font-size: 18px;
     }
+
 `
