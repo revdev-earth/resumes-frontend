@@ -1,6 +1,6 @@
 import { useRef } from "react"
 
-import { Template1Container, TopSection, BottomSection, Title } from "./styles"
+import { Template1Container, TopSection, BottomSection } from "./styles"
 import LayoutPages from "@components/LayoutPages"
 import InputTxt from "@components/InputTxt"
 

@@ -8,11 +8,11 @@ const ForgotPassword = () => {
       <Container>
         <h2>Recover password</h2>
 
-        <p>Don't worry, happends to the best of us.</p>
+        <p>Don&apos;t worry, happends to the best of us.</p>
 
         <Form action="/send-data-here" method="post">
           <InputGroup>
-            <label for="first">Your Email</label>
+            <label htmlFor="first">Your Email</label>
             <input type="text" id="first" name="first" />
           </InputGroup>
 
