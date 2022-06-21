@@ -53,8 +53,6 @@ const InputTxt = ({ type = "text", txt, ...arg }) => {
             src="/assets/pen-to-square-solid.svg"
             alt="edit"
             onClick={editorChange}
-            width={500}
-            height={500}
           />
         </p>
       )}
