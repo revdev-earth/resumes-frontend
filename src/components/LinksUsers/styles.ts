@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const LinkUserContainer = styled.li`
+export const LinkUserContainer = styled.li<{ all: boolean }>`
   position: relative;
 
   > img {
@@ -29,7 +29,7 @@ export const LinkUserContainer = styled.li`
   }
 `
 
-export const Content = styled.div`
+export const Content = styled.div<{ all: boolean }>`
   overflow: hidden;
   display: flex;
   flex-direction: column;

@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { Content, EditarTxt } from "./styles"
 import Image from "next/image"
 
@@ -12,8 +12,8 @@ const TextoEditable = ({ txt }) => {
     setTexto(txt)
   }, [txt])
 
-  const textoRef = useRef()
-  const heightTxt = textoRef?.current?.clientHeight
+  // const textoRef = useRef()
+  // const heightTxt = textoRef?.current?.clientHeight
 
   const handleInputChange = (event) => {
     setTexto(event.target.value)
@@ -26,7 +26,7 @@ const TextoEditable = ({ txt }) => {
   return (
     <Content>
       {editar ? (
-        <EditarTxt heightTxt={heightTxt}>
+        <EditarTxt>
           <Image
             src="/assets/check-solid.svg"
             alt="check"
@@ -35,7 +35,7 @@ const TextoEditable = ({ txt }) => {
           <textarea value={texto} onChange={handleInputChange} />
         </EditarTxt>
       ) : (
-        <p ref={textoRef}>
+        <p>
           {texto}
           <Image
             src="/assets/pen-to-square-solid.svg"

@@ -29,9 +29,7 @@ export default function Home() {
             <TemplateList />
             <TemplateList />
           </ul>
-          <Link href="/templates">
-            <Button primary>More Templates</Button>
-          </Link>
+          <Link href="/templates">More Templates</Link>
         </SecondSection>
         <ThirdSection>
           <h3>Links Users</h3>

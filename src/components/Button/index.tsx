@@ -1,18 +1,18 @@
-import { ContainerButton } from "./styles"
+import { ButttonSelection } from "./styles"
 
 //? Propiedades del coponente boton
-export type ButtonProps = {
+export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   type?: "button" | "submit" | "reset"
-  children?: React.ReactNode
   primary?: boolean
+  secondary?: boolean
   black?: boolean
 }
 
 //? Componente boton
-const Button = ({ type = "button", children, ...arg }: ButtonProps) => (
-  <ContainerButton type={type} {...arg}>
+const Button = ({ type = "button", children, ...arg }: IButton) => (
+  <ButttonSelection type={type} {...arg}>
     {children}
-  </ContainerButton>
+  </ButttonSelection>
 )
 
 export default Button

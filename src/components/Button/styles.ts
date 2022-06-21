@@ -1,44 +1,24 @@
 // ? Librerias
 import styled, { css } from "styled-components"
-import { ButtonProps } from "./index"
+import { IButton } from "."
 
-export const Button = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 0px 20px;
-`
-
-export const ContainerButton = styled.button<ButtonProps>`
-  ${({ primary: isPrimary, secondary: isSecondary }) => {
-    const defaultStyle = `
-      display: inline-block;
-			padding: 0 20px;
-      min-width: 150px;
-			height: 60px;
-      color: ${({ theme }) => theme.colors.white1};
-      font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-			font-size: 18px;
-      line-height: 1.5;
-      font-weight: 400;
-      text-align: center;
-      vertical-align: middle;
-      text-decoration: none;
-      outline: none;
-			border-radius: 8px;
-      transition: all 0.2s linear;
-      cursor: pointer;
-    `
-
-    const styles = `
-    ${defaultStyle}
-    ${isPrimary && primary}
-    ${isSecondary && secondary}
-    `
-
-    return styles
-  }}
+const ButtonDefault = css`
+  display: inline-block;
+  padding: 0 20px;
+  min-width: 150px;
+  height: 60px;
+  color: ${({ theme }) => theme.colors.white1};
+  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  outline: none;
+  border-radius: 8px;
+  transition: all 0.2s linear;
+  cursor: pointer;
 `
 
 const primary = css`
@@ -85,4 +65,20 @@ const secondary = css`
       inset 0px -0px 2px rgba(0, 0, 0, 0.25),
       inset 0px 2px 2px rgba(255, 255, 255, 0.25);
   }
+`
+
+export const Button = styled.button`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 20px;
+`
+
+export const ButttonSelection = styled.button<IButton>`
+  ${ButtonDefault}
+
+  ${({ primary: isPrimary }) => isPrimary && primary}
+
+  ${({ secondary: isSecondary }) => isSecondary && secondary}
 `

@@ -1,7 +1,7 @@
-import Document, { Head, Html, Main, NextScript } from "next/document"
+import NextDocument, { Head, Html, Main, NextScript } from "next/document"
 import { ServerStyleSheet } from "styled-components"
 
-export default class MyDocument extends Document {
+export default class Document extends NextDocument {
   static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet()
     const originalRenderPage = ctx.renderPage
@@ -13,7 +13,7 @@ export default class MyDocument extends Document {
             sheet.collectStyles(<App {...props} />),
         })
 
-      const initialProps = await Document.getInitialProps(ctx)
+      const initialProps = await NextDocument.getInitialProps(ctx)
       return {
         ...initialProps,
         styles: [initialProps.styles, sheet.getStyleElement()],
@@ -27,11 +27,6 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-          />
-          <meta charSet="utf-8" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
