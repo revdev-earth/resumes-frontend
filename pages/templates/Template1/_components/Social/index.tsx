@@ -1,5 +1,5 @@
 import { Title } from "../../styles"
-import Image from "next/image"
+import LinkImage from "@public/assets/link.svg"
 
 const Social = ({ social }) => {
   return (
@@ -7,10 +7,9 @@ const Social = ({ social }) => {
       <Title>Social</Title>
       {social.map(({ link }) => (
         <a href={link} key={Math.random() * 10}>
-          <Image src="/assets/link.svg" alt="" layout="fill" />
+          <LinkImage alt="links img" layout="fill" />
         </a>
       ))}
-      <Image src="" alt="" layout="fill" />
     </div>
   )
 }

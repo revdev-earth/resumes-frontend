@@ -1,6 +1,7 @@
 import { InputTxtContainer } from "./styles"
 import { useState, useEffect } from "react"
-import Image from "next/image"
+import Edit from "@public/assets/pen-to-square-solid.svg"
+import Check from "@public/assets/check-solid.svg"
 
 export type InputProps = {
   type?: "text" | "textarea" | "date" | "number"
@@ -38,22 +39,12 @@ const InputTxt = ({ type = "text", txt, ...arg }) => {
             {...arg}
             onChange={handleInputChange}
           />
-          <Image
-            src="/assets/check-solid.svg"
-            alt="check"
-            onClick={editorChange}
-            width={500}
-            height={500}
-          />
+          <Check alt="check" onClick={editorChange} />
         </div>
       ) : (
         <p>
           {texto}
-          <Image
-            src="/assets/pen-to-square-solid.svg"
-            alt="edit"
-            onClick={editorChange}
-          />
+          <Edit alt="edit" onClick={editorChange} />
         </p>
       )}
     </InputTxtContainer>
