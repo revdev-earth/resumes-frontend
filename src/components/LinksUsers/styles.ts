@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const LinkUserContainer = styled.li<{ all: boolean }>`
   position: relative;
 
-  > img {
+  > svg {
     position: absolute;
     display: flex;
     left: calc(50% - 75px);
@@ -23,7 +23,6 @@ export const LinkUserContainer = styled.li<{ all: boolean }>`
     display: flex;
     width: 50px;
     height: 50px;
-    background-color: red;
     border-radius: 100%;
     cursor: pointer;
   }
@@ -55,7 +54,7 @@ export const Content = styled.div<{ all: boolean }>`
           transform: scale(1.1);
         }
 
-        img {
+        svg {
           height: ${({ all }) => (all ? "0" : "24px")};
         }
       }

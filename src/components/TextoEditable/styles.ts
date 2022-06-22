@@ -8,12 +8,12 @@ export const Content = styled.div`
     padding: 10px;
 
     &:hover {
-      img {
+      svg {
         display: block;
       }
     }
 
-    img {
+    svg {
       position: absolute;
       display: none;
       top: 0;
@@ -35,14 +35,14 @@ export const EditarTxt = styled.div`
     resize: horizontal;
     padding: 10px;
     width: 100%;
-    height: ${({ heightTxt }) => heightTxt}px;
+    height: ${({ heightTxt }) => heightTxt + 5}px;
     background-color: transparent;
     font-size: 16px;
     vertical-align: baseline;
     border: 1px solid ${({ theme }) => theme.colors.green};
   }
 
-  img {
+  svg {
     position: absolute;
     top: 0;
     right: -30px;

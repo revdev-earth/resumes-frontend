@@ -59,7 +59,8 @@ table {
 	}
 
 	textarea{
-		resize: horizontal;
+		resize: vertical;
     overflow: hidden;
+		line-height: 1
 	}
 `

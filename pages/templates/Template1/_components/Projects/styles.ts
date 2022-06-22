@@ -1,5 +1,9 @@
 import styled from "styled-components"
 
+export const ProjectsContainer = styled.div`
+  margin-bottom: 30px;
+`
+
 export const ItemProject = styled.li`
   textarea {
     padding: 0 15px;

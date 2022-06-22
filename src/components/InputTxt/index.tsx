@@ -6,7 +6,7 @@ import Check from "@public/assets/check-solid.svg"
 export type InputProps = {
   type?: "text" | "textarea" | "date" | "number"
   txt?: string
-  title?: boolean
+  titleBold?: boolean
   text?: boolean
   date?: boolean
   value?: string

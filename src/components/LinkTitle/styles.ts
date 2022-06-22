@@ -15,9 +15,10 @@ export const LinkTitleContainer = styled.div`
     }};
   }
 
-  img {
+  > svg {
     height: 24px;
     color: #fff;
+    cursor: pointer;
   }
 
   input {

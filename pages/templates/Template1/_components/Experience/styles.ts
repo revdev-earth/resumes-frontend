@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 export const ExperienceContainer = styled.div`
+  margin-bottom: 35px;
   ul {
     li {
     }
@@ -10,12 +11,11 @@ export const ItemExperience = styled.div`
   display: flex;
   flex-direction: column;
   width: 425px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.green};
+  margin-bottom: 10px;
 
   &:last-child {
     border-bottom: none;
-
-    textarea {
-    }
   }
 
   textarea {
@@ -23,7 +23,6 @@ export const ItemExperience = styled.div`
 
     font-size: 16px;
     width: 425px;
-    height: 80px;
     background-color: transparent;
   }
 

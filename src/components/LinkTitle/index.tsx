@@ -1,23 +1,29 @@
 import { LinkTitleContainer } from "./styles"
 import InputTxt from "../InputTxt"
 import { useEffect, useState } from "react"
-import Image from "next/image"
+import LinkImage from "@public/assets/link.svg"
 
-const LinkTitle = ({ title }) => {
+const LinkTitle = ({ children }) => {
   const [editable, setEditable] = useState("")
 
   useEffect(() => {
-    setEditable(title)
-  }, [title])
+    setEditable(children)
+  }, [children])
 
   const HandleInputChange = (event) => {
     setEditable(event.target.value)
   }
+
   return (
     <LinkTitleContainer>
-      <Image src="/assets/link.svg" alt="" layout="fill" />
-      <InputTxt type="text" text txt={title} onChange={HandleInputChange} />
-      <p>{editable}</p>
+      <LinkImage alt="" layout="fill" />
+      <InputTxt
+        bold
+        type="text"
+        text
+        txt={editable}
+        onChange={HandleInputChange}
+      />
     </LinkTitleContainer>
   )
 }

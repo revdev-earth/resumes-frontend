@@ -10,8 +10,7 @@ const defaultStyle = css`
     padding: 10px;
     width: fit-content;
 
-    img {
-      background-color: ${({ theme }) => console.log("Color theme :: ", theme)};
+    svg {
       cursor: pointer;
     }
   }
@@ -21,7 +20,7 @@ const defaultStyle = css`
     top: 0;
     padding-right: 20px;
 
-    img {
+    svg {
       position: absolute;
       top: 6px;
       right: -15px;
@@ -29,13 +28,13 @@ const defaultStyle = css`
     }
 
     &:hover {
-      img {
+      svg {
         display: flex;
       }
     }
   }
 
-  img {
+  svg {
     width: 24px;
   }
 
@@ -49,7 +48,8 @@ const defaultStyle = css`
       background-color: transparent;
       border: 1px solid ${({ theme }) => theme.colors.green};
     }
-    img {
+
+    svg {
       position: absolute;
       top: 0;
       right: -30px;
@@ -63,15 +63,14 @@ const defaultStyle = css`
 `
 
 export const InputTxtContainer = styled.div<InputProps>`
-  ${({ title: isTitle, date: isDate, text: isText, number: isNumber }) =>
-    `${defaultStyle} 
-    ${isTitle && title}
-    ${isText && text}
-    ${isDate && date}
-    ${isNumber && number}`}
+  ${defaultStyle}
+  ${({ titleBold: isTitleBold }) => isTitleBold && titleBold}
+  ${({ text: isText }) => isText && text}
+  ${({ date: isDate }) => isDate && date}
+  ${({ number: isNumber }) => isNumber && number}
 `
 
-const title = css`
+const titleBold = css`
   font-weight: 600;
 `
 
@@ -80,7 +79,6 @@ const text = css`
 `
 
 const number = css`
-  background-color: red;
   > div {
     width: 30px;
   }

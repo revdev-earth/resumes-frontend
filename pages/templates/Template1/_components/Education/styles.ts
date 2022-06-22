@@ -3,9 +3,9 @@ import styled from "styled-components"
 export const ItemEducation = styled.li`
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.green};
+  margin-bottom: 20px;
   width: 425px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.green};
 
   > div {
     padding-right: 10px;

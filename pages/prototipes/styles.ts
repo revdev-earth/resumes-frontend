@@ -9,12 +9,12 @@ export const Content = styled.div`
       padding: 10px;
 
       &:hover {
-        img {
+        svg {
           display: block;
         }
       }
 
-      img {
+      svg {
         position: absolute;
         display: none;
         top: 0;

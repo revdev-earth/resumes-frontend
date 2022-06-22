@@ -11,7 +11,7 @@ const Education = ({ education }) => {
         {education.map(({ instituteName, courseName, date, description }) => {
           return (
             <ItemEducation key={Math.random() * 10}>
-              <InputTxt type="text" title txt={instituteName} />
+              <InputTxt type="text" titleBold txt={instituteName} />
               <div>
                 <InputTxt type="text" text txt={courseName} />
                 <InputTxt type="date" txt={date} />

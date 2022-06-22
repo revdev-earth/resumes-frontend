@@ -101,7 +101,7 @@ const Template1 = () => {
       <Template1Container>
         <TopSection>
           <h3>{data.name}</h3>
-          <InputTxt type="text" title txt={data.profecion} />
+          <InputTxt type="text" titleBold txt={data.profecion} />
         </TopSection>
         <BottomSection>
           <div>

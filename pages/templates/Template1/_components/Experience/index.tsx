@@ -11,7 +11,7 @@ const Experience = ({ experience }) => {
         {experience.map(({ enterpriseName, date, description }) => {
           return (
             <ItemExperience key={Math.random() * 10}>
-              <InputTxt type="text" title txt={enterpriseName} />
+              <InputTxt type="text" titleBold txt={enterpriseName} />
               <InputTxt type="date" txt={date} />
               <TextoEditable txt={description} />
             </ItemExperience>

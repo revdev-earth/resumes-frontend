@@ -1,21 +1,21 @@
-import { ItemProject } from "./styles"
+import { ItemProject, ProjectsContainer } from "./styles"
 import { Title } from "../../styles"
 import LinkTitle from "@components/LinkTitle"
 import TextoEditable from "@components/TextoEditable"
 
 const Projects = ({ projects }) => {
   return (
-    <div>
+    <ProjectsContainer>
       <Title>Projects</Title>
       <div>
         {projects.map(({ title, description }) => (
           <ItemProject key={Math.random() * 10}>
-            <LinkTitle title="title">{title}</LinkTitle>
+            <LinkTitle>{title}</LinkTitle>
             <TextoEditable txt={description} />
           </ItemProject>
         ))}
       </div>
-    </div>
+    </ProjectsContainer>
   )
 }
 

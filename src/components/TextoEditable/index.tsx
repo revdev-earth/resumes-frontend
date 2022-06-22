@@ -16,6 +16,7 @@ const TextoEditable = ({ txt }) => {
   const textoRef = useRef()
   const heightTxt = textoRef?.current?.clientHeight
 
+  console.log(heightTxt)
   const handleInputChange = (event) => {
     setTexto(event.target.value)
   }
@@ -32,7 +33,7 @@ const TextoEditable = ({ txt }) => {
           <textarea value={texto} onChange={handleInputChange} />
         </EditarTxt>
       ) : (
-        <p>
+        <p ref={textoRef}>
           {texto}
           <Edit alt="edit" onClick={editorChange} />
         </p>
