@@ -5,9 +5,12 @@ import { initialState } from "../initialState"
 import auth from "@redux/slices/auth"
 import user from "@redux/slices/user"
 
+import resumes from "@redux/slices/secSlice"
+
 const combinedReducers = combineReducers({
   auth,
   user,
+  resumes,
 })
 
 export type CombinedReducers = ReturnType<typeof combinedReducers>
