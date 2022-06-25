@@ -14,7 +14,7 @@ import { useSelector } from "@redux"
 // form
 import { useForm } from "react-hook-form"
 
-const Template1 = () => {
+export const Template1 = () => {
   const { resumes: data } = useSelector((s) => s)
 
   const { control } = useForm({
@@ -54,5 +54,3 @@ const Template1 = () => {
     </LayoutPages>
   )
 }
-
-export default Template1

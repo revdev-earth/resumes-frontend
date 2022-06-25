@@ -1,0 +1,6 @@
+export * from "./CreateAccount"
+export * from "./ForgotPassword"
+export * from "./Home"
+export * from "./Login"
+export * from "./Prototipes"
+export * from "./Templates"

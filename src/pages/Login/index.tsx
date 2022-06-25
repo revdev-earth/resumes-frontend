@@ -5,7 +5,7 @@ import LayoutPages from "@components/LayoutPages"
 import InputGroup from "@components/InputGroup"
 import Button from "@components/Button"
 
-const LogIn = () => {
+export const Login = () => {
   const [formLogIn, setFormLogIn] = useState({
     email: "",
     password: "",
@@ -68,5 +68,3 @@ const LogIn = () => {
     </>
   )
 }
-
-export default LogIn

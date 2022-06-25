@@ -1,7 +1,7 @@
 import LayoutPages from "@components/LayoutPages"
 import { Content } from "./styles"
 
-const Prototipes = () => {
+export const Prototipes = () => {
   return (
     <LayoutPages>
       <Content>
@@ -10,5 +10,3 @@ const Prototipes = () => {
     </LayoutPages>
   )
 }
-
-export default Prototipes

@@ -2,7 +2,7 @@ import { Form, Container } from "./styles"
 import LayoutPages from "@components/LayoutPages"
 import InputGroup from "@components/InputGroup"
 
-const ForgotPassword = () => {
+export const ForgotPassword = () => {
   return (
     <LayoutPages>
       <Container>
@@ -22,5 +22,3 @@ const ForgotPassword = () => {
     </LayoutPages>
   )
 }
-
-export default ForgotPassword

@@ -5,7 +5,7 @@ import InputGroup from "@components/InputGroup"
 import Button from "@components/Button"
 import { useState } from "react"
 
-const Register = () => {
+export const Register = () => {
   const [formCA, setFormCA] = useState({
     user: "",
     email: "",
@@ -93,5 +93,3 @@ const Register = () => {
     </LayoutPages>
   )
 }
-
-export default Register
