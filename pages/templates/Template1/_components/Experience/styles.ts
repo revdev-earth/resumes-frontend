@@ -7,7 +7,7 @@ export const ExperienceContainer = styled.div`
     }
   }
 `
-export const ItemExperience = styled.div`
+export const ItemExperienceContanier = styled.div`
   display: flex;
   flex-direction: column;
   width: 425px;

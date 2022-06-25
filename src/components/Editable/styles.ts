@@ -62,7 +62,7 @@ const defaultStyle = css`
   }
 `
 
-export const InputTxtContainer = styled.div<InputProps>`
+export const Editable = styled.div<InputProps>`
   ${defaultStyle}
   ${({ titleBold: isTitleBold }) => isTitleBold && titleBold}
   ${({ text: isText }) => isText && text}

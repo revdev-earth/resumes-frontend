@@ -1,31 +1,7 @@
 import styled from "styled-components"
 
 export const Content = styled.div`
-  > div {
-    position: relative;
-
-    p {
-      position: relative;
-      padding: 10px;
-
-      &:hover {
-        svg {
-          display: block;
-        }
-      }
-
-      svg {
-        position: absolute;
-        display: none;
-        top: 0;
-        right: -20px;
-        width: 24px;
-        cursor: pointer;
-
-        &:hover {
-          display: block;
-        }
-      }
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 `

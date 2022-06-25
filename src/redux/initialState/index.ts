@@ -6,7 +6,7 @@ export const initialState = {
   resumes: {
     name: "Patrick the Rock",
     profecion: "Developer react senior",
-    resume:
+    whoiam:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis neque id nibh placerat venenatis. Aliquam a eleifend metus. Morbi urna magna, porta et malesuada et, fermentum in purus. Ut varius a libero eget accumsan. Donec posuere, enim vitae feugiat finibus, justo quam aliquam lectus, sed luctus enim turpis at ligula.",
     experience: [
       {

@@ -2,24 +2,17 @@ import { useState, useEffect, useRef } from "react"
 import { Content, EditarTxt } from "./styles"
 import Edit from "@public/assets/pen-to-square-solid.svg"
 import Check from "@public/assets/check-solid.svg"
+import { useController } from "react-hook-form"
 
-const TextoEditable = ({ txt }) => {
+const TextoEditable = (props) => {
+  const { field } = useController(props)
   const [editar, setEditar] = useState(false)
-  const [texto, setTexto] = useState(
-    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae corporis excepturi quaerat ex aliquid, dicta ullam. Ab adipisci minus error inventore quam cumque ipsa excepturi pariatur."
-  )
+  const textoRef = useRef<HTMLDivElement>()
+  const [height, setHeight] = useState(0)
 
   useEffect(() => {
-    setTexto(txt)
-  }, [txt])
-
-  const textoRef = useRef()
-  const heightTxt = textoRef?.current?.clientHeight
-
-  console.log(heightTxt)
-  const handleInputChange = (event) => {
-    setTexto(event.target.value)
-  }
+    setHeight(textoRef?.current?.clientHeight)
+  }, [textoRef])
 
   const editorChange = () => {
     setEditar(!editar)
@@ -28,13 +21,13 @@ const TextoEditable = ({ txt }) => {
   return (
     <Content>
       {editar ? (
-        <EditarTxt heightTxt={heightTxt}>
+        <EditarTxt heightTxt={height}>
           <Check alt="check" onClick={editorChange} />
-          <textarea value={texto} onChange={handleInputChange} />
+          <textarea {...field} />
         </EditarTxt>
       ) : (
         <p ref={textoRef}>
-          {texto}
+          {field.value}
           <Edit alt="edit" onClick={editorChange} />
         </p>
       )}

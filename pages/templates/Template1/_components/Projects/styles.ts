@@ -4,7 +4,7 @@ export const ProjectsContainer = styled.div`
   margin-bottom: 30px;
 `
 
-export const ItemProject = styled.li`
+export const ItemProjectContainer = styled.li`
   textarea {
     padding: 0 15px;
     width: 275px;

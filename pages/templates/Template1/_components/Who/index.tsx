@@ -2,11 +2,20 @@ import { Title } from "../../styles"
 import { WhoIamcontainer } from "./styles"
 import TextoEditable from "@components/TextoEditable"
 
-const WhoIAm = ({ resume }) => {
+import { useForm } from "react-hook-form"
+
+const WhoIAm = ({ whoiam }) => {
+  const { control } = useForm({
+    defaultValues: {
+      whoiam: whoiam,
+    },
+    mode: "onChange",
+  })
+
   return (
     <WhoIamcontainer>
       <Title>Who am i</Title>
-      <TextoEditable txt={resume} />
+      <TextoEditable control={control} name="whoiam" />
     </WhoIamcontainer>
   )
 }

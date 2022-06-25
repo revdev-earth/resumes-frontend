@@ -1,6 +1,6 @@
 import { Template1Container, TopSection, BottomSection } from "./styles"
 import LayoutPages from "@components/LayoutPages"
-import InputTxt from "@components/InputTxt"
+import { Editable } from "@components"
 
 import WhoIAm from "./_components/Who"
 import Experience from "./_components/Experience"
@@ -11,18 +11,36 @@ import Skills from "./_components/Skills"
 
 import { useSelector } from "@redux"
 
+// form
+import { useForm } from "react-hook-form"
+
 const Template1 = () => {
   const { resumes: data } = useSelector((s) => s)
+
+  const { control } = useForm({
+    defaultValues: {
+      prueba: "",
+      profecion: data.profecion,
+    },
+    mode: "onChange",
+  })
+
   return (
     <LayoutPages>
       <Template1Container>
         <TopSection>
           <h3>{data.name}</h3>
-          <InputTxt type="text" titleBold txt={data.profecion} />
+          <Editable
+            type="text"
+            titleBold
+            txt={data.profecion}
+            name="profecion"
+            control={control}
+          />
         </TopSection>
         <BottomSection>
           <div>
-            <WhoIAm resume={data.resume} />
+            <WhoIAm whoiam={data.whoiam} />
             <Experience experience={data.experience} />
             <Education education={data.education} />
           </div>

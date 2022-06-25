@@ -1,14 +1,21 @@
 import { LinkTitleContainer } from "./styles"
-import InputTxt from "../InputTxt"
+import { Editable } from "@components"
 import { useEffect, useState } from "react"
 import LinkImage from "@public/assets/link.svg"
+import { useForm } from "react-hook-form"
 
-const LinkTitle = ({ children }) => {
+const LinkTitle = ({ title, link }) => {
   const [editable, setEditable] = useState("")
+  const { control } = useForm({
+    defaultValues: {
+      title: title,
+      link: link,
+    },
+  })
 
   useEffect(() => {
-    setEditable(children)
-  }, [children])
+    setEditable(title)
+  }, [title])
 
   const HandleInputChange = (event) => {
     setEditable(event.target.value)
@@ -16,12 +23,13 @@ const LinkTitle = ({ children }) => {
 
   return (
     <LinkTitleContainer>
-      <LinkImage alt="" layout="fill" />
-      <InputTxt
+      <LinkImage alt={link} layout="fill" />
+      <Editable
         bold
         type="text"
-        text
+        name="link"
         txt={editable}
+        control={control}
         onChange={HandleInputChange}
       />
     </LinkTitleContainer>

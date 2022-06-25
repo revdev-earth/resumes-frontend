@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const ItemEducation = styled.li`
+export const ItemEducationContainer = styled.li`
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;

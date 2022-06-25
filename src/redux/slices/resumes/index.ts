@@ -8,12 +8,14 @@ const resumeSlice = createSlice({
   name: "resumes",
   initialState: initialState.resumes,
   reducers: {
-    checkAny: (state, action) => {
-      state.check = action.payload
-    },
+    changeText: (state, { payload }) => payload,
+    updateExperience: (state, { payload }) => ({
+      ...state,
+      experience: payload,
+    }),
   },
 })
 
-export const { checkAny } = resumeSlice.actions
+export const { changeText } = resumeSlice.actions
 
 export default resumeSlice.reducer
