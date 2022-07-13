@@ -45,7 +45,7 @@ export const Login = () => {
             <InputGroup>
               <label htmlFor="last">password</label>
               <Message>
-                <Link href={"/forgotPassword"}>Forgot password?</Link>
+                <Link href={"/forgot_password"}>Forgot password?</Link>
               </Message>
               <input
                 type="password"
@@ -60,7 +60,7 @@ export const Login = () => {
               Log in
             </Button>
           </Form>
-          <Link href="/createAccount">
+          <Link href="/create_account">
             <a>Or create account.</a>
           </Link>
         </Container>

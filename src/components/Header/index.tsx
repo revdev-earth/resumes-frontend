@@ -5,9 +5,13 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Link href="/">
-        <a>
-          <h1>Resumes</h1>
-        </a>
+        <h1
+          style={{
+            padding: "20px 20px 20px 0px",
+          }}
+        >
+          Resumes
+        </h1>
       </Link>
       <nav>
         <ul>
@@ -15,7 +19,7 @@ const Header = () => {
             <Link href="/login">Log In</Link>
           </li>
           <li>
-            <Link href="/createAccount">Register</Link>
+            <Link href="/create_account">Register</Link>
           </li>
         </ul>
       </nav>
