@@ -1,6 +1,9 @@
 // libraries
 import Head from "next/head"
 
+// tailwind
+import "@global/tailwind.css"
+
 // config
 import { ProviderStyled } from "@styled-components"
 import { ProviderRedux } from "@redux"

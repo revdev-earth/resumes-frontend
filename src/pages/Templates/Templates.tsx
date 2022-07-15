@@ -1,4 +1,4 @@
-import Header from "@components/Header"
+import { Header } from "@components"
 import TemplateList from "@components/TemplateList"
 import { TemplatesContainer } from "./styles"
 

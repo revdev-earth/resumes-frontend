@@ -16,6 +16,8 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "@global/*": ["src/global/*"],
+      "@global": ["src/global"],
       "@interfaces/*": ["src/interfaces/*"],
       "@interfaces": ["src/interfaces"],
       "@components/*": ["src/components/*"],

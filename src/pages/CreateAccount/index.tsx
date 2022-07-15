@@ -86,9 +86,7 @@ export const Register = () => {
             Create account
           </Button>
         </Form>
-        <Link href="/login">
-          <a>Or log in.</a>
-        </Link>
+        <Link href="/login">Or log in.</Link>
       </Container>
     </LayoutPages>
   )
