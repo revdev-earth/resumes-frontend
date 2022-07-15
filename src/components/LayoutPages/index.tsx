@@ -1,5 +1,5 @@
 import { Container } from "./styles"
-import Header from "../Header"
+import { Header } from "../Header"
 
 const LayoutPages = ({ children }) => {
   return (

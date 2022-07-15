@@ -1,12 +1,11 @@
 import Link from "next/link"
 import { useState } from "react"
 
-const Header = () => {
+export const Header = () => {
   const [showMenu, setShowMenu] = useState(false)
 
   const handleMouseEnter = () => {
     setShowMenu(true)
-    console.log(":: entra?")
   }
 
   const handleMouseLeave = () => {
@@ -19,10 +18,11 @@ const Header = () => {
   }
 
   return (
-    <header className="flex justify-between items-center px-24 bg-[#CAF0F8] drop-shadow-lg">
+    <header className="flex justify-between items-center px-24 bg-[#CAF0F8] drop-shadow-lg h-24">
       <Link href="/">
+        {/* Logo */}
         <div
-          className="p-5 pl-0 text-5xl font-bold cursor-pointer"
+          className="text-5xl font-bold cursor-pointer"
           style={{
             textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
             color: "#0077B6",
@@ -32,23 +32,23 @@ const Header = () => {
         </div>
       </Link>
 
-      <nav>
+      <div className="relative">
+        {/* Perfil */}
         <div
           className="w-16 h-16 bg-slate-400 rounded-full cursor-pointer"
           {...commonEvents}
         />
+
+        {/* Menu */}
         {showMenu && (
-          <div className="z-10 absolute" {...commonEvents}>
-            <div className="z-[-1] absolute bottom-2 w-20 h-20 bg-transparent cursor-pointer" />
-            <div className="flex flex-col gap-4 p-3">
+          <nav className="absolute left-[-12%]" {...commonEvents}>
+            <div className="flex flex-col gap-4 p-3 bg-white drop-shadow-xl rounded animate-fade-in">
               <Link href="/login">Log In</Link>
               <Link href="/create_account">Register</Link>
             </div>
-          </div>
+          </nav>
         )}
-      </nav>
+      </div>
     </header>
   )
 }
-
-export default Header
