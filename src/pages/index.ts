@@ -1,6 +1,7 @@
 export * from "./CreateAccount"
 export * from "./ForgotPassword"
 export * from "./Home"
+export { Home as Home2 } from "./Home2"
 export * from "./Login"
 export * from "./Prototipes"
 export * from "./Templates"
