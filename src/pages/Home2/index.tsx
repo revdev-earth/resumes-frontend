@@ -1,5 +1,5 @@
-import { Header } from "@components"
-import { Section1, Section2 } from "./_components"
+import { Footer, Header } from "@components"
+import { Section1, Section2, Section3 } from "./_components"
 
 export const Home = () => {
   return (
@@ -9,9 +9,10 @@ export const Home = () => {
       <main>
         <Section1 />
         <Section2 />
+        <Section3 />
       </main>
 
-      <footer></footer>
+      <Footer />
     </>
   )
 }
