@@ -25,19 +25,23 @@ export const GlobalStyle = createGlobalStyle`
   section {
     display: block;
   }
+
   body {
     line-height: 1;
     /* background-color: ${({ theme }) => theme.colors.white1}; */
     font-size: 18px;
   }
+
   ol,
   ul {
     list-style: none;
   }
+
   blockquote,
   q {
     quotes: none;
   }
+
   blockquote:before,
   blockquote:after,
   q:before,
@@ -45,6 +49,7 @@ export const GlobalStyle = createGlobalStyle`
     content: "";
     content: none;
   }
+
   table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -59,6 +64,7 @@ export const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-weight: 700;
   }
+
   h1 {
     font-size: 64px;
   }
@@ -94,5 +100,12 @@ export const GlobalStyle = createGlobalStyle`
     resize: vertical;
     overflow: hidden;
     line-height: 1;
+  }
+
+  #__next {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
   }
 `

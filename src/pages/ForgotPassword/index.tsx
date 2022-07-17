@@ -1,5 +1,5 @@
 import { Form, Container } from "./styles"
-import LayoutPages from "@components/LayoutPages"
+import { LayoutPages } from "@components"
 import InputGroup from "@components/InputGroup"
 
 export const ForgotPassword = () => {
