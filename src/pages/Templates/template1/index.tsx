@@ -1,5 +1,5 @@
 import { Template1Container, TopSection, BottomSection } from "./styles"
-import LayoutPages from "@components/LayoutPages"
+import { LayoutPages } from "@components"
 import { Editable } from "@components"
 
 import WhoIAm from "./_components/Who"

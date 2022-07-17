@@ -23,7 +23,7 @@ export const Form = styled.form`
   flex-direction: column;
 `
 
-export const CheckTerminos = styled.form`
+export const CheckTerminos = styled.div`
   display: flex;
   gap: 15px;
   margin-bottom: 30px;

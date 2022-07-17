@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Form, Container, Message } from "./styles"
 import Link from "next/link"
-import LayoutPages from "@components/LayoutPages"
+import { LayoutPages } from "@components"
 import InputGroup from "@components/InputGroup"
 import Button from "@components/Button"
 
@@ -25,8 +25,8 @@ export const Login = () => {
   }
 
   return (
-    <>
-      <LayoutPages>
+    <LayoutPages>
+      <div className="m-auto">
         <Container>
           <h2>Log In</h2>
 
@@ -64,7 +64,7 @@ export const Login = () => {
             <a>Or create account.</a>
           </Link>
         </Container>
-      </LayoutPages>
-    </>
+      </div>
+    </LayoutPages>
   )
 }

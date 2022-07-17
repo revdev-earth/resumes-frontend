@@ -1,4 +1,4 @@
-export * from "./CreateAccount"
+export * from "./Register"
 export * from "./ForgotPassword"
 export * from "./Home"
 export { Home as Home2 } from "./Home2"

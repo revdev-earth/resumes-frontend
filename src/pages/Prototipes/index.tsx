@@ -1,4 +1,4 @@
-import LayoutPages from "@components/LayoutPages"
+import { LayoutPages } from "@components"
 import { Content } from "./styles"
 
 export const Prototipes = () => {
