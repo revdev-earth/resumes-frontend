@@ -18,7 +18,11 @@ export const Item = ({
       {/* summary */}
       <div>{summary}</div>
       {/* tecnologies */}
-      <div>{tecnologies}</div>
+      <div>
+        {tecnologies.map((tecnologie, index) => (
+          <div key={index}>{tecnologie}</div>
+        ))}
+      </div>
     </div>
   )
 }

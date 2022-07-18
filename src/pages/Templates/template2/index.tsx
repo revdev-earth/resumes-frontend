@@ -1,5 +1,12 @@
 import { LayoutPages } from "@components/principal"
-import { Education, Experiences, MyStory } from "./_components"
+import {
+  Education,
+  Experiences,
+  MyStory,
+  Projects,
+  Skills,
+  Social,
+} from "./_components"
 
 export const Template2 = () => {
   return (
@@ -33,10 +40,13 @@ export const Template2 = () => {
             </section>
             <aside>
               {/* projects */}
+              <Projects />
 
               {/* skills */}
+              <Skills />
 
               {/* social */}
+              <Social />
             </aside>
           </main>
         </div>

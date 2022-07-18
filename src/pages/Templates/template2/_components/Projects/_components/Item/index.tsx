@@ -1,20 +1,14 @@
 export const Item = ({
-  institute,
-  title,
-  date: { start, end },
+  link: { icon, name, path },
   summary,
   tecnologies,
 }: any) => {
   return (
     <div>
-      {/* institute */}
-      <div>{institute}</div>
-      {/* title */}
-      <div>{title}</div>
-      {/* date */}
-      <div>
-        {start} - {end}
-      </div>
+      {/* company */}
+      <a href={path}>
+        <div>{icon}</div> <div>{name}</div>
+      </a>
       {/* summary */}
       <div>{summary}</div>
       {/* tecnologies */}
