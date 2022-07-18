@@ -1,4 +1,5 @@
 import { LayoutPages } from "@components/principal"
+import { MyStory } from "./_components"
 
 export const Template2 = () => {
   return (
@@ -21,22 +22,8 @@ export const Template2 = () => {
           <header></header>
           <main>
             <section>
-              {/* Who I am */}
-              <div>
-                {/* Title */}
-                <div>Who I am:</div>
-
-                {/* Content */}
-                <div>
-                  Solution-seeking is my forte. With my skills and experience, I
-                  am able to achieve a wide range of complex and scalable
-                  projects.
-                  <br />
-                  <br />
-                  Through the application of new knowledge, I am always seeking
-                  to improve my services.
-                </div>
-              </div>
+              {/* MyStory */}
+              <MyStory />
 
               {/* Experiences */}
 
