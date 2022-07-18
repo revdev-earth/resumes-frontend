@@ -1,7 +1,6 @@
 import { Header } from "@components"
 import Button from "@components/Button"
 import LinksUser from "@components/LinksUsers"
-import TemplateList from "@components/TemplateList"
 import { FirstSection, SecondSection, ThirdSection } from "./styles"
 
 import Link from "next/link"
@@ -22,13 +21,6 @@ export const Home = () => (
 
       <SecondSection>
         <h3>Templates</h3>
-        <ul>
-          <TemplateList />
-          <TemplateList />
-          <TemplateList />
-          <TemplateList />
-          <TemplateList />
-        </ul>
 
         <Button primary>
           <Link href="/templates">More Templates</Link>

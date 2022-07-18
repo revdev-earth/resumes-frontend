@@ -5,6 +5,7 @@ export const Template1Container = styled.section`
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
   margin-top: 50px;
   width: 795px;
   //height: 1125px;

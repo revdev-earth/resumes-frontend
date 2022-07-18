@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export const Section1 = () => (
   <section className="flex flex-col items-center text-center w-full p-8 pb-0 bg-[#0077B6] text-white">
     <div className="flex flex-col items-center gap-9 max-w-[600px]">
@@ -6,9 +8,12 @@ export const Section1 = () => (
         You can create your CV in just a few minutes and share it with potential
         employers
       </div>
-      <button className="w-[500px] h-[100px] rounded-lg bg-[#90E0EF] shadow-xl hover:shadow-md transition text-4xl font-bold">
-        Get started
-      </button>
+
+      <Link href="templates">
+        <button className="w-[500px] h-[100px] rounded-lg bg-[#90E0EF] shadow-xl hover:shadow-md transition text-4xl font-bold">
+          Get started
+        </button>
+      </Link>
     </div>
 
     {/* Template */}

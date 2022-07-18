@@ -1,28 +1,26 @@
+import Link from "next/link"
+
 import { LayoutPages } from "@components"
-import TemplateList from "@components/TemplateList"
+
+// 20 templates
+const templates = ["", "", "", "", "", "", "", "", "", "", ""]
 
 export const Templates = () => {
+  console.log("templates : ", templates.length)
   return (
     <LayoutPages>
       <div className="flex flex-col text-center p-[50px] gap-[30px] justy">
         <h2>Templates</h2>
         <div className="flex flex-wrap justify-center gap-[30px]">
-          <TemplateList />
-          <TemplateList />
-          <TemplateList />
-          <TemplateList />
-          <TemplateList />
-          <TemplateList />
-          <TemplateList />
-          <TemplateList />
-          <TemplateList />
-          <TemplateList />
-          <TemplateList />
-          <TemplateList />
-          <TemplateList />
-          <TemplateList />
-          <TemplateList />
-          <TemplateList />
+          {templates.map(() => (
+            <Link key={Math.random() * 25} href="templates/template1">
+              <div
+                className="
+                w-[250px] h-[400px] rounded-xl
+                bg-emerald-300"
+              />
+            </Link>
+          ))}
         </div>
       </div>
     </LayoutPages>
