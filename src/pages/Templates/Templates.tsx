@@ -1,14 +1,12 @@
-import { Header } from "@components"
+import { LayoutPages } from "@components"
 import TemplateList from "@components/TemplateList"
-import { TemplatesContainer } from "./styles"
 
 export const Templates = () => {
   return (
-    <>
-      <Header />
-      <TemplatesContainer>
+    <LayoutPages>
+      <div className="flex flex-col text-center p-[50px] gap-[30px] justy">
         <h2>Templates</h2>
-        <ul>
+        <div className="flex flex-wrap justify-center gap-[30px]">
           <TemplateList />
           <TemplateList />
           <TemplateList />
@@ -25,8 +23,8 @@ export const Templates = () => {
           <TemplateList />
           <TemplateList />
           <TemplateList />
-        </ul>
-      </TemplatesContainer>
-    </>
+        </div>
+      </div>
+    </LayoutPages>
   )
 }
