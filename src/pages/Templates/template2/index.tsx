@@ -1,12 +1,5 @@
 import { LayoutPages } from "@components/principal"
-import {
-  Education,
-  Experiences,
-  MyStory,
-  Projects,
-  Skills,
-  Social,
-} from "./_components"
+import { BussinessCard, ProfesionalPerfil } from "./_components"
 
 export const Template2 = () => {
   return (
@@ -16,7 +9,7 @@ export const Template2 = () => {
           h-[500px]
           lg:w-[800px]
           md:w-[600px]
-          m-auto
+          m-auto mt-[50px]
           rounded
           bg-slate-50
         "
@@ -26,29 +19,8 @@ export const Template2 = () => {
         }}
       >
         <div>
-          <header></header>
-          <main>
-            <section>
-              {/* MyStory */}
-              <MyStory />
-
-              {/* Experiences */}
-              <Education />
-
-              {/* Education */}
-              <Experiences />
-            </section>
-            <aside>
-              {/* projects */}
-              <Projects />
-
-              {/* skills */}
-              <Skills />
-
-              {/* social */}
-              <Social />
-            </aside>
-          </main>
+          <BussinessCard />
+          <ProfesionalPerfil />
         </div>
       </div>
     </LayoutPages>
