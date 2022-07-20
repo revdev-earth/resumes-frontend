@@ -18,9 +18,11 @@ export const Item = ({
       {/* summary */}
       <div>{summary}</div>
       {/* tecnologies */}
-      <div>
+      <div className="flex gap-[15px]">
         {tecnologies.map((tecnologie, index) => (
-          <div key={index}>{tecnologie}</div>
+          <div key={index}>
+            {tecnologie},{tecnologies.length}
+          </div>
         ))}
       </div>
     </div>
