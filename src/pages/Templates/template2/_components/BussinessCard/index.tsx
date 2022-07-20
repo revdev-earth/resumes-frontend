@@ -8,13 +8,19 @@ export const BussinessCard = ({
 }) => (
   <header
     className="
-            p-[50px]"
+    flex justify-between
+    bg-emerald-200 
+      p-[25px]"
   >
-    <div>{name}</div>
-    <div>{profesion}</div>
-    <div>{email}</div>
-    <div>
-      {area} {number}
+    <div className="flex flex-col gap-[10px]">
+      <div className="text-[25px] font-bold">{name}</div>
+      <div className="text-[20px]">{profesion}</div>
+    </div>
+    <div className="flex flex-col justify-between gap-[10px]">
+      <div>{email}</div>
+      <div>
+        {area} {number}
+      </div>
     </div>
   </header>
 )

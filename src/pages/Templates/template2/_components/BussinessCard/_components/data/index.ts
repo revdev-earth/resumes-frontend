@@ -1,7 +1,7 @@
 export const bussinessCard = {
   name: "Revi Zeramir",
   profesion: "Full Stack",
-  email: "Revi Zeramir",
+  email: "revi.r@outlook.com",
   phone: {
     area: "+49",
     number: "1573143****",
