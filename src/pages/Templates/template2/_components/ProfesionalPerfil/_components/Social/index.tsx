@@ -1,10 +1,11 @@
+import { Title } from "../common"
 import { Item, items } from "./_components"
 
 export const Social = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-[15px]">
       {/* Title */}
-      <div>Social:</div>
+      <Title>Social:</Title>
 
       {/* Content */}
       {/* Social items */}

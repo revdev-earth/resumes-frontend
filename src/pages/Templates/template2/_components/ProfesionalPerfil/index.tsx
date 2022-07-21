@@ -9,7 +9,7 @@ import {
 
 export const ProfesionalPerfil = () => {
   return (
-    <main className="flex gap-[20px] p-[50px]">
+    <main className="flex gap-[20px] p-[25px] text-[16px] leading-6">
       <section className="flex flex-col gap-[50px] w-7/12">
         {/* MyStory */}
         <MyStory />

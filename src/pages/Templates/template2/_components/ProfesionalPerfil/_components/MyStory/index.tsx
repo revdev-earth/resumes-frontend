@@ -1,8 +1,10 @@
+import { Title } from "../common"
+
 export const MyStory = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-[15px]">
       {/* Title */}
-      <div>My Story:</div>
+      <Title>My Story:</Title>
 
       {/* Content */}
       <div>

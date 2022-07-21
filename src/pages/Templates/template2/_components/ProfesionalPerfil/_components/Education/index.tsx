@@ -1,14 +1,15 @@
+import { Title } from "../common"
 import { Item, items } from "./_components"
 
 export const Education = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-[25px]">
       {/* Title */}
-      <div>Education:</div>
+      <Title>Education:</Title>
 
       {/* Content */}
       {/* Education items */}
-      <div>
+      <div className="flex flex-col gap-[20px]">
         {items.map((item) => (
           <Item key={item.id} {...item} />
         ))}

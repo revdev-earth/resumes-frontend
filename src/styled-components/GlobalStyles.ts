@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     border: none;
     outline: none;
-    font-family: "Roboto";
+    font-family: "Quicksand", "Roboto";
     vertical-align: baseline;
   }
   article,
@@ -28,7 +28,6 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     line-height: 1;
-    /* background-color: ${({ theme }) => theme.colors.white1}; */
     font-size: 18px;
   }
 
@@ -90,10 +89,6 @@ export const GlobalStyle = createGlobalStyle`
 
   a {
     cursor: pointer;
-
-    /* &:visited {
-      color: ${({ theme }) => theme.colors.black};
-    } */
   }
 
   textarea {

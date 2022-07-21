@@ -6,17 +6,26 @@ export const Item = ({
   tecnologies,
 }: any) => {
   return (
-    <div>
-      {/* institute */}
-      <div>{institute}</div>
-      {/* title */}
-      <div>{title}</div>
-      {/* date */}
-      <div>
-        {start} - {end}
+    <div className="flex flex-col gap-[15px]">
+      <div className="flex justify-between font-bold">
+        <div className="flex gap-[5px]">
+          {/* institute */}
+          <div className="max-w-[120px]">{institute}</div>
+
+          <div>-</div>
+
+          {/* title */}
+          <div>{title}</div>
+          {/* date */}
+        </div>
+        <div>
+          {start} - {end}
+        </div>
       </div>
+
       {/* summary */}
       <div>{summary}</div>
+
       {/* tecnologies */}
       <div className="flex gap-[15px]">
         {tecnologies.map((tecnologie, index) => (

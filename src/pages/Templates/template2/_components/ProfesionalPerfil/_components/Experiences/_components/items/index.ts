@@ -21,7 +21,7 @@ export const items = [
   },
   {
     id: 2,
-    institute: "MAKING SENSE",
+    company: "MAKING SENSE",
     title: "UX Senior Developer",
     date: {
       start: "2020",
@@ -42,7 +42,7 @@ export const items = [
   },
   {
     id: 3,
-    institute: "WENANCE",
+    company: "WENANCE",
     title: "Front End Engineer",
     date: {
       start: "2019",
@@ -61,7 +61,7 @@ export const items = [
   },
   {
     id: 4,
-    institute: "EULAS S.A.",
+    company: "EULAS S.A.",
     title: "UI/UX Developer",
     date: {
       start: "2019",

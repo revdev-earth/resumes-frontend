@@ -1,10 +1,11 @@
+import { Title } from "../common"
 import { Item, items } from "./_components"
 
 export const Projects = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-[15px]">
       {/* Title */}
-      <div>Projects:</div>
+      <Title>Projects:</Title>
 
       {/* Content */}
       {/* Projects items */}
