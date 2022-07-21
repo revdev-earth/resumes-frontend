@@ -1,3 +1,5 @@
+import { Tecnologies } from "../../../common"
+
 export const Item = ({
   company,
   title,
@@ -27,13 +29,7 @@ export const Item = ({
       <div>{summary}</div>
 
       {/* tecnologies */}
-      <div className="flex gap-x-[5px] flex-wrap">
-        {tecnologies.map((tecnologie, index) => (
-          <div key={index}>
-            {tecnologie},{tecnologies.length}
-          </div>
-        ))}
-      </div>
+      <Tecnologies {...{ tecnologies }} />
     </div>
   )
 }

@@ -1,3 +1,5 @@
+import { Tecnologies } from "../../../common"
+
 export const Item = ({
   institute,
   title,
@@ -10,7 +12,11 @@ export const Item = ({
       <div className="flex justify-between font-bold">
         <div className="flex gap-[5px]">
           {/* institute */}
-          <div className="max-w-[120px]">{institute}</div>
+          <div className="max-w-[120px]">
+            <div className="max-w-[120px] truncate hover:text-clip hover:whitespace-normal hover:absolute bg-slate-50 z-10 hover:pb-[5px] hover:rounded">
+              {institute}
+            </div>
+          </div>
 
           <div>-</div>
 
@@ -27,13 +33,7 @@ export const Item = ({
       <div>{summary}</div>
 
       {/* tecnologies */}
-      <div className="flex gap-[15px]">
-        {tecnologies.map((tecnologie, index) => (
-          <div key={index}>
-            {tecnologie},{tecnologies.length}
-          </div>
-        ))}
-      </div>
+      <Tecnologies {...{ tecnologies }} />
     </div>
   )
 }
