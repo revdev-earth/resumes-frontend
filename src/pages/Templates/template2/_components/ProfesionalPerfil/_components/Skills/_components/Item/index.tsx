@@ -1,10 +1,10 @@
 export const Item = ({ name, years }: any) => {
   return (
-    <div>
+    <div className="flex font-medium">
       {/* name */}
-      <div>{name}</div>
+      <div className="w-[150px]">{name}</div>
       {/* years */}
-      <div>{years}</div>
+      <div className="">{years} years</div>
     </div>
   )
 }

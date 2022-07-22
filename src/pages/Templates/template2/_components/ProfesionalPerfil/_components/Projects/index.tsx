@@ -9,7 +9,7 @@ export const Projects = () => {
 
       {/* Content */}
       {/* Projects items */}
-      <div>
+      <div className="flex flex-col gap-[20px]">
         {items.map((item) => (
           <Item key={item.id} {...item} />
         ))}

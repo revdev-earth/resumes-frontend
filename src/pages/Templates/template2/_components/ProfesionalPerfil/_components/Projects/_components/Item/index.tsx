@@ -6,9 +6,9 @@ export const Item = ({
   tecnologies,
 }: any) => {
   return (
-    <div>
+    <div className="flex flex-col gap-[15px]">
       {/* company */}
-      <a href={path}>
+      <a className="font-bold" href={path}>
         <div>{icon}</div> <div>{name}</div>
       </a>
       {/* summary */}
