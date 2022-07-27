@@ -9,12 +9,6 @@ export const LinkTitleContainer = styled.div`
   width: 250px;
   transition: all 0.3s ease-in-out;
 
-  h5 {
-    color: ${({ theme }) => {
-      theme.colors.green
-    }};
-  }
-
   > svg {
     height: 24px;
     color: #fff;

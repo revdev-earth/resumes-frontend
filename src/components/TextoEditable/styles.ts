@@ -28,7 +28,7 @@ export const Content = styled.div`
   }
 `
 
-export const EditarTxt = styled.div`
+export const EditarTxt = styled.div<{ heightTxt: any }>`
   position: relative;
 
   textarea {
