@@ -15,7 +15,7 @@ import { useSelector } from "@redux"
 import { useForm } from "react-hook-form"
 
 export const Template1 = () => {
-  const { resumes: data } = useSelector((s) => s)
+  const { resumes: data } = useSelector((s) => s.app)
 
   const { control } = useForm({
     defaultValues: {
