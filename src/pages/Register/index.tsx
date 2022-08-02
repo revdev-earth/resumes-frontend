@@ -4,6 +4,7 @@ import { LayoutPages } from "@components"
 import InputGroup from "@components/InputGroup"
 import Button from "@components/Button"
 import { useState } from "react"
+import { Label } from "@components/InputGroup/Label"
 
 export const Register = () => {
   const [formCA, setFormCA] = useState({
@@ -43,7 +44,7 @@ export const Register = () => {
 
           <Form onSubmit={handleSubmit} method="post">
             <InputGroup>
-              <label htmlFor="user">User</label>
+              <Label forlabel="user" title="user" />
               <input
                 onChange={handleInputChange}
                 required
@@ -53,7 +54,7 @@ export const Register = () => {
             </InputGroup>
 
             <InputGroup>
-              <label htmlFor="email">Email</label>
+              <Label forlabel="email" title="Your Email" />
               <input
                 onChange={handleInputChange}
                 required
@@ -63,7 +64,7 @@ export const Register = () => {
             </InputGroup>
 
             <InputGroup>
-              <label htmlFor="password">password</label>
+              <Label forlabel="password" title="Password" />
               <input
                 onChange={handleInputChange}
                 required

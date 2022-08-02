@@ -4,6 +4,7 @@ import Link from "next/link"
 import { LayoutPages } from "@components"
 import InputGroup from "@components/InputGroup"
 import Button from "@components/Button"
+import { Label } from "@components/InputGroup/Label"
 
 export const Login = () => {
   const [formLogIn, setFormLogIn] = useState({
@@ -32,7 +33,7 @@ export const Login = () => {
 
           <Form onSubmit={handleSubmit} method="post">
             <InputGroup>
-              <label htmlFor="first">Email</label>
+              <Label forlabel="first" title="Your Email" />
               <input
                 type="text"
                 id="first"
@@ -43,7 +44,7 @@ export const Login = () => {
             </InputGroup>
 
             <InputGroup>
-              <label htmlFor="last">password</label>
+              <Label forlabel="last" title="Password" />
               <Message>
                 <Link href={"/forgot_password"}>Forgot password?</Link>
               </Message>
