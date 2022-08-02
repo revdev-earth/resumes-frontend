@@ -31,11 +31,11 @@ export const resetState = (state: CombinedReducers) => {
   }
 }
 
-export const saveState = (state: Store) => {
+export const saveState = ({ app }: Store) => {
   try {
     const s = {
-      auth: { ...state.auth },
-      user: { ...state.user },
+      auth: { ...app.auth },
+      user: { ...app.user },
     }
     const stringState = JSON.stringify(s)
     sessionStorage.setItem(KEY, stringState)
