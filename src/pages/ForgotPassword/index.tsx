@@ -2,6 +2,7 @@ import { Form, Container } from "./styles"
 import { LayoutPages } from "@components"
 import InputGroup from "@components/InputGroup"
 import { Label } from "@components/InputGroup/Label"
+import { Input } from "@components/InputGroup/Input"
 
 export const ForgotPassword = () => {
   return (
@@ -14,8 +15,8 @@ export const ForgotPassword = () => {
 
           <Form action="/send-data-here" method="post">
             <InputGroup>
-              <Label forlabel="first" title="Your Email" />
-              <input type="text" id="first" name="first" />
+              <Label htmlFor="first" title="Email" />
+              <Input type="text" inputId="first" nameInput="first" />
             </InputGroup>
 
             <button type="submit">Send</button>

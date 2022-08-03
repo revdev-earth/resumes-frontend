@@ -5,6 +5,7 @@ import InputGroup from "@components/InputGroup"
 import Button from "@components/Button"
 import { useState } from "react"
 import { Label } from "@components/InputGroup/Label"
+import { Input } from "@components/InputGroup/Input"
 
 export const Register = () => {
   const [formCA, setFormCA] = useState({
@@ -44,8 +45,8 @@ export const Register = () => {
 
           <Form onSubmit={handleSubmit} method="post">
             <InputGroup>
-              <Label forlabel="user" title="user" />
-              <input
+              <Label htmlFor="user" title="user" />
+              <Input
                 onChange={handleInputChange}
                 required
                 type="text"
@@ -54,8 +55,8 @@ export const Register = () => {
             </InputGroup>
 
             <InputGroup>
-              <Label forlabel="email" title="Your Email" />
-              <input
+              <Label htmlFor="email" title="Your Email" />
+              <Input
                 onChange={handleInputChange}
                 required
                 type="email"
@@ -64,8 +65,8 @@ export const Register = () => {
             </InputGroup>
 
             <InputGroup>
-              <Label forlabel="password" title="Password" />
-              <input
+              <Label htmlFor="password" title="Password" />
+              <Input
                 onChange={handleInputChange}
                 required
                 type="password"

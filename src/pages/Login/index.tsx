@@ -1,10 +1,11 @@
 import { useState } from "react"
-import { Form, Container, Message } from "./styles"
+import { Form, Container } from "./styles"
 import Link from "next/link"
 import { LayoutPages } from "@components"
 import InputGroup from "@components/InputGroup"
 import Button from "@components/Button"
 import { Label } from "@components/InputGroup/Label"
+import { Input } from "@components/InputGroup/Input"
 
 export const Login = () => {
   const [formLogIn, setFormLogIn] = useState({
@@ -33,27 +34,24 @@ export const Login = () => {
 
           <Form onSubmit={handleSubmit} method="post">
             <InputGroup>
-              <Label forlabel="first" title="Your Email" />
-              <input
+              <Label htmlFor="email" title="Your Email" />
+              <Input
                 type="text"
-                id="first"
+                nameInput="email"
                 onChange={handleInputChange}
                 required
-                name="email"
               />
             </InputGroup>
 
             <InputGroup>
-              <Label forlabel="last" title="Password" />
-              <Message>
+              <Label htmlFor="last" title="Password" />
+              <div className="absolute right-0">
                 <Link href={"/forgot_password"}>Forgot password?</Link>
-              </Message>
-              <input
-                type="password"
-                id="last"
+              </div>
+              <Input
+                nameInput="password"
                 required
                 onChange={handleInputChange}
-                name="password"
               />
             </InputGroup>
 
