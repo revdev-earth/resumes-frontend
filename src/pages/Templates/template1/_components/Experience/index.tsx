@@ -1,13 +1,12 @@
 import { Editable } from "@components"
 import { Title } from "../../styles"
-import { ExperienceContainer, ItemExperienceContanier } from "./styles"
 
 const ItemExperience = ({ enterpriseName, date, description, tecnologies }) => {
   // TODO: use tecnologies
   console.log(tecnologies)
 
   return (
-    <ItemExperienceContanier className=" flex gap-[10px] mb-2 pb-5">
+    <li className=" flex flex-col pr-2 gap-[10px] mb-2 pb-5 border-solid border-0 border-b-[1px] border-[#6BDFDC]">
       <div className="flex justify-between">
         <Editable
           stylesText="text-[24px] font-semibold"
@@ -20,13 +19,13 @@ const ItemExperience = ({ enterpriseName, date, description, tecnologies }) => {
         stylesText="text-[15px] leading-6"
         value={tecnologies.toString()}
       />
-    </ItemExperienceContanier>
+    </li>
   )
 }
 
 const Experience = ({ experience }) => {
   return (
-    <ExperienceContainer>
+    <div className="my-[40px]">
       <Title>Experience</Title>
       <ul>
         {experience.map(
@@ -43,7 +42,7 @@ const Experience = ({ experience }) => {
           }
         )}
       </ul>
-    </ExperienceContainer>
+    </div>
   )
 }
 

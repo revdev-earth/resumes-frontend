@@ -1,42 +1,20 @@
 import { Editable } from "@components"
 import { Title } from "../../styles"
-import { ItemEducationContainer } from "./styles"
-import TextoEditable from "@components/common/TextoEditable"
-
-import { useForm } from "react-hook-form"
 
 const ItemEducation = ({ instituteName, courseName, date, description }) => {
-  const { control } = useForm({
-    defaultValues: {
-      instituteName: instituteName,
-      courseName: courseName,
-      date: date,
-      description: description,
-    },
-  })
-
   return (
-    <ItemEducationContainer key={Math.random() * 10}>
-      <Editable
-        type="text"
-        titleBold
-        name="instituteName"
-        txt={instituteName}
-        control={control}
-      />
+    <li
+      className=" flex flex-col gap-[10px] mb-2 pb-5 max-w-[425px] border-solid border-0 border-b-[1px] border-[#6BDFDC]"
+      key={Math.random() * 10}
+    >
+      <Editable stylesText="text-[24px] font-semibold" value={instituteName} />
 
-      <div>
-        <Editable
-          type="text"
-          text
-          txt={courseName}
-          name="courseName"
-          control={control}
-        />
-        <Editable type="date" txt={date} name="date" control={control} />
+      <div className="flex justify-between pr-10px">
+        <Editable stylesText="text-[18px] leading-6" value={courseName} />
+        <Editable stylesText="text-[16px] font-light mr-2" value={date} />
       </div>
-      <TextoEditable txt={description} name="description" control={control} />
-    </ItemEducationContainer>
+      <Editable stylesText="text-[15px] leading-6" value={description} />
+    </li>
   )
 }
 

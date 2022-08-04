@@ -1,27 +1,15 @@
-import { ItemSkillContainer } from "./styles"
 import { Editable } from "@components"
 import { Title } from "../../styles"
 
-import { useForm } from "react-hook-form"
-
 const ItemSkill = ({ title, years }) => {
-  const { control } = useForm({
-    defaultValues: {
-      title: title,
-      years: years,
-    },
-  })
   return (
-    <ItemSkillContainer key={Math.random() * 10}>
-      <Editable type="text" txt={title} name="title" control={control} />
-      <Editable
-        type="number"
-        number
-        txt={years}
-        name="years"
-        control={control}
-      />
-    </ItemSkillContainer>
+    <div
+      key={Math.random() * 10}
+      className="flex pl-2 justify-between border-solid border-0 border-b-[1px] border-[#6BDFDC]"
+    >
+      <Editable stylesText="text-[15px] leading-6" value={title} />
+      <Editable stylesText="text-[15px] leading-6" value={years} />
+    </div>
   )
 }
 

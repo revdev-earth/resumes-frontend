@@ -1,22 +1,12 @@
 import { Title } from "../../styles"
-import { WhoIamcontainer } from "./styles"
-import TextoEditable from "@components/common/TextoEditable"
-
-import { useForm } from "react-hook-form"
+import { Editable } from "@components"
 
 const WhoIAm = ({ whoiam }) => {
-  const { control } = useForm({
-    defaultValues: {
-      whoiam: whoiam,
-    },
-    mode: "onChange",
-  })
-
   return (
-    <WhoIamcontainer>
+    <div className="flex flex-col justify-beween pl-1 ">
       <Title>Who am i</Title>
-      <TextoEditable control={control} name="whoiam" />
-    </WhoIamcontainer>
+      <Editable stylesText="text-[18px] leading-6" value={whoiam} />
+    </div>
   )
 }
 

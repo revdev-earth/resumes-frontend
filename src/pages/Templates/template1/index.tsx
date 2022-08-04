@@ -11,31 +11,17 @@ import Skills from "./_components/Skills"
 
 import { useSelector } from "@redux"
 
-// form
-import { useForm } from "react-hook-form"
-
 export const Template1 = () => {
   const { resumes: data } = useSelector((s) => s.app)
-
-  const { control } = useForm({
-    defaultValues: {
-      prueba: "",
-      profecion: data.profecion,
-    },
-    mode: "onChange",
-  })
 
   return (
     <LayoutPages>
       <Template1Container>
         <TopSection>
-          <h3>{data.name}</h3>
+          <Editable stylesText="text-[36px] font-semibold" value={data.name} />
           <Editable
-            type="text"
-            titleBold
-            txt={data.profecion}
-            name="profecion"
-            control={control}
+            stylesText="text-[24px] font-semibold"
+            value={data.profecion}
           />
         </TopSection>
         <BottomSection>
