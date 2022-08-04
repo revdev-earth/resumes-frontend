@@ -1,23 +1,38 @@
-import { Form, Container, CheckTerminos } from "./styles"
+import { Form, CheckTerminos } from "./styles"
 import Link from "next/link"
 import { LayoutPages } from "@components"
 import InputGroup from "@components/InputGroup"
 import Button from "@components/Button"
 import { useState } from "react"
 
+import { Container } from "./_components"
+import { useCreateUserMutation } from "@redux/api/actions/user"
+
 export const Register = () => {
   const [formCA, setFormCA] = useState({
-    user: "",
+    name: "",
     email: "",
     password: "",
     policy: false,
   })
 
+  const [createUser] = useCreateUserMutation()
+
+  //
+
+  // Handlers
+
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    // check information
+
+    // send information
+
     if (formCA.policy === true) {
-      console.log("Se ha creado un nuevo usuario:")
-      console.table(formCA)
+      const { name, email, password } = formCA
+
+      createUser({ name, email, password })
     }
   }
 
@@ -41,14 +56,14 @@ export const Register = () => {
         <Container>
           <h2>Create account</h2>
 
-          <Form onSubmit={handleSubmit} method="post">
+          <Form onSubmit={handleSubmit}>
             <InputGroup>
-              <label htmlFor="user">User</label>
+              <label htmlFor="name">User</label>
               <input
                 onChange={handleInputChange}
                 required
                 type="text"
-                name="user"
+                name="name"
               />
             </InputGroup>
 
