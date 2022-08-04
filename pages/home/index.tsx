@@ -1,1 +1,1 @@
-export { Home2 as default } from "@pages"
+export { Home as default } from "@pages"

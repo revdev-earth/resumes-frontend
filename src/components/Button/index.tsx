@@ -9,10 +9,8 @@ export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 //? Componente boton
-const Button = ({ type = "button", children, ...arg }: IButton) => (
+export const Button = ({ type = "button", children, ...arg }: IButton) => (
   <ButttonSelection type={type} {...arg}>
     {children}
   </ButttonSelection>
 )
-
-export default Button
