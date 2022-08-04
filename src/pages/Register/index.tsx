@@ -76,9 +76,7 @@ export const Register = () => {
               </p>
             </CheckTerminos>
 
-            <Button primary type="submit">
-              Create account
-            </Button>
+            <Button type="submit">Create account</Button>
           </Form>
           <Link href="/login">Or log in.</Link>
         </Container>

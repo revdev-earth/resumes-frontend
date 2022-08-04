@@ -51,9 +51,7 @@ export const Login = () => {
               />
             </div>
 
-            <Button primary type="submit">
-              Log in
-            </Button>
+            <Button type="submit">Log in</Button>
           </Form>
           <Link href="/create_account">
             <a>Or create account.</a>

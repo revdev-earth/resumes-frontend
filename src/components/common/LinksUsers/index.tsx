@@ -28,7 +28,7 @@ const LinksUser = () => {
             </a>
           </li>
         </ul>
-        <Button primary>resume</Button>
+        <Button>resume</Button>
       </Content>
       <div onClick={() => setAll(!all)}></div>
     </LinkUserContainer>
