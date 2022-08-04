@@ -25,6 +25,7 @@ export const Editable = ({
       {availableToEdit ? (
         <textarea
           className={`
+            border-solid rounded-md border-1 border-[#6BDFDC]
             ${stylesText}
           `}
           style={{
@@ -38,7 +39,10 @@ export const Editable = ({
         />
       ) : (
         <div
-          className={stylesText}
+          className={`
+          border-solid rounded-md border-1 border-transparent
+          ${stylesText}
+        `}
           ref={refElement}
           onDoubleClick={handleClickActiveEdition}
         >

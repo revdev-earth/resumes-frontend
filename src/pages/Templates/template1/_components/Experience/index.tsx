@@ -7,11 +7,19 @@ const ItemExperience = ({ enterpriseName, date, description, tecnologies }) => {
   console.log(tecnologies)
 
   return (
-    <ItemExperienceContanier>
-      <Editable stylesText="text-[24px] font-medium" value={enterpriseName} />
-      <Editable stylesText="text-[24px] font-medium" value={date} />
-      <Editable stylesText="text-[24px] font-medium" value={description} />
-      <Editable stylesText="text-[24px] font-medium" value={description} />
+    <ItemExperienceContanier className=" flex gap-[10px] mb-2 pb-5">
+      <div className="flex justify-between">
+        <Editable
+          stylesText="text-[24px] font-semibold"
+          value={enterpriseName}
+        />
+        <Editable stylesText="text-[16px] font-light mr-2" value={date} />
+      </div>
+      <Editable stylesText="text-[18px] leading-6" value={description} />
+      <Editable
+        stylesText="text-[15px] leading-6"
+        value={tecnologies.toString()}
+      />
     </ItemExperienceContanier>
   )
 }
