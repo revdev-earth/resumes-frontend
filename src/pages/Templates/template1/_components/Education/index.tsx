@@ -1,7 +1,7 @@
 import { Editable } from "@components"
 import { Title } from "../../styles"
 import { ItemEducationContainer } from "./styles"
-import TextoEditable from "@components/TextoEditable"
+import TextoEditable from "@components/common/TextoEditable"
 
 import { useForm } from "react-hook-form"
 

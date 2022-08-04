@@ -1,7 +1,7 @@
 import { ItemProjectContainer, ProjectsContainer } from "./styles"
 import { Title } from "../../styles"
-import LinkTitle from "@components/LinkTitle"
-import TextoEditable from "@components/TextoEditable"
+import LinkTitle from "@components/common/LinkTitle"
+import TextoEditable from "@components/common/TextoEditable"
 import { useForm } from "react-hook-form"
 
 const ItemProject = ({ title, description, link }) => {

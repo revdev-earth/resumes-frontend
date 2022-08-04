@@ -1,5 +1,5 @@
 import { LinkUserContainer, Content } from "./styles"
-import Button from "../Button"
+import { Button } from "../Button"
 import { useState } from "react"
 import ImgUser from "@public/assets/user.svg"
 import ImgLinkedin from "@public/assets/linkedin.svg"
