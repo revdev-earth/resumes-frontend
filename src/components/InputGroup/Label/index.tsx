@@ -1,6 +1,6 @@
-export const Label = ({ forlabel, title }) => {
+export const Label = ({ title, ...arg }) => {
   return (
-    <label htmlFor={forlabel} className=" top-0 left-0 text-base origin-left">
+    <label className=" top-0 left-0 text-base origin-left" {...arg}>
       {title}
     </label>
   )

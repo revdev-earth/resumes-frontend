@@ -1,4 +1,3 @@
-import { LinkTitleContainer } from "./styles"
 import { Editable } from "@components"
 import { useEffect, useState } from "react"
 import LinkImage from "@public/assets/link.svg"
@@ -22,9 +21,10 @@ const LinkTitle = ({ title, link }) => {
   }
 
   return (
-    <LinkTitleContainer>
-      <LinkImage alt={link} layout="fill" />
+    <div className="flex items-center gap-0 mt-15px pl-1  cursor-pointer ">
+      <LinkImage className="h-6" alt={link} layout="fill" />
       <Editable
+        className="mt-0"
         bold
         type="text"
         name="link"
@@ -32,7 +32,7 @@ const LinkTitle = ({ title, link }) => {
         control={control}
         onChange={HandleInputChange}
       />
-    </LinkTitleContainer>
+    </div>
   )
 }
 
