@@ -1,11 +1,8 @@
-import { Form, Container, CheckTerminos } from "./styles"
-import Link from "next/link"
-import { LayoutPages } from "@components"
-import InputGroup from "@components/InputGroup"
-import Button from "@components/Button"
 import { useState } from "react"
-import { Label } from "@components/InputGroup/Label"
-import { Input } from "@components/InputGroup/Input"
+import Link from "next/link"
+
+import { Form, Container, CheckTerminos } from "./styles"
+import { Button, Field, LayoutPages } from "@components"
 
 export const Register = () => {
   const [formCA, setFormCA] = useState({
@@ -44,35 +41,29 @@ export const Register = () => {
           <h2>Create account</h2>
 
           <Form onSubmit={handleSubmit} method="post">
-            <InputGroup>
-              <Label htmlFor="user" title="user" />
-              <Input
-                onChange={handleInputChange}
-                required
-                type="text"
-                name="user"
-              />
-            </InputGroup>
+            <Field
+              name="user"
+              label="user"
+              type="text"
+              onChange={handleInputChange}
+              required
+            />
 
-            <InputGroup>
-              <Label htmlFor="email" title="Your Email" />
-              <Input
-                onChange={handleInputChange}
-                required
-                type="email"
-                name="email"
-              />
-            </InputGroup>
+            <Field
+              name="email"
+              label="Email"
+              type="email"
+              onChange={handleInputChange}
+              required
+            />
 
-            <InputGroup>
-              <Label htmlFor="password" title="Password" />
-              <Input
-                onChange={handleInputChange}
-                required
-                type="password"
-                name="password"
-              />
-            </InputGroup>
+            <Field
+              name="password"
+              label="password"
+              type="password"
+              onChange={handleInputChange}
+              required
+            />
 
             <CheckTerminos>
               <input
