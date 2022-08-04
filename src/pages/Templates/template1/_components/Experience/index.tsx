@@ -1,25 +1,17 @@
 import { Editable } from "@components"
 import { Title } from "../../styles"
 import { ExperienceContainer, ItemExperienceContanier } from "./styles"
-import TextoEditable from "@components/common/TextoEditable"
-import { useForm } from "react-hook-form"
 
 const ItemExperience = ({ enterpriseName, date, description, tecnologies }) => {
-  const { control } = useForm({
-    defaultValues: {
-      enterpriseName: enterpriseName,
-      date: date,
-      description: description,
-      tecnologies: tecnologies,
-    },
-    mode: "onChange",
-  })
+  // TODO: use tecnologies
+  console.log(tecnologies)
 
   return (
     <ItemExperienceContanier>
-      <Editable type="text" titleBold name="enterpriseName" control={control} />
-      <Editable type="date" txt={date} name="date" control={control} />
-      <TextoEditable txt={description} name="description" control={control} />
+      <Editable stylesText="text-[24px] font-medium" value={enterpriseName} />
+      <Editable stylesText="text-[24px] font-medium" value={date} />
+      <Editable stylesText="text-[24px] font-medium" value={description} />
+      <Editable stylesText="text-[24px] font-medium" value={description} />
     </ItemExperienceContanier>
   )
 }

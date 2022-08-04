@@ -1,49 +1,50 @@
-import { Editable as EditableStyled } from "./styles"
-import { useState } from "react"
-import Edit from "@public/assets/pen-to-square-solid.svg"
-import Check from "@public/assets/check-solid.svg"
-
 //field
-import { useController } from "react-hook-form"
+import { useEdition } from "./_components"
 
-export type InputProps = {
-  type?: "text" | "textarea" | "date" | "number"
-  txt?: string
-  titleBold?: boolean
-  text?: boolean
-  date?: boolean
-  value?: string
-  number?: number
-  name?: string
-  control?: any
+interface EditableProps {
+  value: string
+  stylesText?: string
 }
 
-export const Editable = ({ type = "text", name, control, ...arg }) => {
-  const [editar, setEditar] = useState(false)
-  const { field } = useController({ name, control })
-
-  const handleEdit = () => {
-    setEditar(!editar)
-  }
-
-  const handleCheck = () => {
-    setEditar(!editar)
-  }
+export const Editable = ({
+  value: valueIncomming,
+  stylesText,
+}: EditableProps) => {
+  const {
+    availableToEdit,
+    handleClickActiveEdition,
+    handleClickSave,
+    value,
+    handleWriting,
+    sizes,
+    refElement,
+  } = useEdition(valueIncomming)
 
   return (
-    <EditableStyled {...arg}>
-      {editar ? (
-        <div>
-          <input type={type} {...field} />
-
-          <Check alt="check" onClick={handleCheck} />
-        </div>
+    <>
+      {availableToEdit ? (
+        <textarea
+          className={`
+            ${stylesText}
+          `}
+          style={{
+            width: sizes.offsetWidth,
+            height: sizes.offsetHeight,
+            resize: "none",
+          }}
+          onChange={handleWriting}
+          onDoubleClick={handleClickSave}
+          value={value}
+        />
       ) : (
-        <p>
-          {field.value}
-          <Edit alt="edit" onClick={handleEdit} />
-        </p>
+        <div
+          className={stylesText}
+          ref={refElement}
+          onDoubleClick={handleClickActiveEdition}
+        >
+          {value}
+        </div>
       )}
-    </EditableStyled>
+    </>
   )
 }

@@ -18,14 +18,6 @@ export const ItemExperienceContanier = styled.div`
     border-bottom: none;
   }
 
-  textarea {
-    border-bottom: 1px solid ${({ theme }) => theme.colors.green};
-
-    font-size: 16px;
-    width: 425px;
-    background-color: transparent;
-  }
-
   input:nth-child(2) {
     width: 100px;
     background-color: transparent;
