@@ -28,10 +28,4 @@ export const CheckTerminos = styled.div`
   gap: 15px;
   margin-bottom: 30px;
   text-align: left;
-
-  input {
-    width: 30px;
-    height: 30px;
-    border: 2px solid ${({ theme }) => theme.colors.black};
-  }
 `

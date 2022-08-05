@@ -25,6 +25,7 @@ export const Editable = ({
       {availableToEdit ? (
         <textarea
           className={`
+            bg-transparent
             border-solid rounded-md border-[1px] border-[#6BDFDC]
             ${stylesText}
           `}
