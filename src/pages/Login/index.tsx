@@ -1,7 +1,6 @@
 import { useState } from "react"
 import Link from "next/link"
 
-import { Form, Container } from "./styles"
 import { LayoutPages, Button, Field } from "@components"
 
 export const Login = () => {
@@ -26,10 +25,16 @@ export const Login = () => {
   return (
     <LayoutPages>
       <div className="m-auto">
-        <Container>
+        <div
+          className="
+              flex flex-col gap-[50px]
+              m-[50px] px-[50px] py-[50px] 
+              w-[650px] rounded-3xl shadow-container 
+              aling-center justify-center text-center"
+        >
           <h2>Log In</h2>
 
-          <Form onSubmit={handleSubmit} method="post">
+          <form className="flex flex-col" onSubmit={handleSubmit} method="post">
             <Field
               name="email"
               label="Email"
@@ -52,11 +57,11 @@ export const Login = () => {
             </div>
 
             <Button type="submit">Log in</Button>
-          </Form>
+          </form>
           <Link href="/create_account">
             <a>Or create account.</a>
           </Link>
-        </Container>
+        </div>
       </div>
     </LayoutPages>
   )
