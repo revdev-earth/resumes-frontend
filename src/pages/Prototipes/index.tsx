@@ -1,12 +1,11 @@
 import { LayoutPages } from "@components"
-import { Content } from "./styles"
 
 export const Prototipes = () => {
   return (
     <LayoutPages>
-      <Content>
+      <div className="flex flex-col gap-[50px]">
         <h2>Prototype</h2>
-      </Content>
+      </div>
     </LayoutPages>
   )
 }
