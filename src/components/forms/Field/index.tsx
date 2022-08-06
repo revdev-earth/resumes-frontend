@@ -1,12 +1,25 @@
-import * as React from "react"
-import { useController, UseControllerProps } from "react-hook-form"
+import { InputHTMLAttributes } from "react"
 
-export const Field = (props: UseControllerProps<any>) => {
-  const { field } = useController(props)
+interface FieldProps extends InputHTMLAttributes<HTMLInputElement> {
+  name: string
+  label: string
+  type: string
+  value?: string
+}
 
+export const Field = ({ name, label, type, value, ...arg }: FieldProps) => {
   return (
-    <div>
-      <input {...field} placeholder={props.name} />
+    <div className="relative flex flex-col items-start">
+      <label htmlFor={name} className=" top-0 left-0 text-base origin-left">
+        {label}
+      </label>
+      <input
+        className="mb-4 p-4 w-full bg-transparent border-solid rounded-md border-2 border-black"
+        name={name}
+        type={type}
+        value={value}
+        {...arg}
+      />
     </div>
   )
 }

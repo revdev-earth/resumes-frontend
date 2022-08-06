@@ -1,32 +1,31 @@
 import { Editable } from "@components"
 import { Title } from "../../styles"
-import { ExperienceContainer, ItemExperienceContanier } from "./styles"
-import TextoEditable from "@components/TextoEditable"
-import { useForm } from "react-hook-form"
 
 const ItemExperience = ({ enterpriseName, date, description, tecnologies }) => {
-  const { control } = useForm({
-    defaultValues: {
-      enterpriseName: enterpriseName,
-      date: date,
-      description: description,
-      tecnologies: tecnologies,
-    },
-    mode: "onChange",
-  })
+  // TODO: use tecnologies
+  console.log(tecnologies)
 
   return (
-    <ItemExperienceContanier>
-      <Editable type="text" titleBold name="enterpriseName" control={control} />
-      <Editable type="date" txt={date} name="date" control={control} />
-      <TextoEditable txt={description} name="description" control={control} />
-    </ItemExperienceContanier>
+    <li className=" flex flex-col pr-2 gap-[10px] mb-2 pb-5 border-solid border-0 border-b-[1px] border-[#6BDFDC]">
+      <div className="flex justify-between">
+        <Editable
+          stylesText="text-[24px] font-semibold"
+          value={enterpriseName}
+        />
+        <Editable stylesText="text-[16px] font-light mr-2" value={date} />
+      </div>
+      <Editable stylesText="text-[18px] leading-6" value={description} />
+      <Editable
+        stylesText="text-[15px] leading-6"
+        value={tecnologies.toString()}
+      />
+    </li>
   )
 }
 
 const Experience = ({ experience }) => {
   return (
-    <ExperienceContainer>
+    <div className="my-[40px]">
       <Title>Experience</Title>
       <ul>
         {experience.map(
@@ -43,7 +42,7 @@ const Experience = ({ experience }) => {
           }
         )}
       </ul>
-    </ExperienceContainer>
+    </div>
   )
 }
 

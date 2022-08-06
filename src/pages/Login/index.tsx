@@ -1,9 +1,7 @@
 import { useState } from "react"
-import { Form, Container, Message } from "./styles"
 import Link from "next/link"
-import { LayoutPages } from "@components"
-import InputGroup from "@components/InputGroup"
-import Button from "@components/Button"
+
+import { LayoutPages, Button, Field } from "@components"
 
 export const Login = () => {
   const [formLogIn, setFormLogIn] = useState({
@@ -27,43 +25,43 @@ export const Login = () => {
   return (
     <LayoutPages>
       <div className="m-auto">
-        <Container>
+        <div
+          className="
+              flex flex-col gap-[50px]
+              m-[50px] px-[50px] py-[50px] 
+              w-[650px] rounded-3xl shadow-container 
+              aling-center justify-center text-center"
+        >
           <h2>Log In</h2>
 
-          <Form onSubmit={handleSubmit} method="post">
-            <InputGroup>
-              <label htmlFor="first">Email</label>
-              <input
-                type="text"
-                id="first"
-                onChange={handleInputChange}
-                required
-                name="email"
-              />
-            </InputGroup>
+          <form className="flex flex-col" onSubmit={handleSubmit} method="post">
+            <Field
+              name="email"
+              label="Email"
+              type="email"
+              onChange={handleInputChange}
+              required
+            />
 
-            <InputGroup>
-              <label htmlFor="last">password</label>
-              <Message>
+            <div className="relative">
+              <div className="absolute right-0">
                 <Link href={"/forgot_password"}>Forgot password?</Link>
-              </Message>
-              <input
-                type="password"
-                id="last"
-                required
-                onChange={handleInputChange}
+              </div>
+              <Field
                 name="password"
+                label="Password"
+                type="password"
+                onChange={handleInputChange}
+                required
               />
-            </InputGroup>
+            </div>
 
-            <Button primary type="submit">
-              Log in
-            </Button>
-          </Form>
+            <Button type="submit">Log in</Button>
+          </form>
           <Link href="/create_account">
             <a>Or create account.</a>
           </Link>
-        </Container>
+        </div>
       </div>
     </LayoutPages>
   )

@@ -1,28 +1,21 @@
-import { ItemProjectContainer, ProjectsContainer } from "./styles"
 import { Title } from "../../styles"
-import LinkTitle from "@components/LinkTitle"
-import TextoEditable from "@components/TextoEditable"
-import { useForm } from "react-hook-form"
+import { Editable, LinkTitle } from "@components"
 
 const ItemProject = ({ title, description, link }) => {
-  const { control } = useForm({
-    defaultValues: {
-      link: link,
-      title: title,
-      description: description,
-    },
-  })
   return (
-    <ItemProjectContainer key={Math.random() * 10}>
+    <li
+      className=" flex flex-col gap-[5px] mb-2 pb-5 max-w-[425px] border-solid border-0 border-b-[1px] border-[#6BDFDC] "
+      key={Math.random() * 10}
+    >
       <LinkTitle title={title} link={link} />
-      <TextoEditable txt={description} name="description" control={control} />
-    </ItemProjectContainer>
+      <Editable stylesText="text-[18px] leading-6" value={description} />
+    </li>
   )
 }
 
 const Projects = ({ projects }) => {
   return (
-    <ProjectsContainer>
+    <div className="mb-3">
       <Title>Projects</Title>
       <div>
         {projects.map(({ title, description, link }) => (
@@ -34,7 +27,7 @@ const Projects = ({ projects }) => {
           />
         ))}
       </div>
-    </ProjectsContainer>
+    </div>
   )
 }
 
