@@ -1,4 +1,4 @@
-import { Title } from "../../styles"
+import { Title } from "../."
 import { Editable } from "@components"
 
 const WhoIAm = ({ whoiam }) => {

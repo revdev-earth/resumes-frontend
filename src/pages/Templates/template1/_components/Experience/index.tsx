@@ -1,5 +1,5 @@
 import { Editable } from "@components"
-import { Title } from "../../styles"
+import { Title } from "../."
 
 const ItemExperience = ({ enterpriseName, date, description, tecnologies }) => {
   // TODO: use tecnologies

@@ -1,4 +1,4 @@
-import { Title } from "../../styles"
+import { Title } from "../."
 import ImgLinkedin from "@public/assets/linkedin.svg"
 import ImgGithub from "@public/assets/github.svg"
 

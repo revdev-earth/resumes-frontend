@@ -1,4 +1,4 @@
-import { Title } from "../../styles"
+import { Title } from "../."
 import { Editable, LinkTitle } from "@components"
 
 const ItemProject = ({ title, description, link }) => {

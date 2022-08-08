@@ -62,8 +62,8 @@ export const Login = () => {
             />
 
             <div className="relative">
-              <div className="absolute right-0">
-                <Link href={"/forgot_password"}>Forgot password?</Link>
+              <div className="absolute right-0 z-10">
+                <Link href="forgot_password">Forgot password?</Link>
               </div>
               <Field
                 name="password"
