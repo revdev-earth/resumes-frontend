@@ -1,6 +1,8 @@
 import Link from "next/link"
 
 import { LayoutPages } from "@components"
+import { useResumesWithUserIdQuery } from "@redux/api/actions"
+import { useEffect } from "react"
 
 // 20 templates
 const templates = [
@@ -20,6 +22,13 @@ const templates = [
 
 export const Templates = () => {
   console.log("templates : ", templates.length)
+
+  const { isSuccess } = useResumesWithUserIdQuery({})
+
+  useEffect(() => {
+    console.log("resumes sucess ", isSuccess)
+  }, [isSuccess])
+
   return (
     <LayoutPages>
       <div className="flex flex-col text-center p-[50px] gap-[30px] justy">

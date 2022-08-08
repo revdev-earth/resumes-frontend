@@ -3,10 +3,14 @@ import { api } from "@redux/api"
 const resume = api.injectEndpoints({
   endpoints: (build) => ({
     //
-    resume: build.query({
+    resumes: build.query({
+      query: () => ({ url: `resumes` }),
+    }),
+    //
+    resumesWithUserId: build.query({
       query: () => ({ url: `resumes` }),
     }),
   }),
 })
 
-export const { useResumeQuery, endpoints: resumeEndpoints } = resume
+export const { useResumesWithUserIdQuery, endpoints: resumeEndpoints } = resume

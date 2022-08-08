@@ -1,18 +1,19 @@
 // libraries
+import { Reducer, AnyAction } from "redux"
 import {
   TypedUseSelectorHook,
   useDispatch as useDispatchRedux,
   useSelector as useSelectorRedux,
 } from "react-redux"
-import { Reducer, AnyAction } from "redux"
+
 import { configureStore } from "@reduxjs/toolkit"
 import { setupListeners } from "@reduxjs/toolkit/query"
 
 import { loadState } from "./browserStorage"
-import type { CombinedReducers } from "./reducers"
 import reducers from "./reducers"
-
 import { api } from "./api"
+
+import type { CombinedReducers } from "./reducers"
 
 export const isDevelopment = Boolean(process.env.NODE_ENV === "development")
 
@@ -30,9 +31,9 @@ export const store = configureStore({
   preloadedState,
 })
 
-export type Store = ReturnType<typeof store.getState>
-
 setupListeners(store.dispatch)
+
+export type Store = ReturnType<typeof store.getState>
 
 export type Dispatch = typeof store.dispatch
 
