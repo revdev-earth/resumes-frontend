@@ -3,6 +3,18 @@ module.exports = {
   content: ["./pages/**/*.tsx", "./src/**/*.tsx"],
   theme: {
     extend: {
+      colors: {
+        "p-black": "#333333",
+        "p-gray": "#DDDDDD",
+        "p-green": "#6BDFDC",
+        "p-blue": "#0077B6",
+        success: "#42C576",
+        danger: "#FF637D",
+        warning: "#FFF87F",
+        "p-w-1": "#F1F1F1",
+        "p-w-2": "#F3F3F3",
+      },
+
       keyframes: {
         fadeIn: {
           "0%": { opacity: 0 },

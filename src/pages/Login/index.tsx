@@ -1,18 +1,28 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 
 import { LayoutPages, Button, Field } from "@components"
+import { useLoginMutation } from "@redux/api/actions/auth"
+import Router from "next/router"
 
 export const Login = () => {
   const [formLogIn, setFormLogIn] = useState({
-    email: "",
+    username: "",
     password: "",
   })
+
+  const [login, { isSuccess }] = useLoginMutation()
+
+  // handlers
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    console.log(`Email: ${formLogIn.email}, password: ${formLogIn.password}`)
+    console.log(
+      `username: ${formLogIn.username}, password: ${formLogIn.password}`
+    )
+
+    login(formLogIn)
   }
 
   const handleInputChange = (event) => {
@@ -21,6 +31,14 @@ export const Login = () => {
       [event.target.name]: event.target.value,
     })
   }
+
+  // effects
+
+  useEffect(() => {
+    isSuccess && Router.push("/templates")
+  }, [isSuccess])
+
+  // return
 
   return (
     <LayoutPages>
@@ -34,11 +52,11 @@ export const Login = () => {
         >
           <h2>Log In</h2>
 
-          <form className="flex flex-col" onSubmit={handleSubmit} method="post">
+          <form className="flex flex-col" onSubmit={handleSubmit}>
             <Field
-              name="email"
-              label="Email"
-              type="email"
+              name="username"
+              label="User / Email"
+              type="text"
               onChange={handleInputChange}
               required
             />

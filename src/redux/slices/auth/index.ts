@@ -1,22 +1,35 @@
 // libraries
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, isAnyOf } from "@reduxjs/toolkit"
 
 // initialState
 import { initialState } from "@redux/initialState"
+import { authEndpoints } from "@redux/api/actions/auth"
+
+// endpoints
 
 // Slice
+
+const matchAuth = isAnyOf(
+  authEndpoints.login.matchFulfilled,
+  authEndpoints.signup.matchFulfilled
+)
 
 const authSlice = createSlice({
   name: "auth",
   initialState: initialState.auth,
   reducers: {
-    setAuthToken: (state, action) => {
+    set_auth_token: (state, action) => {
       state.token = action.payload
     },
-    deleteAuthToken: () => initialState.auth,
+    delete_token: () => initialState.auth,
+  },
+  extraReducers: (b) => {
+    b.addMatcher(matchAuth, (state, action) => {
+      state.token = action.payload.access_token
+    })
   },
 })
 
-export const { setAuthToken, deleteAuthToken } = authSlice.actions
+export const { set_auth_token, delete_token } = authSlice.actions
 
 export default authSlice.reducer

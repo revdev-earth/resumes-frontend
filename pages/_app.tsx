@@ -1,12 +1,15 @@
 // libraries
 import Head from "next/head"
+import { Provider } from "react-redux"
 
 // tailwind
 import "@global/tailwind.css"
 
 // config
 import { ProviderStyled } from "@styled-components"
-import { ProviderRedux } from "@redux"
+import { store, subscribeStore } from "@redux"
+
+subscribeStore(store)
 
 // JSX
 
@@ -21,11 +24,11 @@ export default function App({ Component, pageProps }) {
         />
       </Head>
 
-      <ProviderRedux>
+      <Provider store={store}>
         <ProviderStyled>
           <Component {...pageProps} />
         </ProviderStyled>
-      </ProviderRedux>
+      </Provider>
     </>
   )
 }
