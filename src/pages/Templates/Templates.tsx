@@ -1,12 +1,14 @@
 import Link from "next/link"
 
 import { LayoutPages } from "@components"
+// import plusCircle from "@public/circle-plus-solid.svg"
+import Image from "next/image"
 import { useResumesWithUserIdQuery } from "@redux/api/actions"
 import { useEffect } from "react"
 
 // 20 templates
 const templates = [
-  {
+  /*   {
     path: "template1",
   },
   {
@@ -17,7 +19,7 @@ const templates = [
   },
   {
     // path: "template2",
-  },
+  }, */
   {
     skill: "add",
   },
@@ -37,26 +39,38 @@ export const Templates = () => {
       <div className="flex flex-col text-center p-[50px] gap-[30px] justy">
         <h2>Templates</h2>
         <div className="flex flex-wrap justify-center gap-[30px]">
-          {templates.map(({ path, skill }) => {
-            if (skill)
-              return (
-                <div
-                  className="
-                    w-[250px] h-[400px] rounded-xl
-                  bg-emerald-300 cursor-pointer"
-                />
-              )
+          {templates.map(
+            ({ path, skill }: { path?: string; skill: string }) => {
+              if (skill)
+                return (
+                  <div
+                    className="
+                      flex justify-center align-center
+                      w-[250px] h-[400px] rounded-xl
+                      bg-gradient-to-r from-emerald-300 to-p-w-1 
+                      cursor-pointer"
+                  >
+                    <Image
+                      alt="image"
+                      src="/assets/circle-plus-solid.svg"
+                      className=""
+                      height={80}
+                      width={80}
+                    />
+                  </div>
+                )
 
-            return (
-              <Link key={path} href={`templates/${path}`}>
-                <div
-                  className="
+              return (
+                <Link key={path} href={`templates/${path}`}>
+                  <div
+                    className="
                 w-[250px] h-[400px] rounded-xl
                 bg-emerald-300 cursor-pointer"
-                />
-              </Link>
-            )
-          })}
+                  />
+                </Link>
+              )
+            }
+          )}
         </div>
       </div>
     </LayoutPages>
