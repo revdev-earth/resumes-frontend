@@ -18,6 +18,9 @@ const templates = [
   {
     // path: "template2",
   },
+  {
+    skill: "add",
+  },
 ]
 
 export const Templates = () => {
@@ -34,15 +37,26 @@ export const Templates = () => {
       <div className="flex flex-col text-center p-[50px] gap-[30px] justy">
         <h2>Templates</h2>
         <div className="flex flex-wrap justify-center gap-[30px]">
-          {templates.map(({ path }) => (
-            <Link key={path} href={`templates/${path}`}>
-              <div
-                className="
+          {templates.map(({ path, skill }) => {
+            if (skill)
+              return (
+                <div
+                  className="
+                    w-[250px] h-[400px] rounded-xl
+                  bg-emerald-300 cursor-pointer"
+                />
+              )
+
+            return (
+              <Link key={path} href={`templates/${path}`}>
+                <div
+                  className="
                 w-[250px] h-[400px] rounded-xl
-                bg-emerald-300"
-              />
-            </Link>
-          ))}
+                bg-emerald-300 cursor-pointer"
+                />
+              </Link>
+            )
+          })}
         </div>
       </div>
     </LayoutPages>
