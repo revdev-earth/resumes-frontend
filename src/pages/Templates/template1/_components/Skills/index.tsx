@@ -1,5 +1,5 @@
 import { Editable } from "@components"
-import { Title } from "../../styles"
+import { Title } from "../."
 
 const ItemSkill = ({ title, years }) => {
   return (
