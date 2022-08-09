@@ -1,33 +1,22 @@
+import { useEffect } from "react"
 import Link from "next/link"
 
 import { LayoutPages } from "@components"
-// import plusCircle from "@public/circle-plus-solid.svg"
-import Image from "next/image"
 import { useResumesWithUserIdQuery } from "@redux/api/endpoints"
-import { useEffect } from "react"
 
-// 20 templates
-const templates = [
+import { AddTemplate } from "./_components"
+
+// resumes
+const resumes = [
   /*   {
-    path: "template1",
-  },
-  {
-    path: "template2",
-  },
-  {
-    // path: "template1",
-  },
-  {
-    // path: "template2",
-  }, */
+    path: "template",
+  },  */
   {
     skill: "add",
   },
 ]
 
 export const Templates = () => {
-  console.log("templates : ", templates.length)
-
   const { isSuccess } = useResumesWithUserIdQuery({})
 
   useEffect(() => {
@@ -37,40 +26,21 @@ export const Templates = () => {
   return (
     <LayoutPages>
       <div className="flex flex-col text-center p-[50px] gap-[30px] justy">
-        <h2>Templates</h2>
+        <h2>Resumes</h2>
         <div className="flex flex-wrap justify-center gap-[30px]">
-          {templates.map(
-            ({ path, skill }: { path?: string; skill: string }) => {
-              if (skill)
-                return (
-                  <div
-                    className="
-                      flex justify-center align-center
-                      w-[250px] h-[400px] rounded-xl
-                      bg-gradient-to-r from-emerald-300 to-p-w-1 
-                      cursor-pointer"
-                  >
-                    <Image
-                      alt="image"
-                      src="/assets/circle-plus-solid.svg"
-                      className=""
-                      height={80}
-                      width={80}
-                    />
-                  </div>
-                )
+          {resumes.map(({ path, skill }: { path?: string; skill: string }) => {
+            if (skill) return <AddTemplate />
 
-              return (
-                <Link key={path} href={`templates/${path}`}>
-                  <div
-                    className="
+            return (
+              <Link key={path} href={`templates/${path}`}>
+                <div
+                  className="
                 w-[250px] h-[400px] rounded-xl
                 bg-emerald-300 cursor-pointer"
-                  />
-                </Link>
-              )
-            }
-          )}
+                />
+              </Link>
+            )
+          })}
         </div>
       </div>
     </LayoutPages>
