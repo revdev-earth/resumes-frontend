@@ -3,7 +3,7 @@ import { createSlice, isAnyOf } from "@reduxjs/toolkit"
 
 // initialState
 import { initialState } from "@redux/initialState"
-import { authEndpoints } from "@redux/api/actions/auth"
+import { authEndpoints } from "@redux/api/endpoints/auth"
 
 // endpoints
 

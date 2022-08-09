@@ -56,7 +56,7 @@ export const Header = () => {
                   "
               >
                 <Link href="/login">Log In</Link>
-                <Link href="/register">Register</Link>
+                <Link href="/sing_up">Sing up</Link>
               </div>
             </nav>
           )}

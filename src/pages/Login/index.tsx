@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 
 import { LayoutPages, Button, Field } from "@components"
-import { useLoginMutation } from "@redux/api/actions/auth"
+import { useLoginMutation } from "@redux/api/endpoints/auth"
 import Router from "next/router"
 
 export const Login = () => {

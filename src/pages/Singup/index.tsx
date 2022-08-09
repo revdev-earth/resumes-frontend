@@ -1,21 +1,31 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
+import Router from "next/router"
 
 import { Button, Field, LayoutPages } from "@components"
+import { useSignupMutation } from "@redux/api/endpoints/auth"
 
-export const Register = () => {
+export const Singup = () => {
+  const [singup, { isSuccess }] = useSignupMutation()
+
   const [formCA, setFormCA] = useState({
-    user: "",
+    name: "",
     email: "",
     password: "",
     policy: false,
   })
+
+  // handlers
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (formCA.policy === true) {
       console.log("Se ha creado un nuevo usuario:")
       console.table(formCA)
+      // TODO: hacer una tarea para agrergar policy a la tabla de me
+      // eslint-disable-next-line no-unused-vars
+      const { policy, ...body } = formCA
+      singup(body)
     }
   }
 
@@ -33,6 +43,12 @@ export const Register = () => {
     })
   }
 
+  // efects
+
+  useEffect(() => {
+    isSuccess && Router.push("templates")
+  }, [isSuccess])
+
   return (
     <LayoutPages>
       <div className="m-auto">
@@ -47,8 +63,8 @@ export const Register = () => {
 
           <form className="flex flex-col" onSubmit={handleSubmit} method="post">
             <Field
-              name="user"
-              label="user"
+              name="name"
+              label="name"
               type="text"
               onChange={handleInputChange}
               required
