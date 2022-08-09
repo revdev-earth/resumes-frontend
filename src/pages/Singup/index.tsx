@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import Router from "next/router"
 
 import { Button, Field, LayoutPages } from "@components"
 import { useSignupMutation } from "@redux/api/endpoints/auth"
-import Router from "next/router"
 
 export const Singup = () => {
   const [singup, { isSuccess }] = useSignupMutation()
