@@ -3,7 +3,7 @@ import Link from "next/link"
 import { LayoutPages } from "@components"
 // import plusCircle from "@public/circle-plus-solid.svg"
 import Image from "next/image"
-import { useResumesWithUserIdQuery } from "@redux/api/actions"
+import { useResumesWithUserIdQuery } from "@redux/api/endpoints"
 import { useEffect } from "react"
 
 // 20 templates
