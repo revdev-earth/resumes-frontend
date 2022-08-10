@@ -11,6 +11,7 @@ export const Login = () => {
     password: "",
   })
 
+  const [username_type, set_type_username] = useState<"text" | "email">("text")
   const [login, { isSuccess }] = useLoginMutation()
 
   // handlers
@@ -26,10 +27,10 @@ export const Login = () => {
   }
 
   const handleInputChange = (event) => {
-    setFormLogIn({
-      ...formLogIn,
+    setFormLogIn((s) => ({
+      ...s,
       [event.target.name]: event.target.value,
-    })
+    }))
   }
 
   // effects
@@ -37,6 +38,10 @@ export const Login = () => {
   useEffect(() => {
     isSuccess && Router.push("/templates")
   }, [isSuccess])
+
+  useEffect(() => {
+    set_type_username(formLogIn.username.search(/@/) > 0 ? "email" : "text")
+  }, [formLogIn, username_type])
 
   // return
 
@@ -56,14 +61,14 @@ export const Login = () => {
             <Field
               name="username"
               label="User / Email"
-              type="text"
+              type={username_type}
               onChange={handleInputChange}
               required
             />
 
             <div className="relative">
-              <div className="absolute right-0 z-10">
-                <Link href="forgot_password">Forgot password?</Link>
+              <div className="absolute top-[-1px] right-0 z-10">
+                <Link href="/forgot_password">Forgot password?</Link>
               </div>
               <Field
                 name="password"
