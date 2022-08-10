@@ -36,7 +36,7 @@ export const Login = () => {
   // effects
 
   useEffect(() => {
-    isSuccess && Router.push("/templates")
+    isSuccess && Router.push("lobby")
   }, [isSuccess])
 
   useEffect(() => {

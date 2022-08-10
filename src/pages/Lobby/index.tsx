@@ -1,5 +1,7 @@
 import { LayoutPages } from "@components/principal"
+import { useGetUserQuery } from "@redux/api/endpoints/user"
 import Link from "next/link"
+import { useEffect } from "react"
 
 const templates = []
 
@@ -15,7 +17,16 @@ const ResumeAvailable = () => (
   </Link>
 )
 
+/* import * as tree from "tree" */
+
 export const Lobby = () => {
+  const { data, refetch } = useGetUserQuery({})
+
+  useEffect(() => {
+    refetch()
+  }, [refetch])
+
+  console.log(data)
   return (
     <LayoutPages>
       <div className="p-12">
