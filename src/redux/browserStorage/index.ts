@@ -31,13 +31,13 @@ export const resetState = (state: CombinedReducers) => {
   }
 }
 
-export const saveState = ({ app }: Store) => {
+export const saveState = (store: Store) => {
   try {
-    const s = {
-      auth: { ...app.auth },
-      user: { ...app.user },
-    }
-    const stringState = JSON.stringify(s)
+    // const s = {
+    //   auth: { ...app.auth },
+    //   user: { ...app.user },
+    // }
+    const stringState = JSON.stringify(store)
     sessionStorage.setItem(KEY, stringState)
   } catch (e) {
     // Ignore write errors;

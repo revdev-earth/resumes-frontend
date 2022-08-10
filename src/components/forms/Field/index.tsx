@@ -10,7 +10,7 @@ interface FieldProps extends InputHTMLAttributes<HTMLInputElement> {
 export const Field = ({ name, label, type, value, ...arg }: FieldProps) => {
   return (
     <div className="relative flex flex-col items-start">
-      <label htmlFor={name} className=" top-0 left-0 text-base origin-left">
+      <label htmlFor={name} className="mb-1 text-base origin-left">
         {label}
       </label>
       <input
