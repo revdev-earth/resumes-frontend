@@ -3,9 +3,30 @@ import { useState } from "react"
 
 // templates
 const templates = [
-  { id: 1, name: "template1", styleBasic: "{}", stylesComplete: "{}" },
-  { id: 2, name: "template1", styleBasic: "{}", stylesComplete: "{}" },
-  { id: 3, name: "template1", styleBasic: "{}", stylesComplete: "{}" },
+  {
+    id: 1,
+    name: "template1",
+    src: "/screeanshot/template1.png",
+    alt: "alt",
+    height: 200,
+    width: 120,
+  },
+  {
+    id: 2,
+    name: "template2",
+    src: "/screeanshot/template1.png",
+    alt: "alt",
+    height: 200,
+    width: 120,
+  },
+  {
+    id: 3,
+    name: "template3",
+    src: "/screeanshot/template1.png",
+    alt: "alt",
+    height: 200,
+    width: 120,
+  },
 ]
 
 export const AddTemplate = () => {
@@ -36,13 +57,19 @@ export const AddTemplate = () => {
       <div>
         {activate ? (
           <div className="flex gap-[20px] ">
-            {templates.map(({ id }) => (
+            {templates.map(({ id, src, alt, height, width }) => (
               <div
                 key={id}
-                className="
-                w-[150px] h-[275px] rounded-xl
-                bg-emerald-300 cursor-pointer"
-              />
+                className="w-[150px] h-[225px] rounded-md shadow-button-primary cursor-pointer p-4"
+              >
+                <Image
+                  src={src}
+                  alt={alt}
+                  key={id}
+                  height={height}
+                  width={width}
+                />
+              </div>
             ))}
           </div>
         ) : (
