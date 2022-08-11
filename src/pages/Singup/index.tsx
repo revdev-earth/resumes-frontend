@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import Router from "next/router"
 
-import { Button, Field, LayoutPages } from "@components"
+import { Button, Field, LayoutPages, Password } from "@components"
 import { useSignupMutation } from "@redux/api/endpoints/auth"
 
 export const Singup = () => {
@@ -78,13 +78,7 @@ export const Singup = () => {
               required
             />
 
-            <Field
-              name="password"
-              label="password"
-              type="password"
-              onChange={handleInputChange}
-              required
-            />
+            <Password onChange={handleInputChange} />
 
             <div className="flex gap-[15px] mb-[30px] ">
               <input
