@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
+import Router from "next/router"
 import Link from "next/link"
 
-import { LayoutPages, Button, Field } from "@components"
+import { LayoutPages, Button, Field, Password } from "@components"
 import { useLoginMutation } from "@redux/api/endpoints/auth"
-import Router from "next/router"
 
 export const Login = () => {
   const [formLogIn, setFormLogIn] = useState({
@@ -68,15 +68,13 @@ export const Login = () => {
 
             <div className="relative">
               <div className="absolute top-[-1px] right-0 z-10">
-                <Link href="/forgot_password">Forgot password?</Link>
+                <Link href="forgot_password">
+                  <span className="font-medium cursor-pointer">
+                    Forgot password?
+                  </span>
+                </Link>
               </div>
-              <Field
-                name="password"
-                label="Password"
-                type="password"
-                onChange={handleInputChange}
-                required
-              />
+              <Password onChange={handleInputChange} />
             </div>
 
             <Button type="submit">Log in</Button>
