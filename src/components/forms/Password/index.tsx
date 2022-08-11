@@ -4,7 +4,7 @@ import { Field } from "../Field"
 export const Password = ({ onChange }) => {
   const [show, set_show] = useState(false)
   return (
-    <div>
+    <div className="relative">
       <Field
         name="password"
         label="Password"
@@ -19,7 +19,7 @@ export const Password = ({ onChange }) => {
         "
         onClick={() => set_show((s) => !s)}
       >
-        {show ? "show" : "hide"}
+        {!show ? "show" : "hide"}
       </div>
     </div>
   )
