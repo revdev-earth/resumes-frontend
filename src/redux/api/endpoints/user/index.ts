@@ -11,7 +11,18 @@ const user = api.injectEndpoints({
       providesTags: (result, error, id) => [{ type: "User", id }],
     }),
     //
+    updateUser: build.mutation({
+      query: (body) => ({
+        url: `user`,
+        method: "PUT",
+        body,
+      }),
+    }),
   }),
 })
 
-export const { useGetUserQuery, endpoints: userEndpoints } = user
+export const {
+  useGetUserQuery,
+  useUpdateUserMutation,
+  endpoints: userEndpoints,
+} = user

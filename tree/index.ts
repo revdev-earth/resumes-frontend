@@ -46,14 +46,14 @@ const social_item = {
   path: "path_url",
 }
 
-export const template_structure = {
+export const tree = {
   business_card: {
     name: "Name person",
     profesion: "Profesion",
     phone: "00000",
     email: "email@email.email",
   },
-  resumen: {
+  resume: {
     about: "about",
     experiences: [experience_item, experience_item],
     education: [education_item, education_item],
@@ -62,3 +62,6 @@ export const template_structure = {
     social: [social_item, social_item],
   },
 }
+
+export type BusinessCard = typeof tree.business_card
+export type Resume = typeof tree.resume

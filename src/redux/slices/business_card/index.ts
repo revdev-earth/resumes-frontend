@@ -8,23 +8,19 @@ import { userEndpoints } from "@redux/api/endpoints/user"
 
 // Slice
 
-const userSlice = createSlice({
-  name: "user",
-  initialState: initialState.user,
+const business_card_slice = createSlice({
+  name: "business_card",
+  initialState: initialState.business_card,
   reducers: {
-    clearUser: () => initialState.user,
-    addNewUser: (state, action) => ({
-      ...state,
-      ...action.payload,
-    }),
+    clear_business_card: () => initialState.business_card,
   },
   extraReducers: (b) => {
     b.addMatcher(userEndpoints.getUser.matchFulfilled, (state, action) => ({
-      ...action.payload,
+      ...action.payload.business_card,
     }))
   },
 })
 
-export const { clearUser, addNewUser } = userSlice.actions
+export const { clear_business_card } = business_card_slice.actions
 
-export default userSlice.reducer
+export default business_card_slice.reducer

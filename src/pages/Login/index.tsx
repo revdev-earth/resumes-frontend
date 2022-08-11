@@ -18,11 +18,6 @@ export const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    console.log(
-      `username: ${formLogIn.username}, password: ${formLogIn.password}`
-    )
-
     login(formLogIn)
   }
 

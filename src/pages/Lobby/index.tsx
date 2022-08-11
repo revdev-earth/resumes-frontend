@@ -1,7 +1,11 @@
 import { LayoutPages } from "@components/principal"
-import { useGetUserQuery } from "@redux/api/endpoints/user"
+import {
+  useGetUserQuery,
+  useUpdateUserMutation,
+} from "@redux/api/endpoints/user"
 import Link from "next/link"
 import { useEffect } from "react"
+import { useDispatch } from "@redux"
 
 const templates = []
 
@@ -17,16 +21,35 @@ const ResumeAvailable = () => (
   </Link>
 )
 
-/* import * as tree from "tree" */
+import * as document_tree from "tree"
 
 export const Lobby = () => {
-  const { data, refetch } = useGetUserQuery({})
+  const dispatch = useDispatch()
+  const { data: user, refetch } = useGetUserQuery({})
+  const [updateUser, { isSuccess: successUpdateUser }] = useUpdateUserMutation()
 
   useEffect(() => {
     refetch()
-  }, [refetch])
+  }, [refetch, successUpdateUser])
 
-  console.log(data)
+  useEffect(() => {
+    if (user && !(Boolean(user?.business_card) && Boolean(user?.resume))) {
+      console.log(user, Boolean(user?.business_card), Boolean(user?.resume))
+      updateUser({
+        business_card: { create: document_tree.tree.business_card },
+        resume: {
+          create: {
+            title: "resume",
+            content: JSON.stringify(document_tree.tree.resume),
+          },
+        },
+      })
+    }
+
+    // 1.) Obtener User
+    // 2.) Si no tiene bussiness card y resumen entonces agregar default
+  }, [dispatch, updateUser, user])
+
   return (
     <LayoutPages>
       <div className="p-12">
