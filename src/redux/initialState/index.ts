@@ -12,15 +12,21 @@ interface User {
   resume: Resume
 }
 
+interface Templates {
+  actual: String
+  preferences: String[]
+}
+
+interface Auth {
+  token: String
+}
+
 export const initialState = {
-  auth: <any>{},
+  auth: <Auth>{},
   user: <User>{},
-  business_card: <any>{},
+  business_card: <BusinessCard>{},
   resume: <Resume>{},
-  templates: {
-    actual: "",
-    preferences: <string[]>[],
-  },
+  templates: <Templates>{},
 }
 
 export type InitialState = typeof initialState

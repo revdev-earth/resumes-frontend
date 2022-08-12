@@ -22,8 +22,11 @@ const ResumeAvailable = () => (
 )
 
 import * as document_tree from "tree"
+import { useNotToken } from "@hooks/useNotToken"
 
 export const Lobby = () => {
+  useNotToken()
+
   const dispatch = useDispatch()
   const { data: user, refetch } = useGetUserQuery({})
   const [updateUser, { isSuccess: successUpdateUser }] = useUpdateUserMutation()

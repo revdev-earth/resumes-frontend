@@ -5,6 +5,7 @@ import { LayoutPages } from "@components"
 import { useResumesWithUserIdQuery } from "@redux/api/endpoints"
 
 import { AddTemplate } from "./_components"
+import { useNotToken } from "@hooks/useNotToken"
 
 // resumes
 const resumes = [
@@ -17,6 +18,8 @@ const resumes = [
 ]
 
 export const Templates = () => {
+  useNotToken()
+
   const { isSuccess } = useResumesWithUserIdQuery({})
 
   useEffect(() => {
