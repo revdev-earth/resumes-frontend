@@ -37,7 +37,6 @@ export const Lobby = () => {
 
   useEffect(() => {
     if (user && !(Boolean(user?.business_card) && Boolean(user?.resume))) {
-      console.log(user, Boolean(user?.business_card), Boolean(user?.resume))
       updateUser({
         business_card: { create: document_tree.tree.business_card },
         resume: {

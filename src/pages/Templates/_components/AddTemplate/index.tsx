@@ -35,14 +35,9 @@ export const AddTemplate = () => {
   const dispatch = useDispatch()
   const [activate, setActivate] = useState(false)
 
-  const handleAddModal = () => {
-    setActivate(true)
-  }
+  const handleAddModal = () => setActivate(true)
 
-  const handleClickTemplate = (name: string) => {
-    console.log("AddTemplate :: ", name)
-    dispatch(add_template(name))
-  }
+  const handleClickTemplate = (name: string) => dispatch(add_template(name))
 
   return (
     <>
