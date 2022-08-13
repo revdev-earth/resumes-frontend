@@ -46,7 +46,7 @@ export const Singup = () => {
   // efects
 
   useEffect(() => {
-    isSuccess && Router.push("templates")
+    isSuccess && Router.push("lobby")
   }, [isSuccess])
 
   return (

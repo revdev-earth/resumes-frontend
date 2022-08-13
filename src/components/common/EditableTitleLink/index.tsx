@@ -12,7 +12,6 @@ export const EditableTitleLink = ({
   link,
   stylesText,
 }: Editable2Props) => {
-  console.log("content --", content)
   const {
     availableToEdit,
     handleClickActiveEdition,

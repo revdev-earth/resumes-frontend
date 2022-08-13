@@ -18,11 +18,6 @@ export const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    console.log(
-      `username: ${formLogIn.username}, password: ${formLogIn.password}`
-    )
-
     login(formLogIn)
   }
 
@@ -36,7 +31,7 @@ export const Login = () => {
   // effects
 
   useEffect(() => {
-    isSuccess && Router.push("/templates")
+    isSuccess && Router.push("lobby")
   }, [isSuccess])
 
   useEffect(() => {
