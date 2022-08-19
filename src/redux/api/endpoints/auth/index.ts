@@ -18,10 +18,15 @@ const auth = api.injectEndpoints({
         body: body,
       }),
     }),
+    //
+    confirm: build.mutation({
+      query: () => ({ url: `auth/confirm_email`, method: "GET" }),
+    }),
   }),
 })
 
 export const {
+  useConfirmMutation,
   useLoginMutation,
   useSignupMutation,
   endpoints: authEndpoints,
