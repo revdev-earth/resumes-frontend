@@ -1,7 +1,9 @@
 import Link from "next/link"
 import { useState } from "react"
+import { useDispatch } from "@redux/store"
 
 export const MenuUser = () => {
+  const dispatch = useDispatch()
   const [showMenu, setShowMenu] = useState(false)
   const [run_animation_out, set_run_animation_out_state] = useState(false)
 
@@ -61,6 +63,14 @@ export const MenuUser = () => {
             >
               <Link href="/login">Log In</Link>
               <Link href="/sing_up">Sing up</Link>
+              <div
+                className="text-lg cursor-pointer"
+                onClick={() => {
+                  dispatch({ type: "RESET" })
+                }}
+              >
+                log out
+              </div>
             </div>
           </nav>
         </div>

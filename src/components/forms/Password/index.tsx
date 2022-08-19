@@ -14,7 +14,7 @@ export const Password = ({ onChange }) => {
       />
       <div
         className="
-          absolute right-4 top-1/2 -translate-y-[28%]
+          absolute right-10 top-1/2 -translate-y-[28%]
           cursor-pointer font-medium
         "
         onClick={() => set_show((s) => !s)}
