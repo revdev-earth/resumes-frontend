@@ -1,6 +1,8 @@
 // import { LayoutPages } from "@components"
 // import { Editable } from "@components"
 
+import { useResumesWithUserIdQuery } from "@redux/api/endpoints"
+
 // import WhoIAm from "./_components/Who"
 // import Experience from "./_components/Experience"
 // import Projects from "./_components/Projects"
@@ -11,6 +13,8 @@
 // import { useSelector } from "@redux"
 
 export const Template1 = () => {
+  const { data: resume, isSuccess } = useResumesWithUserIdQuery({})
+  console.log("resume \n ", resume, isSuccess)
   return <>Template 1</>
   // const { resumes: data } = useSelector((s) => s.app)
   // return (

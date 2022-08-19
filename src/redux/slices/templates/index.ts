@@ -15,12 +15,12 @@ const templates_slice = createSlice({
     clear_templates: () => initialState.templates,
     add_template: (state, { payload }: { payload: string }) => {
       state.actual = payload
-      state.preferences.push(payload)
+      state.preferences?.push(payload)
     },
   },
   extraReducers: (b) => {
     b.addMatcher(userEndpoints.getUser.matchFulfilled, (state, { payload }) => {
-      const templates = payload.resume.templates.split(", ")
+      const templates = payload.resume.templates?.split(", ")
       state.actual = templates[0]
       state.preferences = templates
     })

@@ -1,6 +1,7 @@
 import { add_template } from "@redux/slices/templates"
 import { useDispatch } from "@redux/store"
 import Image from "next/image"
+import Link from "next/link"
 import { useState } from "react"
 
 // templates
@@ -61,19 +62,21 @@ export const AddTemplate = () => {
         {activate ? (
           <div className="flex gap-[20px] ">
             {templates.map(({ id, name, src, alt, height, width }) => (
-              <div
-                key={id}
-                className="w-[150px] h-[225px] rounded-md shadow-button-primary cursor-pointer p-4"
-                onClick={() => handleClickTemplate(name)}
-              >
-                <Image
-                  src={src}
-                  alt={alt}
+              <Link key={id} href={name}>
+                <div
                   key={id}
-                  height={height}
-                  width={width}
-                />
-              </div>
+                  className="w-[150px] h-[225px] rounded-md shadow-button-primary cursor-pointer p-4"
+                  onClick={() => handleClickTemplate(name)}
+                >
+                  <Image
+                    src={src}
+                    alt={alt}
+                    key={id}
+                    height={height}
+                    width={width}
+                  />
+                </div>
+              </Link>
             ))}
           </div>
         ) : (

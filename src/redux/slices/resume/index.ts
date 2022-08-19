@@ -17,7 +17,9 @@ const resumeSlice = createSlice({
   },
   extraReducers: (b) => {
     b.addMatcher(userEndpoints.getUser.matchFulfilled, (state, action) => ({
-      ...JSON.parse(action.payload.resume.content),
+      ...(action?.payload?.resume?.content
+        ? JSON.parse(action.payload.resume.content)
+        : {}),
     }))
   },
 })

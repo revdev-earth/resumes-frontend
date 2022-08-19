@@ -32,10 +32,10 @@ export const Templates = () => {
         <h2>Resumes</h2>
         <div className="flex flex-wrap justify-center gap-[30px]">
           {resumes.map(({ path, skill }: { path?: string; skill: string }) => {
-            if (skill) return <AddTemplate />
+            if (skill) return <AddTemplate key={Math.random() * 100} />
 
             return (
-              <Link key={path} href={`templates/${path}`}>
+              <Link key={Math.random() * 100} href={`templates/${path}`}>
                 <div
                   className="
                 w-[250px] h-[400px] rounded-xl
