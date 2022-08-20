@@ -28,8 +28,8 @@ export const Templates = () => {
 
   return (
     <LayoutPages>
-      <div className="flex flex-col text-center p-[50px] gap-[30px] justy">
-        <h2>Resumes</h2>
+      <div className="flex flex-col  p-[50px] gap-[30px] justy">
+        <h2 className="font-bold text-3xl">Resumes</h2>
         <div className="flex flex-wrap justify-center gap-[30px]">
           {resumes.map(({ path, skill }: { path?: string; skill: string }) => {
             if (skill) return <AddTemplate key={Math.random() * 100} />
@@ -38,7 +38,7 @@ export const Templates = () => {
               <Link key={Math.random() * 100} href={`templates/${path}`}>
                 <div
                   className="
-                w-[250px] h-[400px] rounded-xl
+                  w-[200px] h-[300px] rounded-xl
                 bg-emerald-300 cursor-pointer"
                 />
               </Link>

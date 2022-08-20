@@ -45,7 +45,7 @@ export const AddTemplate = () => {
       <div
         className="
           flex justify-center align-center
-          w-[250px] h-[400px] rounded-xl
+          w-[200px] h-[300px] rounded-xl
           bg-gradient-to-r from-emerald-300 to-p-w-1 
           cursor-pointer"
         onClick={handleAddModal}
