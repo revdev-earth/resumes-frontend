@@ -1,49 +1,81 @@
-import { useEffect } from "react"
 import Link from "next/link"
 
-import { LayoutPages } from "@components"
-import { useResumeQuery } from "@redux/api/endpoints"
+import Image from "next/image"
 
-import { AddTemplate } from "./_components"
 import { useNotToken } from "@hooks/useNotToken"
 
-// resumes
-const resumes = [
-  /*   {
-    path: "template",
-  },  */
+import { LayoutPages } from "@components"
+import { usePutResumeMutation } from "@redux/api/endpoints"
+
+const templates = [
   {
-    skill: "add",
+    id: 1,
+    name: "template1",
+    src: "/screeanshot/template1.png",
+    alt: "alt",
+    height: 200,
+    width: 120,
+  },
+  {
+    id: 2,
+    name: "template2",
+    src: "/screeanshot/template1.png",
+    alt: "alt",
+    height: 200,
+    width: 120,
+  },
+  {
+    id: 3,
+    name: "template3",
+    src: "/screeanshot/template1.png",
+    alt: "alt",
+    height: 200,
+    width: 120,
   },
 ]
 
 export const Templates = () => {
   useNotToken()
 
-  const { isSuccess } = useResumeQuery({})
+  const [put_resume, { isSuccess }] = usePutResumeMutation()
 
-  useEffect(() => {
-    console.log("resumes sucess ", isSuccess)
-  }, [isSuccess])
+  const handleClickTemplate = (template_name: string) => {
+    put_resume({
+      templates: template_name,
+    })
+  }
+
+  console.log("is success : \n ", isSuccess)
 
   return (
     <LayoutPages>
-      <div className="flex flex-col  p-[50px] gap-[30px] justy">
-        <h2 className="font-bold text-3xl">Resumes</h2>
+      <div
+        className="
+          flex flex-col p-[50px]
+          gap-[30px] justy"
+      >
+        <h2 className="font-bold text-3xl">Templates</h2>
         <div className="flex flex-wrap justify-center gap-[30px]">
-          {resumes.map(({ path, skill }: { path?: string; skill: string }) => {
-            if (skill) return <AddTemplate key={Math.random() * 100} />
-
-            return (
-              <Link key={Math.random() * 100} href={`templates/${path}`}>
-                <div
-                  className="
-                  w-[200px] h-[300px] rounded-xl
-                bg-emerald-300 cursor-pointer"
+          {templates.map(({ id, name, src, alt, height, width }) => (
+            <Link key={id} href="/" className="">
+              <div
+                key={id}
+                className="
+                  w-[150px] h-[225px] rounded-md
+                  shadow-button-primary cursor-pointer
+                  p-4 bg-p-w-1 "
+                onClick={() => handleClickTemplate(name)}
+              >
+                <Image
+                  src={src}
+                  alt={alt}
+                  key={id}
+                  height={height}
+                  width={width}
                 />
-              </Link>
-            )
-          })}
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </LayoutPages>

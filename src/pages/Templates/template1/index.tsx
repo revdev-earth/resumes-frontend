@@ -15,7 +15,7 @@ import { useResumeQuery } from "@redux/api/endpoints"
 export const Template1 = () => {
   const { data: resume, isSuccess } = useResumeQuery({})
   console.log("resume \n ", resume, isSuccess)
-  return <>Template 1</>
+  return <>Resume </>
   // const { resumes: data } = useSelector((s) => s.app)
   // return (
   //   <LayoutPages>

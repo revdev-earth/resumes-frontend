@@ -11,7 +11,14 @@ const resume = api.injectEndpoints({
       query: () => `resume`,
     }),
     //
+    putResume: build.mutation({
+      query: (body) => ({ url: "resume", method: "PUT", body }),
+    }),
   }),
 })
 
-export const { useResumeQuery, endpoints: resumeEndpoints } = resume
+export const {
+  useResumeQuery,
+  usePutResumeMutation,
+  endpoints: resumeEndpoints,
+} = resume
