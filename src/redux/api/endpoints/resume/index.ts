@@ -4,13 +4,14 @@ const resume = api.injectEndpoints({
   endpoints: (build) => ({
     //
     resumes: build.query({
-      query: () => ({ url: `resumes` }),
+      query: () => `resumes`,
     }),
     //
-    resumesWithUserId: build.query({
-      query: () => ({ url: `resumes` }),
+    resume: build.query({
+      query: () => `resume`,
     }),
+    //
   }),
 })
 
-export const { useResumesWithUserIdQuery, endpoints: resumeEndpoints } = resume
+export const { useResumeQuery, endpoints: resumeEndpoints } = resume

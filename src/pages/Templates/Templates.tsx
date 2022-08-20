@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import Link from "next/link"
 
 import { LayoutPages } from "@components"
-import { useResumesWithUserIdQuery } from "@redux/api/endpoints"
+import { useResumeQuery } from "@redux/api/endpoints"
 
 import { AddTemplate } from "./_components"
 import { useNotToken } from "@hooks/useNotToken"
@@ -20,7 +20,7 @@ const resumes = [
 export const Templates = () => {
   useNotToken()
 
-  const { isSuccess } = useResumesWithUserIdQuery({})
+  const { isSuccess } = useResumeQuery({})
 
   useEffect(() => {
     console.log("resumes sucess ", isSuccess)
