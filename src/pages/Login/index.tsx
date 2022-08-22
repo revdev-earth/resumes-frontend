@@ -12,7 +12,7 @@ export const Login = () => {
   })
 
   const [username_type, set_type_username] = useState<"text" | "email">("text")
-  const [login, { isSuccess }] = useLoginMutation()
+  const [login, { isSuccess, isError, error }] = useLoginMutation()
 
   // handlers
 
@@ -38,19 +38,30 @@ export const Login = () => {
     set_type_username(formLogIn.username.search(/@/) > 0 ? "email" : "text")
   }, [formLogIn, username_type])
 
-  // return
+  const show_error = () => {
+    if (isError) {
+      const {
+        data: { message },
+      } = error as { data: { message: string } }
+      return <div className="text-[18px] leading-6 text-red-600">{message}</div>
+    }
+  }
 
+  // return
   return (
     <LayoutPages>
       <div className="m-auto">
         <div
-          className="
-              flex flex-col gap-[50px]
-              m-[50px] px-[50px] py-[50px] 
-              w-[650px] rounded-3xl shadow-container 
-              aling-center justify-center text-center"
+          className={`
+          flex flex-col gap-[${isError ? "25px" : "50px"}]
+          m-[50px] px-[50px] py-[50px] 
+          w-[650px] rounded-3xl shadow-container 
+          aling-center justify-center text-center
+          `}
         >
           <h2>Log In</h2>
+
+          {show_error()}
 
           <form className="flex flex-col" onSubmit={handleSubmit}>
             <Field
