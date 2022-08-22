@@ -1,7 +1,8 @@
+import { Skill_item } from "tree"
 import { Title } from "../common"
-import { Item, items } from "./_components"
+import { Item } from "./_components"
 
-export const Skills = () => {
+export const Skills = ({ skills }: { skills: Skill_item[] }) => {
   return (
     <div className="flex flex-col gap-[15px]">
       {/* Title */}
@@ -10,7 +11,7 @@ export const Skills = () => {
       {/* Content */}
       {/* Skills items */}
       <div className="flex flex-col gap-[10px]">
-        {items.map((item) => (
+        {skills.map((item) => (
           <Item key={item.id} {...item} />
         ))}
       </div>

@@ -1,3 +1,4 @@
+import { Resume } from "tree"
 import {
   Education,
   Experiences,
@@ -7,28 +8,30 @@ import {
   Social,
 } from "./_components"
 
-export const ProfesionalPerfil = () => {
+export const ProfesionalPerfil = ({ resume }: { resume: Resume }) => {
+  const { about, experiences, education, projects, skills, social } = resume
+
   return (
     <main className="flex gap-[20px] p-[25px] text-[16px] leading-6">
       <section className="flex flex-col gap-[50px] w-7/12">
         {/* MyStory */}
-        <MyStory />
+        <MyStory {...{ about }} />
 
         {/* Experiences */}
-        <Experiences />
+        <Experiences {...{ experiences }} />
 
         {/* Education */}
-        <Education />
+        <Education {...{ education }} />
       </section>
       <aside className="flex flex-col gap-[50px] w-5/12">
         {/* projects */}
-        <Projects />
+        <Projects {...{ projects }} />
 
         {/* skills */}
-        <Skills />
+        <Skills {...{ skills }} />
 
         {/* social */}
-        <Social />
+        <Social {...{ social }} />
       </aside>
     </main>
   )

@@ -1,12 +1,13 @@
+import { Experience_item } from "tree"
 import { Tecnologies } from "../../../common"
 
 export const Item = ({
   company,
-  title,
+  profesion,
   date: { start, end },
   summary,
   tecnologies,
-}: any) => {
+}: Experience_item) => {
   return (
     <div className="flex flex-col gap-[15px]">
       <div className="flex justify-between font-bold">
@@ -17,7 +18,7 @@ export const Item = ({
           <div>-</div>
 
           {/* title */}
-          <div>{title}</div>
+          <div>{profesion}</div>
         </div>
         {/* date */}
         <div>

@@ -1,7 +1,12 @@
+import { Experience_item } from "tree"
 import { Title } from "../common"
-import { Item, items } from "./_components"
+import { Item } from "./_components"
 
-export const Experiences = () => {
+export const Experiences = ({
+  experiences,
+}: {
+  experiences: Experience_item[]
+}) => {
   return (
     <div className="flex flex-col gap-[25px]">
       {/* Title */}
@@ -10,7 +15,7 @@ export const Experiences = () => {
       {/* Content */}
       {/* Experiences items */}
       <div className="flex flex-col gap-[20px]">
-        {items.map((item) => (
+        {experiences.map((item) => (
           <Item key={item.id} {...item} />
         ))}
       </div>

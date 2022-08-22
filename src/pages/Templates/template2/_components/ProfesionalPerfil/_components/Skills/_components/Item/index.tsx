@@ -1,4 +1,6 @@
-export const Item = ({ name, years }: any) => {
+import { Skill_item } from "tree"
+
+export const Item = ({ name, years }: Skill_item) => {
   return (
     <div className="flex font-medium">
       {/* name */}

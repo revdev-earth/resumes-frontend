@@ -1,11 +1,14 @@
+import { BusinessCard } from "tree"
+
 export * from "./_components/data"
 
 export const BussinessCard = ({
   name,
   profesion,
   email,
-  phone: { area, number },
-}) => (
+  areaCode,
+  phone,
+}: BusinessCard) => (
   <header
     className="
     flex justify-between
@@ -19,7 +22,7 @@ export const BussinessCard = ({
     <div className="flex flex-col justify-between gap-[10px]">
       <div>{email}</div>
       <div>
-        {area} {number}
+        {areaCode} {phone}
       </div>
     </div>
   </header>

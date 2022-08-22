@@ -1,10 +1,11 @@
+import { Project_item } from "tree"
 import { Tecnologies } from "../../../common"
 
 export const Item = ({
   link: { icon, name, path },
   summary,
   tecnologies,
-}: any) => {
+}: Project_item) => {
   return (
     <div className="flex flex-col gap-[15px]">
       {/* company */}

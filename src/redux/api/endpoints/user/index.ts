@@ -30,6 +30,7 @@ export type Me = {
 export type BussinesCard = {
   name: string
   profesion: string
+  areaCode: string
   phone: string
   email: string
 
