@@ -1,5 +1,5 @@
-export * from "./initialState"
+export * from "./reducers/initialState"
 export * from "./slices"
 export * from "./store"
 export * from "./actions"
-export * from "./browserStorage"
+export * from "./Provider"

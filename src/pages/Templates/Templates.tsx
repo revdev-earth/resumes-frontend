@@ -37,15 +37,13 @@ const templates = [
 export const Templates = () => {
   useNotToken()
 
-  const [put_resume, { isSuccess }] = usePutResumeMutation()
+  const [put_resume] = usePutResumeMutation()
 
   const handleClickTemplate = (template_name: string) => {
     put_resume({
-      templates: template_name,
+      template: template_name,
     })
   }
-
-  console.log("is success : \n ", isSuccess)
 
   return (
     <LayoutPages>

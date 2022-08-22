@@ -1,7 +1,7 @@
 // import { LayoutPages } from "@components"
 // import { Editable } from "@components"
 
-import { useResumeQuery } from "@redux/api/endpoints"
+import { BussinesCard, Resume } from "@redux/api/endpoints/user"
 
 // import WhoIAm from "./_components/Who"
 // import Experience from "./_components/Experience"
@@ -12,10 +12,20 @@ import { useResumeQuery } from "@redux/api/endpoints"
 
 // import { useSelector } from "@redux"
 
-export const Template1 = () => {
-  const { data: resume, isSuccess } = useResumeQuery({})
-  console.log("resume \n ", resume, isSuccess)
-  return <>Resume </>
+export const Template1 = ({
+  business_card,
+  resume,
+}: {
+  business_card: BussinesCard
+  resume: Resume
+}) => {
+  console.log(
+    "\n \n business_card \n \n",
+    business_card,
+    "\n \n resume \n \n ",
+    resume
+  )
+  return <>Template 1 </>
   // const { resumes: data } = useSelector((s) => s.app)
   // return (
   //   <LayoutPages>

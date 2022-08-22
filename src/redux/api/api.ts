@@ -1,12 +1,13 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 import { Store } from "@redux"
+import { REHYDRATE } from "redux-persist"
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL
 
 export const api = createApi({
   reducerPath: "api",
 
-  tagTypes: ["Resumes", "User"],
+  tagTypes: ["Resume", "User"],
 
   endpoints: () => ({}),
 
@@ -23,4 +24,18 @@ export const api = createApi({
       return headers
     },
   }),
+
+  extractRehydrationInfo(action, { reducerPath }) {
+    if (action.type === REHYDRATE && action.payload) {
+      // console.log(
+      //   "\n \n reducerPath \n \n ",
+      //   reducerPath,
+      //   "\n \n ",
+      //   action,
+      //   "\n \n ",
+      //   action.payload
+      // )
+      return action.payload[reducerPath]
+    }
+  },
 })
