@@ -20,12 +20,10 @@ export const Singup = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (formCA.policy === true) {
-      console.log("Se ha creado un nuevo usuario:")
-      console.table(formCA)
       // TODO: hacer una tarea para agrergar policy a la tabla de me
       // eslint-disable-next-line no-unused-vars
       const { policy, ...body } = formCA
-      singup(body)
+      singup({ ...body, terms_and_conditions_confirmed: policy })
     }
   }
 

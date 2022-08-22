@@ -1,8 +1,7 @@
-import { useSelector } from "@redux"
-
 //  import Tempaltes
 import { Template1 } from "@pages/Templates/template1"
 import { Template2 } from "@pages/Templates/template2"
+import { useGetUserQuery } from "@redux/api/endpoints/user"
 // import { useNotToken } from "@hooks/useNotToken"
 
 import { useRouter } from "next/router"
@@ -10,12 +9,14 @@ import { useEffect } from "react"
 
 export const Resume = () => {
   // Check token or push to home
-  //useNotToken()
+  // useNotToken()
 
-  const router = useRouter()
-  const { user } = router.query
+  const { query, push } = useRouter()
+  const { user } = query
 
-  // console.log("Resume: router query user ::", user)
+  const { data: user_data, isLoading } = useGetUserQuery({})
+
+  const { business_card, resume } = user_data || {}
 
   useEffect(() => {
     // Revisar user
@@ -36,16 +37,28 @@ export const Resume = () => {
     // cargar el template
   }, [user])
 
-  const actual_template = useSelector((s) => s.app.templates.actual)
-
   // tenemos templates?
+
+  if (typeof resume === "undefined") {
+    if (!isLoading) push("home")
+    return <div>No resume</div>
+  }
+
+  const template_name = resume.template
+
+  console.log(`template_name : ${template_name}`)
 
   // Que pasa cuando no tiene un template
   // Necesitamos acceder a los templates
   // Traer un me
-
-  if (actual_template === "template1") return <Template1 />
-  if (actual_template === "template2") return <Template2 />
+  if (template_name === "template1")
+    return (
+      <Template1 {...{ business_card, resume: JSON.parse(resume.content) }} />
+    )
+  if (template_name === "template2")
+    return (
+      <Template2 {...{ business_card, resume: JSON.parse(resume.content) }} />
+    )
 
   return <div>Resume!</div>
 }

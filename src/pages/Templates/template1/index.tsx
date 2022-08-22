@@ -1,6 +1,8 @@
 // import { LayoutPages } from "@components"
 // import { Editable } from "@components"
 
+import { BussinesCard, Resume } from "@redux/api/endpoints/user"
+
 // import WhoIAm from "./_components/Who"
 // import Experience from "./_components/Experience"
 // import Projects from "./_components/Projects"
@@ -10,8 +12,20 @@
 
 // import { useSelector } from "@redux"
 
-export const Template1 = () => {
-  return <>Template 1</>
+export const Template1 = ({
+  business_card,
+  resume,
+}: {
+  business_card: BussinesCard
+  resume: Resume
+}) => {
+  console.log(
+    "\n \n business_card \n \n",
+    business_card,
+    "\n \n resume \n \n ",
+    resume
+  )
+  return <>Template 1 </>
   // const { resumes: data } = useSelector((s) => s.app)
   // return (
   //   <LayoutPages>

@@ -10,12 +10,20 @@ import { useDispatch } from "@redux"
 const templates = []
 
 const ResumeDisable = () => (
-  <div className="w-[200px] h-[300px] bg-emerald-300">Resumen actual</div>
+  <div
+    className="
+    p-5 pt-4 w-[200px]
+    h-[300px] bg-emerald-300 rounded-lg
+    cursor-default
+    "
+  >
+    Resumen actual
+  </div>
 )
 
 const ResumeAvailable = () => (
   <Link href="/">
-    <div className="w-[200px] h-[300px] bg-emerald-300 cursor-pointer">
+    <div className=" p- w-[200px] h-[300px] bg-emerald-300 cursor-pointer">
       Resumen actual
     </div>
   </Link>
@@ -55,11 +63,16 @@ export const Lobby = () => {
   return (
     <LayoutPages>
       <div className="p-12">
-        <div>Lobby</div>
-        <div className="flex gap-[50px]">
+        <div className="font-bold text-3xl">Lobby</div>
+        <div className="flex gap-[50px] mt-7">
           {templates.length > 0 ? <ResumeAvailable /> : <ResumeDisable />}
           <Link href="/templates">
-            <div className="w-[300px] h-[300px] bg-emerald-300 cursor-pointer ">
+            <div
+              className="
+                  p-5 pt-4 w-[300px] 
+                  h-[300px] bg-emerald-300 cursor-pointer 
+                  rounded-lg "
+            >
               Templates
             </div>
           </Link>

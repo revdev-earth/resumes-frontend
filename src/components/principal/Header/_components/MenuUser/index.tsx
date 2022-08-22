@@ -16,9 +16,7 @@ export const MenuUser = () => {
 
   const handleMouseLeave = () => {
     set_run_animation_out_state(true)
-    setShowMenu(false)
 
-    set_run_animation_out_state(true)
     setTimeout(() => {
       setShowMenu(false)
       set_run_animation_out_state(false)
