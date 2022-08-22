@@ -24,8 +24,9 @@ export const Template1 = ({
       <div
         className="
         box-border overflow-hidden flex
-        flex-col mx-auto my-0
+        flex-col mx-auto mt-10 mb-10
         w-[795px] shadow-button-primary
+        rounded-lg
         "
       >
         <div className="p-[30px] w-[100%] h-[150px] bg-p-green ">
@@ -38,7 +39,7 @@ export const Template1 = ({
             value={business_card.profesion}
           />
         </div>
-        <div className="grid grid-cols-[450px_250px] p-[30px] w-[100%]">
+        <div className="grid grid-cols-[450px_250px] gap-5 p-[30px] w-[100%]">
           <div>
             <WhoIAm whoiam={resume.about} />
             <Experience experience={resume.experiences} />

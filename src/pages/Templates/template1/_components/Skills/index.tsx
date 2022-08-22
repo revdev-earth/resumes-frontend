@@ -17,7 +17,7 @@ const Skills = ({ skills }) => {
   return (
     <div>
       <Title>Skills</Title>
-      <ul>
+      <ul className="flex flex-col gap-3">
         {skills.map(({ name, years }) => (
           <ItemSkill key={Math.random() * 10} name={name} years={years} />
         ))}

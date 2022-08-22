@@ -6,7 +6,7 @@ const Social = ({ social }) => {
   return (
     <div>
       <Title>Social</Title>
-      <div className="flex justify-center gap-2 bg-red">
+      <div className="flex justify-center gap-5 bg-red">
         <a href={social[0].path} key={Math.random() * 10}>
           <ImgLinkedin alt="links img" layout="fill" className="w-10" />
         </a>
