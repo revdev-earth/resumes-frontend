@@ -1,12 +1,15 @@
 //field
+
 import { useEdition } from "./_components"
 
 interface EditableProps {
+  name: string
   value: string
   stylesText?: string
 }
 
 export const Editable = ({
+  name,
   value: valueIncomming,
   stylesText,
 }: EditableProps) => {
@@ -18,7 +21,19 @@ export const Editable = ({
     handleWriting,
     sizes,
     refElement,
-  } = useEdition(valueIncomming)
+  } = useEdition(valueIncomming, name)
+
+  const components = () => {
+    var match = /\r|\n/.exec(value)
+    if (match) {
+      return value.split(/\n/).map((v: string) => {
+        if (v.length === 0) return <br key={Math.random() * 5} />
+        return <div key={Math.random() * 5}>{v}</div>
+      })
+    } else {
+      return value
+    }
+  }
 
   return (
     <>
@@ -41,13 +56,14 @@ export const Editable = ({
       ) : (
         <div
           className={`
-          border-solid rounded-md border-1 border-transparent
-          ${stylesText}
-        `}
+            border-solid rounded-md border-1 
+            border-transparent p-[1px] mb-[6px]
+        ${stylesText}
+      `}
           ref={refElement}
           onDoubleClick={handleClickActiveEdition}
         >
-          {value}
+          {components()}
         </div>
       )}
     </>

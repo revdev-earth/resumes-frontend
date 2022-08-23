@@ -15,8 +15,8 @@ export const Experiences = ({
       {/* Content */}
       {/* Experiences items */}
       <div className="flex flex-col gap-[20px]">
-        {experiences.map((item) => (
-          <Item key={item.id} {...item} />
+        {experiences.map((item, index) => (
+          <Item key={item.id} {...{ ...item, index }} />
         ))}
       </div>
     </div>

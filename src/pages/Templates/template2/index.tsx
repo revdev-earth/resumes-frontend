@@ -10,13 +10,6 @@ export const Template2 = ({
   business_card: BussinesCard
   resume: Resume
 }) => {
-  console.log(
-    "\n \n business_card \n \n",
-    business_card,
-    "\n \n resume \n \n ",
-    resume
-  )
-
   return (
     <LayoutPages>
       <div
