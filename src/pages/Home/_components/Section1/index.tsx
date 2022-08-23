@@ -9,7 +9,7 @@ export const Section1 = () => (
         employers
       </div>
 
-      <Link href="templates">
+      <Link href="lobby">
         <button className="w-[500px] h-[100px] rounded-lg bg-[#90E0EF] shadow-xl hover:shadow-md transition text-4xl font-bold">
           Get started
         </button>
