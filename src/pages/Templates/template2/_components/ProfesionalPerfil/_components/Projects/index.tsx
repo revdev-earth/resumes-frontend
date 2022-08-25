@@ -11,8 +11,8 @@ export const Projects = ({ projects }: { projects: Project_item[] }) => {
       {/* Content */}
       {/* Projects items */}
       <div className="flex flex-col gap-[20px]">
-        {projects.map((item) => (
-          <Item key={item.id} {...item} />
+        {projects.map((item, index) => (
+          <Item category="projects" key={item.id} {...{ ...item, index }} />
         ))}
       </div>
     </div>

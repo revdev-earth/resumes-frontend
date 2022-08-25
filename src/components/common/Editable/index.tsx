@@ -23,17 +23,13 @@ export const Editable = ({
     refElement,
   } = useEdition(valueIncomming, name)
 
-  const components = () => {
-    var match = /\r|\n/.exec(value)
-    if (match) {
-      return value.split(/\n/).map((v: string) => {
-        if (v.length === 0) return <br key={Math.random() * 5} />
-        return <div key={Math.random() * 5}>{v}</div>
-      })
-    } else {
-      return value
-    }
-  }
+  const components = () =>
+    !/\r|\n/.exec(value)
+      ? value
+      : value.split(/\n/).map((v: string) => {
+          if (v.length === 0) return <br key={Math.random() * 5} />
+          return <div key={Math.random() * 5}>{v}</div>
+        })
 
   return (
     <>

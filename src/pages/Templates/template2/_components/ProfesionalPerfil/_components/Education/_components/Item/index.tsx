@@ -1,40 +1,55 @@
-import { Education_item } from "tree"
+import { Editable } from "@components/common"
+import { Experience_item } from "tree"
 import { Tecnologies } from "../../../common"
 
+type Categories =
+  | "about"
+  | "education"
+  | "experiences"
+  | "projects"
+  | "skills"
+  | "social"
+
+type ItemProps = Experience_item & {
+  index: number
+  category: Categories
+}
+
 export const Item = ({
+  index,
   company,
   profesion,
   date: { start, end },
   summary,
   tecnologies,
-}: Education_item) => {
-  return (
-    <div className="flex flex-col gap-[15px]">
-      <div className="flex justify-between font-bold">
-        <div className="flex gap-[5px]">
-          {/* institute */}
-          <div className="max-w-[120px]">
-            <div className="max-w-[120px] truncate hover:text-clip hover:whitespace-normal hover:absolute bg-slate-50 z-10 hover:pb-[5px] hover:rounded">
-              {company}
-            </div>
-          </div>
+  category,
+}: ItemProps) => (
+  <div className="flex flex-col gap-[15px]">
+    <div className="flex justify-between font-bold">
+      <div className="flex gap-[5px]">
+        {/* company */}
 
-          <div>-</div>
+        <div className="max-w-[120px]">
+          <Editable name={`${category}.${index}.company`} value={company} />
+        </div>
 
-          {/* title */}
-          <div>{profesion}</div>
-          {/* date */}
-        </div>
-        <div>
-          {start} - {end}
-        </div>
+        <div>-</div>
+
+        {/* profesion */}
+        <Editable name={`${category}.${index}.profesion`} value={profesion} />
       </div>
-
-      {/* summary */}
-      <div>{summary}</div>
-
-      {/* tecnologies */}
-      <Tecnologies {...{ tecnologies }} />
+      {/* date */}
+      <div>
+        <Editable name={`${category}.${index}.date.start`} value={start} />
+        -
+        <Editable name={`${category}.${index}.date.end`} value={end} />
+      </div>
     </div>
-  )
-}
+
+    {/* summary */}
+    <Editable name={`${category}.${index}.summary`} value={summary} />
+
+    {/* tecnologies */}
+    <Tecnologies {...{ tecnologies, last_index: index }} />
+  </div>
+)

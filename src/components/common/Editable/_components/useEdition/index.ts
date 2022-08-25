@@ -1,58 +1,123 @@
 import { useGetUserQuery } from "@redux/api/endpoints/user"
 import { useRef, useState, useEffect } from "react"
 
-// export const function_etwas_so = (name, tree) => {}
-
 export const useCambio_de_texto = () => {
   // tendremos que tener ya disponible la funcion del state ich meins ya tiene que tener
   // lo que seria el documento de resumen,
   // veamos eso, como obtener el resumen
   const { data: user } = useGetUserQuery({})
 
-  const updateText = (tree) => {
-    console.table(tree)
+  const just_the_object_return = <Object>(
+    resume: Object,
+    keys: string[],
+    value: string
+  ) => {
+    const category = keys[0]
+    const position_element = keys[1]
+    const atribute = keys[2]
+    const option = keys[3]
 
-    const { resume } = user
+    // experiences.0.tecnologies.[sumary | ...]
+    if (keys.length === 3) {
+      const object_with_three_keys = {
+        [category]: [
+          ...resume[category].map((category_item, index_category) => {
+            if (index_category !== Number(position_element))
+              return category_item
 
-    const resume_json = JSON.parse(resume.content)
-    console.table(resume_json)
+            return {
+              ...resume[category][position_element],
+              [atribute]: value,
+            }
+          }),
+        ],
+      }
 
-    var match = /./.exec(Object.keys(tree)[0])
-
-    if (match) {
-      console.log("split")
-      // const splited = Object.keys(tree)[0].split(".")
-      // console.table(
-      //   "experiences: ",
-      //   splited[0],
-      //   resume_json[splited[0]][splited[1]][splited[2]]
-      // )
-
-      const make_that_string = Object.keys(tree)[0]
-        .split(".")
-        .reduce((previousValue, currentValue, currentIndex, array) => {
-          console.log(previousValue, currentValue, currentIndex, array, "\n\n")
-          return ""
-        })
-
-      // .map((valor) => {
-      //   if (String(Number(valor)) !== "NaN") {
-      //     return `[${valor}]`
-      //   }
-      //   return valor
-      // })
-
-      console.log("make_that_string \n \n", make_that_string)
+      return object_with_three_keys
     }
 
-    // const new_resume_json = {
-    //   ...resume_json,
-    //   [Object.keys(tree)[0]]: tree[Object.keys(tree)[0]],
-    // }
+    // experiences.0.tecnologies.date
+    if (atribute === "date") {
+      const new_object_with_atribute = {
+        [category]: [
+          ...resume[category].map((category_item, index_category) => {
+            if (index_category !== Number(position_element))
+              return category_item
 
-    // console.table(new_resume_json)
+            return {
+              ...resume[category][position_element],
+              [atribute]: {
+                ...resume[category][position_element][atribute],
+                [option]: value,
+              },
+            }
+          }),
+        ],
+      }
 
-    // update resume with new content
+      return new_object_with_atribute
+    }
+
+    // experiences.0.tecnologies.tecnologies
+    if (atribute === "tecnologies") {
+      const new_object_with_tecnologies = {
+        [category]: [
+          ...resume[category].map((category_item, index_category) => {
+            if (index_category !== Number(position_element))
+              return category_item
+
+            return {
+              ...resume[category][position_element],
+              [atribute]: [
+                ...resume[category][position_element][atribute].map(
+                  (tecnology, index_tecnology) =>
+                    index_tecnology === Number(option) ? value : tecnology
+                ),
+              ],
+            }
+          }),
+        ],
+      }
+
+      return new_object_with_tecnologies
+    }
+  }
+
+  const updateText = <Object>(incoming_object: Object) => {
+    // objects incoming
+    const key = Object.keys(incoming_object)[0]
+    const value = incoming_object[key]
+
+    // resume
+    const { resume: resume_table } = user
+    const resume = JSON.parse(resume_table.content)
+
+    // split key incomming
+    const key_splited = key.split(".")
+
+    // console.log("key_splited : ", key_splited, "\ntype:", typeof key_splited)
+
+    // create a draft empty resume
+    let resume_draft = {}
+
+    // when key splited just have one
+    // will set resume draft whit
+    // incoming_object[key]
+    // there is just one actually
+    // it is about
+    if (key_splited.length === 1) resume_draft[key] = incoming_object[key]
+
+    // more than 1
+    // neet anidation secure
+    if (key_splited.length > 1) {
+      resume_draft = just_the_object_return(resume, key_splited, value)
+    }
+
+    console.log("\n\nobjecto_to_updated: \n", resume_draft, "\n\n")
+
+    const resume_to_update = { ...resume, ...resume_draft }
+
+    console.log("\n\nresume_to_update: \n", resume_to_update, "\n\n")
   }
 
   return {

@@ -15,8 +15,8 @@ export const Education = ({
       {/* Content */}
       {/* Education items */}
       <div className="flex flex-col gap-[20px]">
-        {education_items.map((item) => (
-          <Item key={item.id} {...item} />
+        {education_items.map((item, index) => (
+          <Item category="education" key={item.id} {...{ ...item, index }} />
         ))}
       </div>
     </div>
