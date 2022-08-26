@@ -13,16 +13,15 @@ export const useCambio_de_texto = () => {
   const just_the_object_return = <Object>(
     resume: Object,
     keys: string[],
-    value: string
+    link: any
   ) => {
     const category = keys[0]
     const position_element = keys[1]
     const atribute = keys[2]
-    const option = keys[3]
 
-    // experiences.0.tecnologies.[sumary | ...]
-    if (keys.length === 3) {
-      const object_with_three_keys = {
+    // projects.0.link.path
+    if (atribute === "link") {
+      const new_object_with_link_edition = {
         [category]: [
           ...resume[category].map((category_item, index_category) => {
             if (index_category !== Number(position_element))
@@ -30,59 +29,13 @@ export const useCambio_de_texto = () => {
 
             return {
               ...resume[category][position_element],
-              [atribute]: value,
+              [atribute]: link,
             }
           }),
         ],
       }
 
-      return object_with_three_keys
-    }
-
-    // experiences.0.tecnologies.date
-    if (atribute === "date") {
-      const new_object_with_atribute = {
-        [category]: [
-          ...resume[category].map((category_item, index_category) => {
-            if (index_category !== Number(position_element))
-              return category_item
-
-            return {
-              ...resume[category][position_element],
-              [atribute]: {
-                ...resume[category][position_element][atribute],
-                [option]: value,
-              },
-            }
-          }),
-        ],
-      }
-
-      return new_object_with_atribute
-    }
-
-    // experiences.0.tecnologies.tecnologies
-    if (atribute === "tecnologies") {
-      const new_object_with_tecnologies = {
-        [category]: [
-          ...resume[category].map((category_item, index_category) => {
-            if (index_category !== Number(position_element))
-              return category_item
-
-            return {
-              ...resume[category][position_element],
-              [atribute]: [
-                ...resume[category][position_element][atribute].map(
-                  (tecnology, index_tecnology) =>
-                    index_tecnology === Number(option) ? value : tecnology
-                ),
-              ],
-            }
-          }),
-        ],
-      }
-
-      return new_object_with_tecnologies
+      return new_object_with_link_edition
     }
   }
 
@@ -115,7 +68,7 @@ export const useCambio_de_texto = () => {
       resume_draft = just_the_object_return(resume_json, key_splited, value)
     }
 
-    console.log("\n\nobjecto_to_updated: \n", resume_draft, "\n\n")
+    console.log("\n\n resume_draft: \n", resume_draft, "\n\n")
 
     const resume_to_update = { ...resume_json, ...resume_draft }
 
@@ -134,7 +87,7 @@ export const useCambio_de_texto = () => {
 
 // eslint-disable-next-line no-unused-vars
 export const useEdition = ({ link: link_incoming, name }: any) => {
-  // const { updateText } = useCambio_de_texto()
+  const { updateText } = useCambio_de_texto()
 
   const refElement = useRef(null)
 
@@ -168,11 +121,11 @@ export const useEdition = ({ link: link_incoming, name }: any) => {
   }
 
   const handleClickSave = () => {
-    // updateText({ [name]: value })
-    // setStateEdition(false)
-    // setTimeout(() => {
-    //   readSizes()
-    // }, 100)
+    updateText({ [name]: link })
+    setStateEdition(false)
+    setTimeout(() => {
+      readSizes()
+    }, 100)
     console.log(":: handleClickSave")
   }
 

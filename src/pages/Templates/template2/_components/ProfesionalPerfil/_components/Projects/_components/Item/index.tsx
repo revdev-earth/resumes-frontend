@@ -27,7 +27,7 @@ export const Item = ({
   <div className="flex flex-col gap-[15px]">
     {/* company */}
     <EditableLinkIconName
-      name={`${category}.${index}.summary`}
+      name={`${category}.${index}.link`}
       value={summary}
       {...{ link }}
     />
