@@ -16,9 +16,16 @@ export const Lobby = () => {
         <div className="font-bold text-3xl">Lobby</div>
         <div className="flex gap-[50px] mt-7">
           {/* TODO: add actual resume template */}
-          <div className=" p- w-[200px] h-[300px] bg-emerald-300 cursor-pointer">
-            Resumen actual {resume?.template}
-          </div>
+          <Link href="/">
+            <div
+              className=" 
+              p- w-[200px] h-[300px] bg-emerald-300 
+              cursor-pointer rounded-lg p-5 
+              pt-4"
+            >
+              Resumen actual {resume?.template}
+            </div>
+          </Link>
           {/* selection templates link page */}
           <Link href="/templates">
             <div

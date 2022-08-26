@@ -2,6 +2,8 @@ import { Editable } from "@components/common"
 import { Project_item } from "tree"
 import { Tecnologies } from "../../../common"
 
+import { EditableLinkIconName } from "@components/common/EditableLinkIconName"
+
 type Categories =
   | "about"
   | "education"
@@ -17,16 +19,18 @@ type ItemProps = Project_item & {
 
 export const Item = ({
   index,
-  link: { icon, name, path },
+  link,
   summary,
   tecnologies,
   category,
 }: ItemProps) => (
   <div className="flex flex-col gap-[15px]">
     {/* company */}
-    <a className="font-bold" href={path}>
-      <div>{icon}</div> <div>{name}</div>
-    </a>
+    <EditableLinkIconName
+      name={`${category}.${index}.summary`}
+      value={summary}
+      {...{ link }}
+    />
 
     {/* summary */}
     <Editable name={`${category}.${index}.summary`} value={summary} />
