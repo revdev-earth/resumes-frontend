@@ -9,11 +9,7 @@ export type Resume = {
 const resume = api.injectEndpoints({
   endpoints: (build) => ({
     //
-    resumes: build.query<Resume[], any>({
-      query: () => `resumes`,
-    }),
-    //
-    resume: build.query<Resume, any>({
+    getResume: build.query<Resume, any>({
       query: () => `resume`,
       providesTags: (result) => {
         console.log(" \n \n providesTags : result : \n \n ", result)
@@ -23,13 +19,13 @@ const resume = api.injectEndpoints({
     //
     putResume: build.mutation<Resume, any>({
       query: (body) => ({ url: "resume", method: "PUT", body }),
-      invalidatesTags: ["User"],
+      invalidatesTags: ["User", "Resume"],
     }),
   }),
 })
 
 export const {
-  useResumeQuery,
+  useGetResumeQuery,
   usePutResumeMutation,
   endpoints: resumeEndpoints,
 } = resume

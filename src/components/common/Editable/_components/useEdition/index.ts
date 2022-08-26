@@ -1,7 +1,10 @@
+useGetUserQuery
+import { usePutResumeMutation } from "@redux/api/endpoints/resume"
 import { useGetUserQuery } from "@redux/api/endpoints/user"
 import { useRef, useState, useEffect } from "react"
 
 export const useCambio_de_texto = () => {
+  const [putResume] = usePutResumeMutation()
   // tendremos que tener ya disponible la funcion del state ich meins ya tiene que tener
   // lo que seria el documento de resumen,
   // veamos eso, como obtener el resumen
@@ -89,8 +92,7 @@ export const useCambio_de_texto = () => {
     const value = incoming_object[key]
 
     // resume
-    const { resume: resume_table } = user
-    const resume = JSON.parse(resume_table.content)
+    const resume_json = JSON.parse(user.resume.content)
 
     // split key incomming
     const key_splited = key.split(".")
@@ -110,14 +112,19 @@ export const useCambio_de_texto = () => {
     // more than 1
     // neet anidation secure
     if (key_splited.length > 1) {
-      resume_draft = just_the_object_return(resume, key_splited, value)
+      resume_draft = just_the_object_return(resume_json, key_splited, value)
     }
 
     console.log("\n\nobjecto_to_updated: \n", resume_draft, "\n\n")
 
-    const resume_to_update = { ...resume, ...resume_draft }
+    const resume_to_update = { ...resume_json, ...resume_draft }
 
     console.log("\n\nresume_to_update: \n", resume_to_update, "\n\n")
+
+    // send new content
+    putResume({
+      content: JSON.stringify(resume_to_update),
+    })
   }
 
   return {

@@ -63,9 +63,7 @@ const user = api.injectEndpoints({
   endpoints: (build) => ({
     //
     getUser: build.query<User, any>({
-      query: () => ({
-        url: `user`,
-      }),
+      query: () => `user`,
 
       providesTags: (result, error, id) => [{ type: "User", id }],
     }),

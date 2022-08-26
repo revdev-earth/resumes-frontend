@@ -9,11 +9,10 @@ export const Template2 = ({
 }: {
   business_card: BussinesCard
   resume: Resume
-}) => {
-  return (
-    <LayoutPages>
-      <div
-        className="
+}) => (
+  <LayoutPages>
+    <div
+      className="
           min-h-[500px]
           w-[800px]
           m-auto mt-[50px]
@@ -21,12 +20,11 @@ export const Template2 = ({
           bg-slate-50
           shadow-template-2-resume
         "
-      >
-        <div>
-          <BussinessCard {...business_card} />
-          <ProfesionalPerfil {...{ resume }} />
-        </div>
+    >
+      <div>
+        <BussinessCard {...business_card} />
+        <ProfesionalPerfil {...{ resume }} />
       </div>
-    </LayoutPages>
-  )
-}
+    </div>
+  </LayoutPages>
+)
