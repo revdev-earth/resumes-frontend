@@ -29,7 +29,13 @@ export const useCambio_de_texto = () => {
 
             return {
               ...resume[category][position_element],
-              [atribute]: link,
+              [atribute]: {
+                ...link,
+                icon:
+                  keys[3] === "icon" && keys[3].indexOf("https") !== -1
+                    ? link.icon
+                    : "/assets/link.svg",
+              },
             }
           }),
         ],
@@ -122,6 +128,16 @@ export const useEdition = ({ link: link_incoming, name }: any) => {
 
   const handleClickSave = () => {
     updateText({ [name]: link })
+
+    setLink((s) => ({
+      ...s,
+      icon:
+        name.split(".")[3] === "icon" &&
+        name.split(".")[3].indexOf("https") !== -1
+          ? link.icon
+          : "/assets/link.svg",
+    }))
+
     setStateEdition(false)
     setTimeout(() => {
       readSizes()

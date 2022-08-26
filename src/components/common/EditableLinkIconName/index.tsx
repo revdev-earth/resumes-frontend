@@ -1,5 +1,6 @@
 //field
 
+import Image from "next/image"
 import { useEdition } from "./_components"
 
 interface EditableProps {
@@ -34,29 +35,12 @@ export const EditableLinkIconName = ({
         <>
           <textarea
             className={`
-            bg-transparent
+            bg-transparent h-[30px] pl-2
             border-solid rounded-md border-[1px] border-[#6BDFDC]
             ${stylesText}
           `}
             style={{
               width: sizes.offsetWidth,
-              height: sizes.offsetHeight,
-              resize: "none",
-            }}
-            onChange={handleWriting}
-            onDoubleClick={handleClickSave}
-            name="path"
-            value={link.path}
-          />
-          <textarea
-            className={`
-            bg-transparent
-            border-solid rounded-md border-[1px] border-[#6BDFDC]
-            ${stylesText}
-          `}
-            style={{
-              width: sizes.offsetWidth,
-              height: sizes.offsetHeight,
               resize: "none",
             }}
             onChange={handleWriting}
@@ -64,16 +48,30 @@ export const EditableLinkIconName = ({
             name="icon"
             value={link.icon}
           />
-
           <textarea
             className={`
-            bg-transparent
+            bg-transparent h-[30px] pl-2
             border-solid rounded-md border-[1px] border-[#6BDFDC]
             ${stylesText}
           `}
             style={{
               width: sizes.offsetWidth,
-              height: sizes.offsetHeight,
+              resize: "none",
+            }}
+            onChange={handleWriting}
+            onDoubleClick={handleClickSave}
+            name="path"
+            value={link.path}
+          />
+
+          <textarea
+            className={`
+            bg-transparent h-[30px] pl-2
+            border-solid rounded-md border-[1px] border-[#6BDFDC]
+            ${stylesText}
+          `}
+            style={{
+              width: sizes.offsetWidth,
               resize: "none",
             }}
             onChange={handleWriting}
@@ -93,9 +91,9 @@ export const EditableLinkIconName = ({
           onDoubleClick={handleClickActiveEdition}
         >
           {/* <a className="font-bold" href={path}> */}
-          <div className="font-bold">
-            {link.path}
-            <div>{link.icon}</div> <div>{link.name}</div>
+          <div className="font-bold flex gap-1">
+            <Image src={link.icon} alt="" width={16} height={16} />
+            {link.name}
           </div>
           {/* </a> */}
         </div>

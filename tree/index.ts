@@ -25,7 +25,7 @@ const education_item = {
 const project_item = {
   id: 1,
   link: {
-    icon: "icon_link",
+    icon: "/assets/link.svg",
     name: "Project name",
     path: "path_url",
   },
