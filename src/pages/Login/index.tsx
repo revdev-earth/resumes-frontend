@@ -40,9 +40,18 @@ export const Login = () => {
 
   const show_error = () => {
     if (isError) {
-      const {
-        data: { message },
-      } = error as { data: { message: string } }
+      const { data, error: error_message } = error as {
+        data?: { message: string } // comming from server
+        error?: string // rtk error
+      }
+
+      let message = error_message ? error_message : ""
+
+      if (data) {
+        const { message: message_error } = data
+        message = message_error
+      }
+
       return <div className="text-[18px] leading-6 text-red-600">{message}</div>
     }
   }
