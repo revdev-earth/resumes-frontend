@@ -1,33 +1,30 @@
 //field
 
+import { checkPublicIcon } from "@utils"
 import Image from "next/image"
+import { Social_item } from "tree"
 import { useEdition } from "./_components"
 
 interface EditableProps {
   name: string
-  value: string
   stylesText?: string
-  link: {
-    path: string
-    icon: string
-    name: string
-  }
+  social: Social_item
 }
 
-export const EditableLinkIconName = ({
+export const EditableSocial = ({
   name,
   stylesText,
-  link: link_icoming,
+  social: social_icoming,
 }: EditableProps) => {
   const {
     availableToEdit,
     handleClickActiveEdition,
     handleClickSave,
-    link,
+    social,
     handleWriting,
     sizes,
     refElement,
-  } = useEdition({ link: link_icoming, name })
+  } = useEdition({ social: social_icoming, name })
 
   return (
     <>
@@ -46,7 +43,7 @@ export const EditableLinkIconName = ({
             onChange={handleWriting}
             onDoubleClick={handleClickSave}
             name="icon"
-            value={link.icon}
+            value={social.icon}
           />
           <textarea
             className={`
@@ -61,7 +58,7 @@ export const EditableLinkIconName = ({
             onChange={handleWriting}
             onDoubleClick={handleClickSave}
             name="path"
-            value={link.path}
+            value={social.path}
           />
 
           <textarea
@@ -77,7 +74,7 @@ export const EditableLinkIconName = ({
             onChange={handleWriting}
             onDoubleClick={handleClickSave}
             name="name"
-            value={link.name}
+            value={social.name}
           />
         </>
       ) : (
@@ -92,8 +89,13 @@ export const EditableLinkIconName = ({
         >
           {/* <a className="font-bold" href={path}> */}
           <div className="font-bold flex gap-1">
-            <Image src={link.icon} alt="" width={16} height={16} />
-            {link.name}
+            <Image
+              src={checkPublicIcon(social.icon)}
+              alt=""
+              width={16}
+              height={16}
+            />
+            {social.name}
           </div>
           {/* </a> */}
         </div>

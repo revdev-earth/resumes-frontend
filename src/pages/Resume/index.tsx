@@ -46,7 +46,7 @@ export const Resume = () => {
 
   const template_name = resume.template
 
-  console.log(`template_name : ${template_name}`)
+  // console.log(`template_name : ${template_name}`)
 
   // Que pasa cuando no tiene un template
   // Necesitamos acceder a los templates
