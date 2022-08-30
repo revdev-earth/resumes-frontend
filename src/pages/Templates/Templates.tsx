@@ -2,7 +2,7 @@ import Link from "next/link"
 
 import Image from "next/image"
 
-import { useNotToken } from "@hooks/useNotToken"
+import { LoaderToken } from "@components/principal/LoaderToken"
 
 import { LayoutPages } from "@components"
 import { usePutResumeMutation } from "@redux/api/endpoints"
@@ -35,8 +35,6 @@ const templates = [
 ]
 
 export const Templates = () => {
-  useNotToken()
-
   const [put_resume] = usePutResumeMutation()
 
   const handleClickTemplate = (template_name: string) => {
@@ -46,36 +44,38 @@ export const Templates = () => {
   }
 
   return (
-    <LayoutPages>
-      <div
-        className="
+    <LoaderToken>
+      <LayoutPages>
+        <div
+          className="
           flex flex-col p-[50px]
           gap-[30px] justy"
-      >
-        <h2 className="font-bold text-3xl">Templates</h2>
-        <div className="flex flex-wrap justify-center gap-[30px]">
-          {templates.map(({ id, name, src, alt, height, width }) => (
-            <Link key={id} href="/" className="">
-              <div
-                key={id}
-                className="
+        >
+          <h2 className="font-bold text-3xl">Templates</h2>
+          <div className="flex flex-wrap justify-center gap-[30px]">
+            {templates.map(({ id, name, src, alt, height, width }) => (
+              <Link key={id} href="/" className="">
+                <div
+                  key={id}
+                  className="
                   w-[150px] h-[225px] rounded-md
                   shadow-button-primary cursor-pointer
                   p-4 bg-p-w-1 "
-                onClick={() => handleClickTemplate(name)}
-              >
-                <Image
-                  src={src}
-                  alt={alt}
-                  key={id}
-                  height={height}
-                  width={width}
-                />
-              </div>
-            </Link>
-          ))}
+                  onClick={() => handleClickTemplate(name)}
+                >
+                  <Image
+                    src={src}
+                    alt={alt}
+                    key={id}
+                    height={height}
+                    width={width}
+                  />
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
-    </LayoutPages>
+      </LayoutPages>
+    </LoaderToken>
   )
 }

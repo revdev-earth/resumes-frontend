@@ -5,7 +5,7 @@ export const Tecnologies = ({ tecnologies, last_index }) => (
     <div className="font-bold">Tecnologies: </div>
     <div className="flex gap-x-[5px] flex-wrap">
       {tecnologies.map((tecnologie: string, index: number) => (
-        <div key={index}>
+        <div className="flex" key={index}>
           <Editable
             name={`experiences.${last_index}.tecnologies.${index}`}
             value={tecnologie}

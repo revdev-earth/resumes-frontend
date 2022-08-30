@@ -1,64 +1,126 @@
+import { useRouter } from "next/router"
+
+import { useSelector } from "@redux"
+
+import { Loader } from "@components/common/Loader"
+
+import {
+  useGetResumeWithJwtQuery,
+  useGetResumeWithParameterQuery,
+} from "@redux/api/endpoints"
+
+import {
+  useGetBussinessWithJwtQuery,
+  useGetBussinessWithParameterQuery,
+} from "@redux/api/endpoints/businnes_card"
+
+import { useGetMeQuery } from "@redux/api/endpoints/me"
+
 //  import Tempaltes
 import { Template1 } from "@pages/Templates/template1"
 import { Template2 } from "@pages/Templates/template2"
-import { useGetUserQuery } from "@redux/api/endpoints/user"
-// import { useNotToken } from "@hooks/useNotToken"
-
-import { useRouter } from "next/router"
-import { useEffect } from "react"
 
 export const Resume = () => {
-  // Check token or push to home
-  // useNotToken()
+  const { isReady, query, push } = useRouter()
+  const { user_name } = query
+  const { token } = useSelector((s) => s.app.auth)
 
-  const { query, push } = useRouter()
-  const { user } = query
+  if (!isReady) return <Loader />
 
-  const { data: user_data, isLoading } = useGetUserQuery({})
-
-  const { business_card, resume } = user_data || {}
-
-  useEffect(() => {
-    // Revisar user
-    // Traer el usuario con resume y business_card
-    // Mirar si tiene resume content
-    // si no tiene content home pero tiene que mostrar un pop up primero
-    // si existe el resume
-    // mirar por templates en redux
-    // si tiene actual template
-    // utilizar nombre de template como nombre de la carpeta del template
-    // is template no esta registrado en la lista de templates
-    // entonces hay un error
-    // como el usuario para llegar aca tiene que tener un template
-    // entonces si no tiene token
-    // se le mostrara un pop up que  dice Este usuario no tiene un template!
-    // le mostraremos el template default
-    // Agrergar a templates el template default
-    // cargar el template
-  }, [user])
-
-  // tenemos templates?
-
-  if (typeof resume === "undefined") {
-    if (!isLoading) push("home")
-    return <div>No resume</div>
+  if (!user_name) {
+    // "not user, push to home, \ninvite to participate with their signature"
+    push("home")
+    return <Loader />
   }
 
+  // when have a user render Resume
+  if (user_name) return <CheckMe {...{ user_name }} />
+
+  if (token) return <GetResumeWithJwt />
+
+  push("home")
+  return <Loader />
+}
+
+const CheckMe = ({ user_name }) => {
+  const { push } = useRouter()
+
+  const get_me = useGetMeQuery({ user_name })
+  const { data: me, isLoading } = get_me
+
+  if (isLoading) return <Loader />
+
+  if (!me) {
+    // "Not me, go to home"
+    push("home")
+    return <Loader />
+  }
+
+  return <GetResumeWithUserParam {...{ me }} />
+}
+
+const GetResumeWithUserParam = ({ me }) => {
+  const { data: business_card, isLoading: loading_business_card } =
+    useGetBussinessWithParameterQuery({
+      userId: me.userId,
+    })
+  const { data: resume, isLoading: loading_resume } =
+    useGetResumeWithParameterQuery({
+      userId: me.userId,
+    })
+
+  if (loading_business_card || loading_resume) return <Loader />
+
+  return <RecreateResume {...{ business_card, resume }} />
+}
+
+const GetResumeWithJwt = () => {
+  const { data: business_card, isLoading: loading_business_card } =
+    useGetBussinessWithJwtQuery({})
+  const { data: resume, isLoading: loading_resume } = useGetResumeWithJwtQuery(
+    {}
+  )
+
+  if (loading_business_card || loading_resume) return <Loader />
+
+  return <RecreateResume {...{ business_card, resume }} />
+}
+
+const RecreateResume = ({ business_card, resume }) => {
+  const { push } = useRouter()
+
+  // console.log(
+  //   "\n\n RecreateResume: \n\n",
+
+  //   "\n\n business_card: \n\n",
+  //   business_card,
+  //   "\n\n resume: \n\n",
+  //   resume
+  // )
+
+  // return null
+
   const template_name = resume.template
+  let template
 
-  // console.log(`template_name : ${template_name}`)
+  switch (template_name) {
+    case "template1":
+      template = (
+        <Template1 {...{ business_card, resume: JSON.parse(resume.content) }} />
+      )
+      break
+    case "template2":
+      template = (
+        <Template2 {...{ business_card, resume: JSON.parse(resume.content) }} />
+      )
+      break
 
-  // Que pasa cuando no tiene un template
-  // Necesitamos acceder a los templates
-  // Traer un me
-  if (template_name === "template1")
-    return (
-      <Template1 {...{ business_card, resume: JSON.parse(resume.content) }} />
-    )
-  if (template_name === "template2")
-    return (
-      <Template2 {...{ business_card, resume: JSON.parse(resume.content) }} />
-    )
+    default:
+      // "go to templates"
+      push("templates")
+      template = <Loader />
+      break
+  }
 
-  return <div>Resume!</div>
+  return template
 }

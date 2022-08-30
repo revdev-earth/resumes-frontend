@@ -11,7 +11,7 @@ interface EditableProps {
 export const Editable = ({
   name,
   value: valueIncomming,
-  stylesText,
+  stylesText = "",
 }: EditableProps) => {
   const {
     availableToEdit,
@@ -31,15 +31,26 @@ export const Editable = ({
           return <div key={Math.random() * 5}>{v}</div>
         })
 
+  const styles_text_area = `
+    flex bg-transparent
+    border-solid rounded-md 
+    border-[1px] border-[#6BDFDC]
+    ${stylesText}
+  `
+
+  const styles_div = `
+    flex border-solid 
+    rounded-md border-1 
+    border-transparent
+    p-[1px]
+    ${stylesText}
+  `
+
   return (
     <>
       {availableToEdit ? (
         <textarea
-          className={`
-            bg-transparent
-            border-solid rounded-md border-[1px] border-[#6BDFDC]
-            ${stylesText}
-          `}
+          className={styles_text_area}
           style={{
             width: sizes.offsetWidth,
             height: sizes.offsetHeight,
@@ -51,11 +62,7 @@ export const Editable = ({
         />
       ) : (
         <div
-          className={`
-            border-solid rounded-md border-1 
-            border-transparent p-[1px] mb-[6px]
-        ${stylesText}
-      `}
+          className={styles_div}
           ref={refElement}
           onDoubleClick={handleClickActiveEdition}
         >

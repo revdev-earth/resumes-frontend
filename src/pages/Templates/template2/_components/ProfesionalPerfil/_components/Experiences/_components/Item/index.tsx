@@ -26,20 +26,17 @@ export const Item = ({
 }: ItemProps) => (
   <div className="flex flex-col gap-[15px]">
     <div className="flex justify-between font-bold">
-      <div className="flex gap-[5px]">
-        {/* company */}
-
-        <div className="max-w-[120px]">
+      <div className="flex flex-col gap-1">
+        {/*  */}
+        <div className="max-w-[220px]">
+          {/* company */}
           <Editable name={`${category}.${index}.company`} value={company} />
+          {/* profesion */}
+          <Editable name={`${category}.${index}.profesion`} value={profesion} />
         </div>
-
-        <div>-</div>
-
-        {/* profesion */}
-        <Editable name={`${category}.${index}.profesion`} value={profesion} />
       </div>
       {/* date */}
-      <div>
+      <div className="flex gap-1">
         <Editable name={`${category}.${index}.date.start`} value={start} />
         -
         <Editable name={`${category}.${index}.date.end`} value={end} />

@@ -2,13 +2,18 @@ import { LayoutPages } from "@components/principal"
 
 import Link from "next/link"
 
-import { useNotToken } from "@hooks/useNotToken"
-import { useGetResumeQuery } from "@redux/api/endpoints"
+import { useGetResumeWithJwtQuery } from "@redux/api/endpoints"
 
-export const Lobby = () => {
-  useNotToken()
+import { LoaderToken } from "@components/principal/LoaderToken"
 
-  const { data: resume } = useGetResumeQuery({})
+export const LobbyRoute = () => (
+  <LoaderToken>
+    <Lobby />
+  </LoaderToken>
+)
+
+const Lobby = () => {
+  const { data: resume } = useGetResumeWithJwtQuery({})
 
   return (
     <LayoutPages>

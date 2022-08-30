@@ -7,7 +7,7 @@ const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL
 export const api = createApi({
   reducerPath: "api",
 
-  tagTypes: ["Resume", "User"],
+  tagTypes: ["Resume", "User", "Me", "BussinessCard"],
 
   endpoints: () => ({}),
 

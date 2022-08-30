@@ -9,7 +9,7 @@ export const MyStory = ({ about }: { about: string }) => {
 
       {/* Content */}
       <div>
-        <Editable name="about" value={about} />
+        <Editable stylesText="flex-col" name="about" value={about} />
       </div>
     </div>
   )

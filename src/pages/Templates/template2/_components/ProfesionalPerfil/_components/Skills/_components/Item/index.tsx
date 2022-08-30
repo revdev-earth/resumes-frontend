@@ -24,13 +24,12 @@ export const Item = ({ index, name, years, category }: ItemProps) => {
         value={name}
       />
       {/* years */}
-      <div className="">{years} years</div>
-      <div className="">
+      <div className="flex">
         <Editable
-          stylesText="w-[150px]"
+          stylesText="mr-[3px]"
           name={`${category}.${index}.years`}
           value={String(years)}
-        />{" "}
+        />
         years
       </div>
     </div>
