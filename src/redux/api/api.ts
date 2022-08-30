@@ -26,16 +26,9 @@ export const api = createApi({
   }),
 
   extractRehydrationInfo(action, { reducerPath }) {
-    if (action.type === REHYDRATE && action.payload) {
-      // console.log(
-      //   "\n \n reducerPath \n \n ",
-      //   reducerPath,
-      //   "\n \n ",
-      //   action,
-      //   "\n \n ",
-      //   action.payload
-      // )
+    if (action.type === REHYDRATE && action.payload)
       return action.payload[reducerPath]
-    }
   },
 })
+
+export const api_reset = api.util.resetApiState

@@ -1,7 +1,10 @@
-useGetUserQuery
-import { usePutResumeMutation } from "@redux/api/endpoints/resume"
-import { useGetUserQuery } from "@redux/api/endpoints/user"
 import { useRef, useState, useEffect } from "react"
+
+import {
+  useGetResumeWithJwtQuery,
+  usePutResumeMutation,
+} from "@redux/api/endpoints/resume"
+
 import { Social_item } from "tree"
 
 export const useUpdateText = () => {
@@ -9,7 +12,9 @@ export const useUpdateText = () => {
   // tendremos que tener ya disponible la funcion del state ich meins ya tiene que tener
   // lo que seria el documento de resumen,
   // veamos eso, como obtener el resumen
-  const { data: user } = useGetUserQuery({})
+  const { data: resume_incoming } = useGetResumeWithJwtQuery({})
+  // resume
+  const resume_json = JSON.parse(resume_incoming.content)
 
   const object_modified = <Object>(
     resume: Object,
@@ -38,9 +43,6 @@ export const useUpdateText = () => {
     // objects incoming
     const key = Object.keys(incoming_object)[0]
     const value = incoming_object[key]
-
-    // resume
-    const resume_json = JSON.parse(user.resume.content)
 
     // split key incomming
     const key_splited = key.split(".")

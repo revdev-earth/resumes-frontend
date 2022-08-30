@@ -14,11 +14,6 @@ const resume = api.injectEndpoints({
       providesTags: () => ["Resume"],
     }),
     //
-    getResumeWithParameter: build.query<Resume, any>({
-      query: ({ userId }) => `resume/${userId}`,
-      providesTags: () => ["Resume"],
-    }),
-    //
     putResume: build.mutation<Resume, any>({
       query: (body) => ({ url: "resume", method: "PUT", body }),
       invalidatesTags: ["User", "Resume"],
@@ -28,7 +23,6 @@ const resume = api.injectEndpoints({
 
 export const {
   useGetResumeWithJwtQuery,
-  useGetResumeWithParameterQuery,
   usePutResumeMutation,
   endpoints: resumeEndpoints,
 } = resume

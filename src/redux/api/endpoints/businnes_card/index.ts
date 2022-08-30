@@ -13,16 +13,10 @@ const bussines_card = api.injectEndpoints({
       query: () => `bussines_card`,
       providesTags: () => ["BussinessCard"],
     }),
-    //
-    getBussinessWithParameter: build.query<Resume, any>({
-      query: ({ userId }) => `bussines_card/${userId}`,
-      providesTags: () => ["BussinessCard"],
-    }),
   }),
 })
 
 export const {
   useGetBussinessWithJwtQuery,
-  useGetBussinessWithParameterQuery,
   endpoints: bussines_cardEndpoints,
 } = bussines_card

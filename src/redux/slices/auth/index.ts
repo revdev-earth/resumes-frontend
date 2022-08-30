@@ -3,15 +3,17 @@ import { createSlice, isAnyOf } from "@reduxjs/toolkit"
 
 // initialState
 import { initialState } from "@redux/reducers/initialState"
-import { authEndpoints } from "@redux/api/endpoints/auth"
 
 // endpoints
+import { authEndpoints } from "@redux/api/endpoints/auth"
+import { meEndpoints } from "@redux/api/endpoints/me"
 
 // Slice
 
 const matchAuth = isAnyOf(
   authEndpoints.login.matchFulfilled,
-  authEndpoints.signup.matchFulfilled
+  authEndpoints.signup.matchFulfilled,
+  meEndpoints.getMe.matchFulfilled
 )
 
 const authSlice = createSlice({
@@ -25,7 +27,7 @@ const authSlice = createSlice({
   },
   extraReducers: (b) => {
     b.addMatcher(matchAuth, (state, action) => {
-      state.token = action.payload.access_token
+      state.token = action.payload?.token
     })
   },
 })

@@ -1,6 +1,7 @@
-useGetUserQuery
-import { usePutResumeMutation } from "@redux/api/endpoints/resume"
-import { useGetUserQuery } from "@redux/api/endpoints/user"
+import {
+  useGetResumeWithJwtQuery,
+  usePutResumeMutation,
+} from "@redux/api/endpoints/resume"
 import { useRef, useState, useEffect } from "react"
 
 export const useCambio_de_texto = () => {
@@ -8,13 +9,11 @@ export const useCambio_de_texto = () => {
   // tendremos que tener ya disponible la funcion del state ich meins ya tiene que tener
   // lo que seria el documento de resumen,
   // veamos eso, como obtener el resumen
-  const { data: user } = useGetUserQuery({})
+  const { data: resume_incoming } = useGetResumeWithJwtQuery({})
+  // resume
+  const resume_json = JSON.parse(resume_incoming.content)
 
-  const just_the_object_return = <Object>(
-    resume: Object,
-    keys: string[],
-    link: any
-  ) => {
+  const just_the_object_return = (keys: string[], link: any) => {
     const category = keys[0]
     const position_element = keys[1]
     const atribute = keys[2]
@@ -23,12 +22,12 @@ export const useCambio_de_texto = () => {
     if (atribute === "link") {
       const new_object_with_link_edition = {
         [category]: [
-          ...resume[category].map((category_item, index_category) => {
+          ...resume_json[category].map((category_item, index_category) => {
             if (index_category !== Number(position_element))
               return category_item
 
             return {
-              ...resume[category][position_element],
+              ...resume_json[category][position_element],
               [atribute]: {
                 ...link,
                 icon:
@@ -50,9 +49,6 @@ export const useCambio_de_texto = () => {
     const key = Object.keys(incoming_object)[0]
     const value = incoming_object[key]
 
-    // resume
-    const resume_json = JSON.parse(user.resume.content)
-
     // split key incomming
     const key_splited = key.split(".")
 
@@ -71,7 +67,7 @@ export const useCambio_de_texto = () => {
     // more than 1
     // neet anidation secure
     if (key_splited.length > 1) {
-      resume_draft = just_the_object_return(resume_json, key_splited, value)
+      resume_draft = just_the_object_return(key_splited, value)
     }
 
     console.log("\n\n resume_draft: \n", resume_draft, "\n\n")

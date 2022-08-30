@@ -1,18 +1,14 @@
+import { useEffect } from "react"
+
 import { useRouter } from "next/router"
 
 import { useSelector } from "@redux"
 
 import { Loader } from "@components/common/Loader"
 
-import {
-  useGetResumeWithJwtQuery,
-  useGetResumeWithParameterQuery,
-} from "@redux/api/endpoints"
+import { useGetResumeWithJwtQuery } from "@redux/api/endpoints/resume"
 
-import {
-  useGetBussinessWithJwtQuery,
-  useGetBussinessWithParameterQuery,
-} from "@redux/api/endpoints/businnes_card"
+import { useGetBussinessWithJwtQuery } from "@redux/api/endpoints/businnes_card"
 
 import { useGetMeQuery } from "@redux/api/endpoints/me"
 
@@ -46,7 +42,11 @@ const CheckMe = ({ user_name }) => {
   const { push } = useRouter()
 
   const get_me = useGetMeQuery({ user_name })
-  const { data: me, isLoading } = get_me
+  const { data: me, isLoading, refetch } = get_me
+
+  useEffect(() => {
+    refetch()
+  }, [refetch])
 
   if (isLoading) return <Loader />
 
@@ -56,22 +56,7 @@ const CheckMe = ({ user_name }) => {
     return <Loader />
   }
 
-  return <GetResumeWithUserParam {...{ me }} />
-}
-
-const GetResumeWithUserParam = ({ me }) => {
-  const { data: business_card, isLoading: loading_business_card } =
-    useGetBussinessWithParameterQuery({
-      userId: me.userId,
-    })
-  const { data: resume, isLoading: loading_resume } =
-    useGetResumeWithParameterQuery({
-      userId: me.userId,
-    })
-
-  if (loading_business_card || loading_resume) return <Loader />
-
-  return <RecreateResume {...{ business_card, resume }} />
+  return <GetResumeWithJwt />
 }
 
 const GetResumeWithJwt = () => {
@@ -83,22 +68,13 @@ const GetResumeWithJwt = () => {
 
   if (loading_business_card || loading_resume) return <Loader />
 
+  if (!business_card || !resume) return <Loader />
+
   return <RecreateResume {...{ business_card, resume }} />
 }
 
 const RecreateResume = ({ business_card, resume }) => {
   const { push } = useRouter()
-
-  // console.log(
-  //   "\n\n RecreateResume: \n\n",
-
-  //   "\n\n business_card: \n\n",
-  //   business_card,
-  //   "\n\n resume: \n\n",
-  //   resume
-  // )
-
-  // return null
 
   const template_name = resume.template
   let template
