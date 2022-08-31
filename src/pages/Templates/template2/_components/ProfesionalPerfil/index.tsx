@@ -12,8 +12,8 @@ export const ProfesionalPerfil = ({ resume }: { resume: Resume }) => {
   const { about, experiences, education, projects, skills, social } = resume
 
   return (
-    <main className="flex gap-[20px] p-[25px] text-[16px] leading-6">
-      <section className="flex flex-col gap-[50px] w-7/12">
+    <main className="flex flex-col md:flex-row gap-[20px] p-6 pr-9 text-[16px] leading-6">
+      <section className="flex flex-col gap-[50px] w-full md:w-7/12">
         {/* MyStory */}
         <MyStory {...{ about }} />
 
@@ -23,7 +23,7 @@ export const ProfesionalPerfil = ({ resume }: { resume: Resume }) => {
         {/* Education */}
         <Education {...{ education }} />
       </section>
-      <aside className="flex flex-col gap-[50px] w-5/12">
+      <aside className="flex flex-col gap-[50px] w-full md:w-5/12">
         {/* projects */}
         <Projects {...{ projects }} />
 

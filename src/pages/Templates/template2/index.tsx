@@ -14,7 +14,7 @@ export const Template2 = ({
     <div
       className="
           min-h-[500px]
-          w-[800px]
+          w-full md:w-[800px]
           m-auto mt-[50px]
           rounded
           bg-slate-50
