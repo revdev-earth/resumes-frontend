@@ -14,5 +14,10 @@ export const LoaderToken = ({ children }) => {
     return <Loader />
   }
 
+  if (role === "reader") {
+    push("home")
+    return <Loader />
+  }
+
   return children
 }
