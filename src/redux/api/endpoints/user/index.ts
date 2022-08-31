@@ -30,6 +30,7 @@ export type Me = {
 export type BussinesCard = {
   name: string
   profesion: string
+  areaCode: string
   phone: string
   email: string
 
@@ -62,9 +63,7 @@ const user = api.injectEndpoints({
   endpoints: (build) => ({
     //
     getUser: build.query<User, any>({
-      query: () => ({
-        url: `user`,
-      }),
+      query: () => `user`,
 
       providesTags: (result, error, id) => [{ type: "User", id }],
     }),

@@ -1,8 +1,5 @@
 // libraries
-import {
-  //  Reducer, AnyAction,
-  combineReducers,
-} from "redux"
+import { AnyAction, combineReducers, Reducer } from "redux"
 import {
   TypedUseSelectorHook,
   useDispatch as useDispatchRedux,
@@ -47,7 +44,7 @@ import { configureStore } from "@reduxjs/toolkit"
 import { setupListeners } from "@reduxjs/toolkit/query"
 
 // import { loadState } from "./browserStorage"
-import reducers from "./reducers"
+import reducers, { CombinedReducers } from "./reducers"
 import { api } from "./api"
 
 // import type { CombinedReducers } from "./reducers"
@@ -72,8 +69,7 @@ export const isDevelopment = Boolean(process.env.NODE_ENV === "development")
 // const preloadedState = loadState()
 
 const reducers_complete_app = combineReducers({
-  // app: <Reducer<CombinedReducers, AnyAction>>reducers,
-  app: reducers,
+  app: <Reducer<CombinedReducers, AnyAction>>reducers,
   [api.reducerPath]: api.reducer,
 })
 

@@ -1,11 +1,16 @@
+import { EditableBussinessCard } from "@components/common/EditableBussinessCard"
+
+import { BusinessCard } from "tree"
+
 export * from "./_components/data"
 
 export const BussinessCard = ({
   name,
   profesion,
   email,
-  phone: { area, number },
-}) => (
+  areaCode,
+  phone,
+}: BusinessCard) => (
   <header
     className="
     flex justify-between
@@ -13,13 +18,22 @@ export const BussinessCard = ({
       p-[25px]"
   >
     <div className="flex flex-col gap-[10px]">
-      <div className="text-[25px] font-bold">{name}</div>
-      <div className="text-[20px]">{profesion}</div>
+      <EditableBussinessCard
+        stylesText="text-[25px] font-bold"
+        name={`name`}
+        value={name}
+      />
+      <EditableBussinessCard
+        stylesText="text-[20px]"
+        name={`profesion`}
+        value={profesion}
+      />
     </div>
-    <div className="flex flex-col justify-between gap-[10px]">
-      <div>{email}</div>
-      <div>
-        {area} {number}
+    <div className="flex flex-col justify-between gap-[10px] items-end">
+      <EditableBussinessCard name={`email`} value={email} />
+      <div className="flex gap-1">
+        <EditableBussinessCard name={`areaCode`} value={areaCode} />
+        <EditableBussinessCard name={`phone`} value={phone} />
       </div>
     </div>
   </header>

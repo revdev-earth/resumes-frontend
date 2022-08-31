@@ -4,7 +4,9 @@ export const LayoutPages = ({ children }) => {
   return (
     <>
       <Header />
-      <main className="flex h-full grow bg-neutral-100">{children}</main>
+      <main className="flex h-full grow bg-neutral-100 animate-fade-in">
+        {children}
+      </main>
     </>
   )
 }

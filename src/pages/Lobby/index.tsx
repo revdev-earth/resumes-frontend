@@ -1,77 +1,50 @@
 import { LayoutPages } from "@components/principal"
-import {
-  useGetUserQuery,
-  useUpdateUserMutation,
-} from "@redux/api/endpoints/user"
+
 import Link from "next/link"
-import { useEffect } from "react"
-import { useDispatch } from "@redux"
 
-const templates = []
+import { useGetResumeWithJwtQuery } from "@redux/api/endpoints"
 
-const ResumeDisable = () => (
-  <div
-    className="
-    p-5 pt-4 w-[200px]
-    h-[300px] bg-emerald-300 rounded-lg
-    cursor-default
-    "
-  >
-    Resumen actual
-  </div>
+import { LoaderToken } from "@components/principal/LoaderToken"
+
+export const LobbyRoute = () => (
+  <LoaderToken>
+    <Lobby />
+  </LoaderToken>
 )
 
-const ResumeAvailable = () => (
-  <Link href="/">
-    <div className=" p- w-[200px] h-[300px] bg-emerald-300 cursor-pointer">
-      Resumen actual
-    </div>
-  </Link>
-)
-
-import * as document_tree from "tree"
-import { useNotToken } from "@hooks/useNotToken"
-
-export const Lobby = () => {
-  useNotToken()
-
-  const dispatch = useDispatch()
-  const { data: user, refetch } = useGetUserQuery({})
-  const [updateUser, { isSuccess: successUpdateUser }] = useUpdateUserMutation()
-
-  useEffect(() => {
-    refetch()
-  }, [refetch, successUpdateUser])
-
-  useEffect(() => {
-    if (user && !(Boolean(user?.business_card) && Boolean(user?.resume))) {
-      updateUser({
-        business_card: { create: document_tree.tree.business_card },
-        resume: {
-          create: {
-            title: "resume",
-            content: JSON.stringify(document_tree.tree.resume),
-          },
-        },
-      })
-    }
-
-    // 1.) Obtener User
-    // 2.) Si no tiene bussiness card y resumen entonces agregar default
-  }, [dispatch, updateUser, user])
+const Lobby = () => {
+  const { data: resume } = useGetResumeWithJwtQuery({})
 
   return (
     <LayoutPages>
-      <div className="p-12">
+      <div className="p-10 md:p-12">
         <div className="font-bold text-3xl">Lobby</div>
-        <div className="flex gap-[50px] mt-7">
-          {templates.length > 0 ? <ResumeAvailable /> : <ResumeDisable />}
+        <div className="flex gap-6 md:gap-[50px] mt-7">
+          {/* TODO: add actual resume template */}
+          <Link href="/">
+            <div
+              className=" 
+              w-1/2 h-[200px]
+              md:w-[200px] md:h-[300px] 
+              bg-[#CAF0F8]
+              cursor-pointer rounded-lg p-5 
+              border-4 border-nuestro-azul
+              pt-4"
+            >
+              Resumen actual {resume?.template}
+            </div>
+          </Link>
+          {/* selection templates link page */}
           <Link href="/templates">
             <div
               className="
-                  p-5 pt-4 w-[300px] 
-                  h-[300px] bg-emerald-300 cursor-pointer 
-                  rounded-lg "
+                  w-1/2 h-[200px]
+                  md:w-[200px] md:h-[300px] 
+                  border-4 border-nuestro-azul
+                  p-5 pt-4
+                  bg-[#CAF0F8]
+                  cursor-pointer rounded-lg 
+                "
             >
               Templates
             </div>

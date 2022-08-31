@@ -1,7 +1,11 @@
 import { useRef, useState, useEffect } from "react"
 
+import { useSelector } from "@redux"
+
 export const useEdition = (incomingValue) => {
   const refElement = useRef(null)
+
+  const { role } = useSelector((s) => s.app.auth)
 
   const [sizes, setSizes] = useState({ offsetHeight: 0, offsetWidth: 0 })
   const [availableToEdit, setStateEdition] = useState(false)
@@ -25,8 +29,9 @@ export const useEdition = (incomingValue) => {
   }
 
   const handleClickActiveEdition = () => {
-    setStateEdition(true)
-    console.log(":: andleClickActiveEdition")
+    if (role === "writer") {
+      setStateEdition(true)
+    }
   }
 
   const handleClickSave = () => {
@@ -34,7 +39,6 @@ export const useEdition = (incomingValue) => {
     setTimeout(() => {
       readSizes()
     }, 100)
-    console.log(":: handleClickSave")
   }
 
   // Effects

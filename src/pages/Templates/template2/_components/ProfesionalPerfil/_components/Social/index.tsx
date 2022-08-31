@@ -1,7 +1,8 @@
+import { Social_item } from "tree"
 import { Title } from "../common"
-import { Item, items } from "./_components"
+import { Item } from "./_components"
 
-export const Social = () => {
+export const Social = ({ social }: { social: Social_item[] }) => {
   return (
     <div className="flex flex-col gap-[15px]">
       {/* Title */}
@@ -10,8 +11,11 @@ export const Social = () => {
       {/* Content */}
       {/* Social items */}
       <div className="flex flex-col gap-[10px]">
-        {items.map((item) => (
-          <Item key={item.id} {...item} />
+        {social.map((item, index) => (
+          <Item
+            key={item.id}
+            {...{ social: item, category: "social", index }}
+          />
         ))}
       </div>
     </div>

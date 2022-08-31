@@ -25,7 +25,7 @@ const education_item = {
 const project_item = {
   id: 1,
   link: {
-    icon: "icon_link",
+    icon: "/assets/link.svg",
     name: "Project name",
     path: "path_url",
   },
@@ -50,6 +50,7 @@ export const tree = {
   business_card: {
     name: "Name person",
     profesion: "Profesion",
+    areaCode: "+49",
     phone: "00000",
     email: "email@email.email",
   },
@@ -65,3 +66,8 @@ export const tree = {
 
 export type BusinessCard = typeof tree.business_card
 export type Resume = typeof tree.resume
+export type Experience_item = typeof experience_item
+export type Education_item = typeof education_item
+export type Project_item = typeof project_item
+export type Skill_item = typeof skill_item
+export type Social_item = typeof social_item

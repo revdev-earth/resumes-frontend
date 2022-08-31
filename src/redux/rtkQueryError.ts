@@ -1,20 +1,19 @@
-import {
-  // MiddlewareAPI,
-  isRejectedWithValue,
-  Middleware,
-} from "@reduxjs/toolkit"
+import { isRejectedWithValue, Middleware } from "@reduxjs/toolkit"
 import Router from "next/router"
-// import { logout } from './slices/authSlice';
+import { delete_token } from "."
+import { api_reset } from "./api"
 
-export const rtkQueryErrorHandler: Middleware = () => (next) => (action) => {
-  if (isRejectedWithValue(action)) {
-    if (action?.payload?.status === 401) {
-      // next(logout());
-      // next("logout")
-      Router.push("/home")
-      console.log("\n \n logout \n \n")
+export const rtkQueryErrorHandler: Middleware =
+  ({ dispatch }) =>
+  (next) =>
+  (action) => {
+    if (isRejectedWithValue(action)) {
+      if (action?.payload?.status === 401) {
+        Router.push("/home")
+        setTimeout(() => dispatch(api_reset()), 500)
+        next(dispatch(delete_token()))
+      }
     }
-  }
 
-  return next(action)
-}
+    return next(action)
+  }

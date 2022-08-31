@@ -8,6 +8,7 @@ module.exports = {
         "p-gray": "#DDDDDD",
         "p-green": "#6BDFDC",
         "p-blue": "#0077B6",
+        "nuestro-azul": "#0077B6",
         success: "#42C576",
         danger: "#FF637D",
         warning: "#FFF87F",
@@ -24,11 +25,59 @@ module.exports = {
           "0%": { opacity: 1 },
           "100%": { opacity: 0 },
         },
+
+        "lds-ripple": {
+          "0%": {
+            top: "36px",
+            left: "36px",
+            width: "0",
+            height: "0",
+            opacity: "0",
+          },
+          "4.9%": {
+            top: "36px",
+            left: "36px",
+            width: "0",
+            height: "0",
+            opacity: "0",
+          },
+          "5%": {
+            top: "36px",
+            left: "36px",
+            width: "0",
+            height: "0",
+            opacity: "1",
+          },
+          "100%": {
+            top: "0px",
+            left: "0px",
+            width: "72px",
+            height: "72px",
+            opacity: "0",
+          },
+        },
+
+        "gold-call": {
+          "0%": {
+            "border-color": "#fed05c",
+          },
+          "50%": {
+            "border-color": "#0077B6",
+          },
+          "100%": {
+            "border-color": "#fed05c",
+          },
+        },
       },
 
       animation: {
         "fade-in": "fadeIn 0.25s linear",
         "fade-out": "fadeOut 0.25s linear",
+        "lds-ripple": "lds-ripple 2s infinite",
+        "lds-ripple2": "lds-ripple 2s infinite 1s",
+        "lds-ripple3": "lds-ripple 2s infinite 2s",
+        "lds-ripple4": "lds-ripple 2s infinite 3s",
+        "gold-call": "gold-call 5s infinite 3s",
       },
 
       boxShadow: {

@@ -2,6 +2,9 @@ import Link from "next/link"
 import { useState } from "react"
 import { useDispatch } from "@redux/store"
 
+import { api_reset } from "@redux/api"
+import { delete_token } from "@redux/slices"
+
 export const MenuUser = () => {
   const dispatch = useDispatch()
   const [showMenu, setShowMenu] = useState(false)
@@ -31,7 +34,7 @@ export const MenuUser = () => {
   /* User menu */
 
   return (
-    <div className="relative" {...commonEvents}>
+    <div className="relative pr-1" {...commonEvents}>
       {/* Perfil */}
       <div
         className="w-16 h-16 bg-[#D9D9D9] rounded-full cursor-pointer"
@@ -64,7 +67,8 @@ export const MenuUser = () => {
               <div
                 className="text-lg cursor-pointer"
                 onClick={() => {
-                  dispatch({ type: "RESET" })
+                  dispatch(api_reset())
+                  dispatch(delete_token())
                 }}
               >
                 log out
