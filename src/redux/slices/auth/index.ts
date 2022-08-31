@@ -27,6 +27,7 @@ const authSlice = createSlice({
   extraReducers: (b) => {
     b.addMatcher(matchAuth, (state, action) => {
       state.token = action.payload.token
+      state.role = action.payload.role
     })
 
     b.addMatcher(meEndpoints.getMe.matchFulfilled, (state, action) => {

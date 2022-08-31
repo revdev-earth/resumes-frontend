@@ -23,7 +23,7 @@ export const Resume = () => {
 
   if (!isReady) return <Loader />
 
-  if (!user_name) {
+  if (!user_name && !token) {
     // "not user, push to home, \ninvite to participate with their signature"
     push("home")
     return <Loader />
