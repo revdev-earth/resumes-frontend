@@ -4,7 +4,7 @@ import { MenuUser } from "./_components"
 
 export const Header = () => {
   return (
-    <header className="flex bg-[#CAF0F8] drop-shadow-lg h-24">
+    <header className="flex bg-[#CAF0F8] drop-shadow-lg h-24 animate-fade-in">
       {/* Content header */}
       <div className="flex justify-between items-center w-[900px] m-auto">
         {/* Resumes link */}

@@ -44,10 +44,11 @@ export const Space = ({ title, items }) => (
 export const Footer = () => (
   <section
     className="
-    text-white pt-[75px]
-    h-[400px] w-full
-    bg-[#CAF0F8]
-     "
+      text-white pt-[75px]
+      h-[400px] w-full
+      bg-[#CAF0F8]
+      animate-fade-in
+    "
   >
     <div className="flex justify-between w-[850px] m-auto">
       {footer_items.map((item) => (
