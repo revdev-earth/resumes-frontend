@@ -59,45 +59,44 @@ export const Login = () => {
   // return
   return (
     <LayoutPages>
-      <div className="m-auto">
-        <div
-          className={`
+      <div
+        className={`
+          w-full md:m-[50px]
           flex flex-col gap-[${isError ? "25px" : "50px"}]
-          m-[50px] px-[50px] py-[50px] 
-          w-[650px] rounded-3xl shadow-container 
+           px-[50px] py-[50px] 
+          md:w-[650px] md:rounded-3xl md:shadow-container 
           aling-center justify-center text-center
           `}
-        >
-          <h2>Log In</h2>
+      >
+        <h2>Log In</h2>
 
-          {show_error()}
+        {show_error()}
 
-          <form className="flex flex-col" onSubmit={handleSubmit}>
-            <Field
-              name="username"
-              label="User / Email"
-              type={username_type}
-              onChange={handleInputChange}
-              required
-            />
+        <form className="flex flex-col" onSubmit={handleSubmit}>
+          <Field
+            name="username"
+            label="User / Email"
+            type={username_type}
+            onChange={handleInputChange}
+            required
+          />
 
-            <div className="relative">
-              <div className="absolute top-[-1px] right-0 z-10">
-                <Link href="forgot_password">
-                  <span className="font-medium cursor-pointer">
-                    Forgot password?
-                  </span>
-                </Link>
-              </div>
-              <Password onChange={handleInputChange} />
+          <div className="relative">
+            <div className="absolute top-[-1px] right-0 z-10">
+              <Link href="forgot_password">
+                <span className="font-medium cursor-pointer">
+                  Forgot password?
+                </span>
+              </Link>
             </div>
+            <Password onChange={handleInputChange} />
+          </div>
 
-            <Button type="submit">Log in</Button>
-          </form>
-          <Link href="/create_account">
-            <a>Or create account.</a>
-          </Link>
-        </div>
+          <Button type="submit">Log in</Button>
+        </form>
+        <Link href="/create_account">
+          <a>Or create account.</a>
+        </Link>
       </div>
     </LayoutPages>
   )
