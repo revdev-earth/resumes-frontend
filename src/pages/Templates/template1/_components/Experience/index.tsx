@@ -7,18 +7,32 @@ const ItemExperience = ({ company, date, summary, tecnologies }) => {
   return (
     <li className=" flex flex-col pr-2 gap-[10px] mb-2 pb-5 border-solid border-0 border-b-[1px] border-[#6BDFDC]">
       <div className="flex justify-between">
-        <Editable stylesText="text-[24px] font-semibold" value={company} />
+        <Editable
+          name="experience"
+          stylesText="text-[24px] font-semibold"
+          value={company}
+        />
         <div className="flex">
           <Editable
+            name="experience"
             stylesText="text-[16px] font-light mr-2"
             value={date.start}
           />
           <p>-</p>
-          <Editable stylesText="text-[16px] font-light mx-2" value={date.end} />
+          <Editable
+            name="experience"
+            stylesText="text-[16px] font-light mx-2"
+            value={date.end}
+          />
         </div>
       </div>
-      <Editable stylesText="text-[18px] leading-6" value={summary} />
       <Editable
+        name="experience"
+        stylesText="text-[18px] leading-6"
+        value={summary}
+      />
+      <Editable
+        name="experience"
         stylesText="text-[15px] leading-6"
         value={tecnologies.join(", ").toString()}
       />

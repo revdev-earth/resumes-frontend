@@ -7,8 +7,16 @@ const ItemSkill = ({ name, years }) => {
       key={Math.random() * 10}
       className="flex pl-2 justify-between border-solid border-0 border-b-[1px] border-[#6BDFDC]"
     >
-      <Editable stylesText="text-[15px] leading-6 w-[80%]" value={name} />
-      <Editable stylesText="text-[15px] leading-6" value={years} />
+      <Editable
+        name="skills"
+        stylesText="text-[15px] leading-6 w-[80%]"
+        value={name}
+      />
+      <Editable
+        name="skills"
+        stylesText="text-[15px] leading-6"
+        value={years}
+      />
     </div>
   )
 }

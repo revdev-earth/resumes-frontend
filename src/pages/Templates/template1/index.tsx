@@ -18,7 +18,6 @@ export const Template1 = ({
   business_card: BussinesCard
   resume: Resume
 }) => {
-  console.log("\n \n resume \n \n ", resume.social)
   return (
     <LayoutPages>
       <div
@@ -31,10 +30,12 @@ export const Template1 = ({
       >
         <div className="p-[30px] w-[100%] h-[150px] bg-p-green ">
           <Editable
+            name="bussiness_card"
             stylesText="text-[36px] font-semibold"
             value={business_card.name}
           />
           <Editable
+            name="bussiness_card"
             stylesText="text-[24px] font-semibold"
             value={business_card.profesion}
           />

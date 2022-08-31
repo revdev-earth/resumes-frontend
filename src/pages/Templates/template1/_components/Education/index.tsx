@@ -7,21 +7,42 @@ const ItemEducation = ({ company, profesion, date, summary, tecnologies }) => {
       className=" flex flex-col gap-[10px] mb-2 pb-5 max-w-[425px] border-solid border-0 border-b-[1px] border-[#6BDFDC]"
       key={Math.random() * 10}
     >
-      <Editable stylesText="text-[24px] font-semibold" value={company} />
+      <Editable
+        name="education"
+        stylesText="text-[24px] font-semibold"
+        value={company}
+      />
 
       <div className="flex justify-between pr-10px">
-        <Editable stylesText="text-[18px] leading-6" value={profesion} />
+        <Editable
+          name="education"
+          stylesText="text-[18px] leading-6"
+          value={profesion}
+        />
         <div className="flex">
           <Editable
+            name="education"
             stylesText="text-[16px] font-light mr-2"
             value={date.start}
           />
           <p>-</p>
-          <Editable stylesText="text-[16px] font-light mx-2" value={date.end} />
+          <Editable
+            name="education"
+            stylesText="text-[16px] font-light mx-2"
+            value={date.end}
+          />
         </div>
       </div>
-      <Editable stylesText="text-[15px] leading-6" value={summary} />
-      <Editable stylesText="text-[15px] leading-6" value={tecnologies} />
+      <Editable
+        name="education"
+        stylesText="text-[15px] leading-6"
+        value={summary}
+      />
+      <Editable
+        name="education"
+        stylesText="text-[15px] leading-6"
+        value={tecnologies}
+      />
     </li>
   )
 }

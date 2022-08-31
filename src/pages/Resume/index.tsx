@@ -13,7 +13,7 @@ import { useGetBussinessCardQuery } from "@redux/api/endpoints/businnes_card"
 import { useGetMeQuery } from "@redux/api/endpoints/me"
 
 //  import Tempaltes
-import { Template1 } from "@pages/Templates/template1"
+// import { Template1 } from "@pages/Templates/template1"
 import { Template2 } from "@pages/Templates/template2"
 
 export const Resume = () => {
@@ -81,9 +81,10 @@ const RecreateResume = ({ business_card, resume }) => {
 
   switch (template_name) {
     case "template1":
-      template = (
-        <Template1 {...{ business_card, resume: JSON.parse(resume.content) }} />
-      )
+      template = <Loader />
+      // template = (
+      //   <Template1 {...{ business_card, resume: JSON.parse(resume.content) }} />
+      // )
       break
     case "template2":
       template = (

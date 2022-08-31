@@ -9,9 +9,14 @@ const ItemProject = ({ tecnologies, summary, link }) => {
       key={Math.random() * 10}
     >
       <LinkTitle title={link.name} link={link.path} />
-      <Editable stylesText="text-[18px] leading-6" value={summary} />
+      <Editable
+        name="projects"
+        stylesText="text-[18px] leading-6"
+        value={summary}
+      />
       <div className="flex">
         <Editable
+          name="projects"
           key={Math.random()}
           stylesText="text-[18px] leading-6"
           value={tecnologies.join(", ").toString()}
