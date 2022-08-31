@@ -104,7 +104,6 @@ export const useEdition = ({ social: social_incoming, name }: any) => {
   const handleClickActiveEdition = () => {
     if (role === "writer") {
       setStateEdition(true)
-      console.log(":: andleClickActiveEdition")
     }
   }
 
@@ -124,7 +123,6 @@ export const useEdition = ({ social: social_incoming, name }: any) => {
     setTimeout(() => {
       readSizes()
     }, 100)
-    console.log(":: handleClickSave")
   }
 
   // Effects

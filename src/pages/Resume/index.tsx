@@ -8,7 +8,7 @@ import { Loader } from "@components/common/Loader"
 
 import { useGetResumeWithJwtQuery } from "@redux/api/endpoints/resume"
 
-import { useGetBussinessWithJwtQuery } from "@redux/api/endpoints/businnes_card"
+import { useGetBussinessCardQuery } from "@redux/api/endpoints/businnes_card"
 
 import { useGetMeQuery } from "@redux/api/endpoints/me"
 
@@ -61,7 +61,7 @@ const CheckMe = ({ user_name }) => {
 
 const GetResumeWithJwt = () => {
   const { data: business_card, isLoading: loading_business_card } =
-    useGetBussinessWithJwtQuery({})
+    useGetBussinessCardQuery({})
   const { data: resume, isLoading: loading_resume } = useGetResumeWithJwtQuery(
     {}
   )

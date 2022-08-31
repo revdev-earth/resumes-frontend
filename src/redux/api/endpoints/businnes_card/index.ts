@@ -9,14 +9,20 @@ export type Resume = {
 const bussines_card = api.injectEndpoints({
   endpoints: (build) => ({
     //
-    getBussinessWithJwt: build.query<Resume, any>({
+    getBussinessCard: build.query<Resume, any>({
       query: () => `bussines_card`,
       providesTags: () => ["BussinessCard"],
+    }),
+    //
+    putBussinessCard: build.mutation<Resume, any>({
+      query: (body) => ({ url: "bussines_card", method: "PUT", body }),
+      invalidatesTags: ["BussinessCard"],
     }),
   }),
 })
 
 export const {
-  useGetBussinessWithJwtQuery,
+  useGetBussinessCardQuery,
+  usePutBussinessCardMutation,
   endpoints: bussines_cardEndpoints,
 } = bussines_card

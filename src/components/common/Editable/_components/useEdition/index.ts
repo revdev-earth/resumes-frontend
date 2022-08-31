@@ -5,7 +5,7 @@ import {
 } from "@redux/api/endpoints/resume"
 import { useRef, useState, useEffect } from "react"
 
-export const useCambio_de_texto = () => {
+export const usePutResume = () => {
   const [putResume] = usePutResumeMutation()
   // tendremos que tener ya disponible la funcion del state ich meins ya tiene que tener
   // lo que seria el documento de resumen,
@@ -88,7 +88,7 @@ export const useCambio_de_texto = () => {
     }
   }
 
-  const updateText = <Object>(incoming_object: Object) => {
+  const update_resume_with = <Object>(incoming_object: Object) => {
     // objects incoming
     const key = Object.keys(incoming_object)[0]
     const value = incoming_object[key]
@@ -117,11 +117,7 @@ export const useCambio_de_texto = () => {
       resume_draft = just_the_object_return(resume_json, key_splited, value)
     }
 
-    console.log("\n\nobjecto_to_updated: \n", resume_draft, "\n\n")
-
     const resume_to_update = { ...resume_json, ...resume_draft }
-
-    console.log("\n\nresume_to_update: \n", resume_to_update, "\n\n")
 
     // send new content
     putResume({
@@ -130,12 +126,12 @@ export const useCambio_de_texto = () => {
   }
 
   return {
-    updateText,
+    update_resume_with,
   }
 }
 
 export const useEdition = (incomingValue, name: string) => {
-  const { updateText } = useCambio_de_texto()
+  const { update_resume_with } = usePutResume()
 
   const { role } = useSelector((s) => s.app.auth)
 
@@ -147,7 +143,7 @@ export const useEdition = (incomingValue, name: string) => {
 
   // overplaid
 
-  const readSizes = () => {
+  const read_sizes = () => {
     if (refElement.current) {
       const offsetHeight = refElement.current.offsetHeight
       const offsetWidth = refElement.current.offsetWidth
@@ -157,32 +153,25 @@ export const useEdition = (incomingValue, name: string) => {
 
   // Handlers
 
-  const handleWriting = (e) => {
-    setValue(e.target.value)
-  }
+  const handleWriting = (e) => setValue(e.target.value)
 
-  const handleClickActiveEdition = () => {
-    if (role === "writer") {
-      setStateEdition(true)
-      console.log(":: andleClickActiveEdition")
-    }
-  }
+  const handleClickActiveEdition = () =>
+    role === "writer" && setStateEdition(true)
 
   const handleClickSave = () => {
-    updateText({ [name]: value })
+    update_resume_with({ [name]: value })
+
     setStateEdition(false)
+
     setTimeout(() => {
-      readSizes()
+      read_sizes()
     }, 100)
-    console.log(":: handleClickSave")
   }
 
   // Effects
 
-  // // check the size H2
   useEffect(() => {
-    // when h2 is loaded, witch size have
-    readSizes()
+    read_sizes()
   }, [refElement])
 
   return {

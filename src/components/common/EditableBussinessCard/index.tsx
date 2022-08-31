@@ -1,5 +1,3 @@
-//field
-
 import { useEdition } from "./_components"
 
 interface EditableProps {
@@ -8,7 +6,7 @@ interface EditableProps {
   stylesText?: string
 }
 
-export const Editable = ({
+export const EditableBussinessCard = ({
   name,
   value: valueIncomming,
   stylesText = "",

@@ -31,7 +31,6 @@ export const useEdition = (incomingValue) => {
   const handleClickActiveEdition = () => {
     if (role === "writer") {
       setStateEdition(true)
-      console.log(":: andleClickActiveEdition")
     }
   }
 
@@ -40,7 +39,6 @@ export const useEdition = (incomingValue) => {
     setTimeout(() => {
       readSizes()
     }, 100)
-    console.log(":: handleClickSave")
   }
 
   // Effects

@@ -53,29 +53,10 @@ export const useCambio_de_texto = () => {
     // split key incomming
     const key_splited = key.split(".")
 
-    // console.log("key_splited : ", key_splited, "\ntype:", typeof key_splited)
-
-    // create a draft empty resume
-    let resume_draft = {}
-
-    // when key splited just have one
-    // will set resume draft whit
-    // incoming_object[key]
-    // there is just one actually
-    // it is about
-    if (key_splited.length === 1) resume_draft[key] = incoming_object[key]
-
-    // more than 1
-    // neet anidation secure
-    if (key_splited.length > 1) {
-      resume_draft = just_the_object_return(key_splited, value)
+    const resume_to_update = {
+      ...resume_json,
+      ...just_the_object_return(key_splited, value),
     }
-
-    console.log("\n\n resume_draft: \n", resume_draft, "\n\n")
-
-    const resume_to_update = { ...resume_json, ...resume_draft }
-
-    console.log("\n\nresume_to_update: \n", resume_to_update, "\n\n")
 
     // send new content
     putResume({
@@ -123,7 +104,6 @@ export const useEdition = ({ link: link_incoming, name }: any) => {
   const handleClickActiveEdition = () => {
     if (role === "writer") {
       setStateEdition(true)
-      console.log(":: andleClickActiveEdition")
     }
   }
 
@@ -143,7 +123,6 @@ export const useEdition = ({ link: link_incoming, name }: any) => {
     setTimeout(() => {
       readSizes()
     }, 100)
-    console.log(":: handleClickSave")
   }
 
   // Effects
