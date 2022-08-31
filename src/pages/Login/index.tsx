@@ -61,10 +61,11 @@ export const Login = () => {
     <LayoutPages>
       <div
         className={`
-          w-full md:m-[50px]
           flex flex-col gap-[${isError ? "25px" : "50px"}]
-           px-[50px] py-[50px] 
-          md:w-[650px] md:rounded-3xl md:shadow-container 
+          w-full md:h-fit
+          md:m-[50px] md:mx-auto
+          px-[50px] py-[50px] 
+          md:w-[600px] md:rounded-3xl md:shadow-container 
           aling-center justify-center text-center
           `}
       >
@@ -72,7 +73,7 @@ export const Login = () => {
 
         {show_error()}
 
-        <form className="flex flex-col" onSubmit={handleSubmit}>
+        <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
           <Field
             name="username"
             label="User / Email"
@@ -82,7 +83,7 @@ export const Login = () => {
           />
 
           <div className="relative">
-            <div className="absolute top-[-1px] right-0 z-10">
+            <div className="absolute top-[-5px] right-0 z-10">
               <Link href="forgot_password">
                 <span className="font-medium cursor-pointer">
                   Forgot password?

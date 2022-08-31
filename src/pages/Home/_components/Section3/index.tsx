@@ -3,7 +3,7 @@ export const Section3 = () => (
     className=" 
       flex flex-col items-center 
       text-center text-white
-      w-full p-10 md:p-28 bg-[#0077B6] 
+      w-full p-10 md:p-16 lg:p-28 bg-[#0077B6] 
     "
   >
     {/* 
@@ -11,9 +11,9 @@ export const Section3 = () => (
     <div
       className=" 
         flex flex-col md:flex-row 
-        justify-center items-center gap-6 md:gap-[100px] 
-        md:h-[300px] md:w-[900px] 
-        px-7 py-9 md:px-[75px] md:py-[50px]
+        justify-center items-center gap-6 md:gap-9 lg:gap-[100px] 
+        lg:h-[300px] lg:w-[900px] 
+        px-7 py-9 lg:px-[75px] lg:py-[50px]
         bg-[#90E0EF] rounded-xl transition 
         shadow-md hover:shadow-xl cursor-pointer "
     >
@@ -21,7 +21,7 @@ export const Section3 = () => (
           perfil */}
       <div>
         <div
-          className=" grow-0 w-24 h-24 md:w-[150px] md:h-[150px] bg-[#CAF0F8] rounded-full "
+          className=" grow-0 w-24 h-24 md:w-36 md:h-36 lg:w-[150px] lg:h-[150px] bg-[#CAF0F8] rounded-full "
           style={{
             boxShadow:
               "inset 0px 2px 4px rgba(0, 0, 0, 0.25), inset 0px -2px 4px rgba(0, 0, 0, 0.25)",
@@ -41,8 +41,8 @@ export const Section3 = () => (
         {/* 
           content */}
         <div className="text-[28px] leading-[44.8px] text-[#0077B6]">
-          Simple and quick, just what I wanted for a long time. My friends and
-          family all saw my updated profile, in a simple link.
+          I&rsquo;ve been looking for something simple and quick for a long
+          time. <br /> In a simple link, everyone saw my profile.
         </div>
       </div>
     </div>

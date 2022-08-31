@@ -61,14 +61,21 @@ export const Singup = () => {
       <div className="m-auto">
         <div
           className={`
-              flex flex-col gap-[${isError ? "25px" : "50px"}]
-              m-[50px] px-[50px] py-[50px] 
-              w-[650px] rounded-3xl shadow-container 
-              aling-center justify-center text-center`}
+            flex flex-col gap-[${isError ? "25px" : "50px"}]
+            w-full md:h-fit
+            md:m-[50px] md:mx-auto
+            px-[50px] py-[50px] 
+            md:w-[600px] md:rounded-3xl md:shadow-container 
+            aling-center justify-center text-center
+          `}
         >
           <h2>Create account</h2>
           {show_error()}
-          <form className="flex flex-col" onSubmit={handleSubmit} method="post">
+          <form
+            className="flex flex-col gap-2"
+            onSubmit={handleSubmit}
+            method="post"
+          >
             <Field
               name="name"
               label="name"

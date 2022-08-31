@@ -55,7 +55,7 @@ export const Footer = () => (
       className="
         flex flex-col md:flex-row
         gap-8
-        justify-between w-[850px] 
+        justify-between lg:w-[850px] 
         m-auto 
       "
     >

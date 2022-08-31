@@ -30,10 +30,11 @@ export const Section1 = () => (
     <div
       className="
         flex flex-col justify-center
-        items-center px-6 py-8 mt-12
-        gap-6
+        items-center 
+        px-6 py-8 md:px-10 md:py-12
+        mt-12 gap-6
         bg-[#CAF0F8] w-10/12 
-        md:w-[600px] rounded
+        md:w-[400px] rounded
       "
     >
       <div
@@ -42,12 +43,18 @@ export const Section1 = () => (
           animate-gold-call bg-black 
           h-20 w-full rounded flex 
           items-center justify-center 
-          font-medium
+          font-medium text-2xl
         "
       >
         business card
       </div>
-      <div className="bg-nuestro-azul h-40 w-full rounded flex items-center justify-center font-medium">
+      <div
+        className="
+          bg-nuestro-azul h-40 md:h-60 w-full 
+          rounded flex items-center 
+          justify-center 
+          font-medium text-2xl"
+      >
         resumen
       </div>
     </div>
