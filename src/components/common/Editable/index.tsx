@@ -64,6 +64,7 @@ export const Editable = ({
           }}
           onChange={handleWriting}
           onDoubleClick={handleClickSave}
+          onTouchStart={handleClickSave}
           value={value}
         />
       ) : (
@@ -71,6 +72,7 @@ export const Editable = ({
           className={styles_div}
           ref={refElement}
           onDoubleClick={handleClickActiveEdition}
+          onTouchStart={handleClickActiveEdition}
         >
           {components()}
         </div>
