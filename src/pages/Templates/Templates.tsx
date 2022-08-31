@@ -48,7 +48,7 @@ export const Templates = () => {
       <LayoutPages>
         <div
           className="
-          flex flex-col p-[50px]
+          flex flex-col p-10
           gap-[30px] justy"
         >
           <h2 className="font-bold text-3xl">Templates</h2>
@@ -58,9 +58,10 @@ export const Templates = () => {
                 <div
                   key={id}
                   className="
-                  w-[150px] h-[225px] rounded-md
-                  shadow-button-primary cursor-pointer
-                  p-4 bg-p-w-1 "
+                    w-1/3 h-36 md:w-[150px] md:h-[225px] 
+                    shadow-button-primary cursor-pointer
+                    p-4 bg-p-w-1 rounded-md
+                  "
                   onClick={() => handleClickTemplate(name)}
                 >
                   <Image
