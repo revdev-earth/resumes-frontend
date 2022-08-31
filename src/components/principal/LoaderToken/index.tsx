@@ -6,10 +6,10 @@ import { Loader } from "@components/common/Loader"
 export const LoaderToken = ({ children }) => {
   const { push } = useRouter()
   const {
-    auth: { token },
+    auth: { token, role },
   } = useSelector((s) => s.app)
 
-  if (!token) {
+  if (!token && role !== "writer") {
     push("home")
     return <Loader />
   }

@@ -2,7 +2,7 @@ const footer_items = [
   {
     id: "1",
     title: "Resumes",
-    items: ["How we are?", "what we make?", "Our company"],
+    items: ["Who are we?", "What do we do?", "Our company"],
   },
   {
     id: "2",
