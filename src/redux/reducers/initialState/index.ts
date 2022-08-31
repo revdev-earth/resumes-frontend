@@ -18,7 +18,8 @@
 // }
 
 interface Auth {
-  token: String
+  token: string
+  role: string
 }
 
 export const initialState = {

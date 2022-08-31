@@ -6,6 +6,7 @@ import {
 } from "@redux/api/endpoints/resume"
 
 import { Social_item } from "tree"
+import { useSelector } from "@redux"
 
 export const useUpdateText = () => {
   const [putResume] = usePutResumeMutation()
@@ -76,6 +77,8 @@ export const useUpdateText = () => {
 export const useEdition = ({ social: social_incoming, name }: any) => {
   const { updateText } = useUpdateText()
 
+  const { role } = useSelector((s) => s.app.auth)
+
   const refElement = useRef(null)
 
   const [sizes, setSizes] = useState({ offsetHeight: 0, offsetWidth: 0 })
@@ -99,8 +102,10 @@ export const useEdition = ({ social: social_incoming, name }: any) => {
   }
 
   const handleClickActiveEdition = () => {
-    setStateEdition(true)
-    console.log(":: andleClickActiveEdition")
+    if (role === "writer") {
+      setStateEdition(true)
+      console.log(":: andleClickActiveEdition")
+    }
   }
 
   const handleClickSave = () => {

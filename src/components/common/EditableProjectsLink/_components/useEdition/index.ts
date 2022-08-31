@@ -1,3 +1,4 @@
+import { useSelector } from "@redux"
 import {
   useGetResumeWithJwtQuery,
   usePutResumeMutation,
@@ -91,6 +92,8 @@ export const useCambio_de_texto = () => {
 export const useEdition = ({ link: link_incoming, name }: any) => {
   const { updateText } = useCambio_de_texto()
 
+  const { role } = useSelector((s) => s.app.auth)
+
   const refElement = useRef(null)
 
   const [sizes, setSizes] = useState({ offsetHeight: 0, offsetWidth: 0 })
@@ -118,8 +121,10 @@ export const useEdition = ({ link: link_incoming, name }: any) => {
   }
 
   const handleClickActiveEdition = () => {
-    setStateEdition(true)
-    console.log(":: andleClickActiveEdition")
+    if (role === "writer") {
+      setStateEdition(true)
+      console.log(":: andleClickActiveEdition")
+    }
   }
 
   const handleClickSave = () => {

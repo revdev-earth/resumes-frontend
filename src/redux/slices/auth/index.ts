@@ -12,8 +12,7 @@ import { meEndpoints } from "@redux/api/endpoints/me"
 
 const matchAuth = isAnyOf(
   authEndpoints.login.matchFulfilled,
-  authEndpoints.signup.matchFulfilled,
-  meEndpoints.getMe.matchFulfilled
+  authEndpoints.signup.matchFulfilled
 )
 
 const authSlice = createSlice({
@@ -27,7 +26,12 @@ const authSlice = createSlice({
   },
   extraReducers: (b) => {
     b.addMatcher(matchAuth, (state, action) => {
+      state.token = action.payload.token
+    })
+
+    b.addMatcher(meEndpoints.getMe.matchFulfilled, (state, action) => {
       state.token = action.payload?.token
+      state.role = action.payload?.role
     })
   },
 })
