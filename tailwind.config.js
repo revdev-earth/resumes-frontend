@@ -8,6 +8,7 @@ module.exports = {
         "p-gray": "#DDDDDD",
         "p-green": "#6BDFDC",
         "p-blue": "#0077B6",
+        "nuestro-azul": "#0077B6",
         success: "#42C576",
         danger: "#FF637D",
         warning: "#FFF87F",
@@ -55,6 +56,18 @@ module.exports = {
             opacity: "0",
           },
         },
+
+        "gold-call": {
+          "0%": {
+            "border-color": "#fed05c",
+          },
+          "50%": {
+            "border-color": "#0077B6",
+          },
+          "100%": {
+            "border-color": "#fed05c",
+          },
+        },
       },
 
       animation: {
@@ -64,6 +77,7 @@ module.exports = {
         "lds-ripple2": "lds-ripple 2s infinite 1s",
         "lds-ripple3": "lds-ripple 2s infinite 2s",
         "lds-ripple4": "lds-ripple 2s infinite 3s",
+        "gold-call": "gold-call 5s infinite 3s",
       },
 
       boxShadow: {

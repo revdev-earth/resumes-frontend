@@ -34,7 +34,7 @@ export const MenuUser = () => {
   /* User menu */
 
   return (
-    <div className="relative" {...commonEvents}>
+    <div className="relative pr-1" {...commonEvents}>
       {/* Perfil */}
       <div
         className="w-16 h-16 bg-[#D9D9D9] rounded-full cursor-pointer"
