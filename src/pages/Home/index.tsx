@@ -5,7 +5,7 @@ export const Home = () => (
   <>
     <Header />
 
-    <main className="animate-fade-in">
+    <main className="animate-fade-in overflow-hidden">
       <Section1 />
       <Section2 />
       <Section3 />

@@ -42,18 +42,26 @@ export const Space = ({ title, items }) => (
 )
 
 export const Footer = () => (
-  <section
+  <footer
     className="
-      text-white pt-[75px]
-      h-[400px] w-full
+      text-white p-14
+
+      min-h-[400px] w-full
       bg-[#CAF0F8]
       animate-fade-in
     "
   >
-    <div className="flex justify-between w-[850px] m-auto">
+    <div
+      className="
+        flex flex-col md:flex-row
+        gap-8
+        justify-between w-[850px] 
+        m-auto 
+      "
+    >
       {footer_items.map((item) => (
         <Space key={item.id} {...item} />
       ))}
     </div>
-  </section>
+  </footer>
 )
