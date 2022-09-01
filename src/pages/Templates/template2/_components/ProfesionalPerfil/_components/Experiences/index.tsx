@@ -57,11 +57,7 @@ const useAddOne = (category: string) => {
   }
 }
 
-export const Experiences = ({
-  experiences,
-}: {
-  experiences: Experience_item[]
-}) => {
+const useExperiences = () => {
   const { add_category, remove_item } = useAddOne("experiences")
   const [show_add_new_experience, set_show_add_new_experience] = useState(false)
 
@@ -82,6 +78,18 @@ export const Experiences = ({
     onMouseOver: handle_mose_over_title,
     onMouseLeave: handle_mose_leave_title,
   }
+
+  return { handlers, handle_click_add, remove_item, show_add_new_experience }
+}
+
+export const Experiences = ({
+  experiences,
+}: {
+  experiences: Experience_item[]
+}) => {
+  const { handlers, handle_click_add, remove_item, show_add_new_experience } =
+    useExperiences()
+
   return (
     <div className="flex flex-col gap-[25px]">
       {/* Title */}
@@ -96,9 +104,6 @@ export const Experiences = ({
           </div>
         )}
       </Title>
-
-      {/* cuando hace hover aparece el mas y 
-      podes agregar la otra opcion automaticamente */}
 
       {/* Content */}
       {/* Experiences items */}
