@@ -2,7 +2,6 @@ import { Title } from "../."
 import { Editable, LinkTitle } from "@components"
 
 const ItemProject = ({ tecnologies, summary, link }) => {
-  console.log("Project name :: ", link.name)
   return (
     <li
       className=" flex flex-col gap-[5px] mb-2 pb-5 max-w-[425px] border-solid border-0 border-b-[1px] border-[#6BDFDC] "

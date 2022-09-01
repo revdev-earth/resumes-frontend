@@ -99,8 +99,6 @@ export const usePutResume = () => {
     // split key incomming
     const key_splited = key.split(".")
 
-    // console.log("key_splited : ", key_splited, "\ntype:", typeof key_splited)
-
     // create a draft empty resume
     let resume_draft = {}
 

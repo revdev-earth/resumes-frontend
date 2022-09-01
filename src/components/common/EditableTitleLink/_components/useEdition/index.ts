@@ -18,7 +18,6 @@ export const useEdition = (incomingValue) => {
       const offsetHeight = refElement.current.offsetHeight
       const offsetWidth = refElement.current.offsetWidth
       setSizes({ offsetHeight, offsetWidth })
-      console.log({ offsetHeight, offsetWidth })
     }
   }
 

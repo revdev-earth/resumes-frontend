@@ -1,4 +1,4 @@
-const experience_item = {
+export const experience_item = {
   id: 1,
   company: "Company name",
   profesion: "Profesion",
@@ -10,7 +10,7 @@ const experience_item = {
   tecnologies: ["tecnologie", "tecnologie", "tecnologie"],
 }
 
-const education_item = {
+export const education_item = {
   id: 1,
   company: "Education company name",
   profesion: "Profesion title",
@@ -22,7 +22,7 @@ const education_item = {
   tecnologies: ["tecnologie", "tecnologie", "tecnologie"],
 }
 
-const project_item = {
+export const project_item = {
   id: 1,
   link: {
     icon: "/assets/link.svg",
@@ -33,13 +33,13 @@ const project_item = {
   tecnologies: ["tecnologie", "tecnologie", "tecnologie"],
 }
 
-const skill_item = {
+export const skill_item = {
   id: 1,
   name: "Skill name",
   years: 3,
 }
 
-const social_item = {
+export const social_item = {
   id: 1,
   icon: "icon_url",
   name: "Social name",

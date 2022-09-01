@@ -2,7 +2,7 @@ import { Resume } from "tree"
 import {
   Education,
   Experiences,
-  MyStory,
+  About,
   Projects,
   Skills,
   Social,
@@ -15,7 +15,7 @@ export const ProfesionalPerfil = ({ resume }: { resume: Resume }) => {
     <main className="flex flex-col md:flex-row gap-[20px] p-6 pr-9 text-[16px] leading-6">
       <section className="flex flex-col gap-[50px] w-full md:w-7/12">
         {/* MyStory */}
-        <MyStory {...{ about }} />
+        <About {...{ about }} />
 
         {/* Experiences */}
         <Experiences {...{ experiences }} />

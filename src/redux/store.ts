@@ -58,16 +58,7 @@ const persistConfig = {
   storage,
 }
 
-// const persistedReducers = persistReducer(
-//   persistConfig,
-//   <Reducer<CombinedReducers, AnyAction>>reducers
-// )
-
-// const persistedApi = (api) => persistReducer(persistConfig, api.reducer)
-
 export const isDevelopment = Boolean(process.env.NODE_ENV === "development")
-
-// const preloadedState = loadState()
 
 const reducers_complete_app = combineReducers({
   app: <Reducer<CombinedReducers, AnyAction>>reducers,
@@ -94,23 +85,6 @@ export const store = configureStore({
 })
 
 export let persistor = persistStore(store)
-
-// console.log("\n \n persistor \n \n ", persistor)
-// let seconds = 5
-
-// console.log(`second ${seconds}`)
-// const interval = setInterval(() => {
-//   seconds -= 1
-//   console.log(`second ${seconds}`)
-// }, 1000)
-
-// setTimeout(async () => {
-//   clearInterval(interval)
-//   const purge = await persistor.purge()
-//   console.log("\n \n purgado \n \n", purge)
-//   const persist = await persistor.persist()
-//   console.log("\n \n persist \n \n", persist)
-// }, 5000)
 
 setupListeners(store.dispatch)
 

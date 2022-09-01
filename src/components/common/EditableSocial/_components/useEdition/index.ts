@@ -48,11 +48,6 @@ export const useUpdateText = () => {
     // split key incomming
     const key_splited = key.split(".")
 
-    console.log("\n\n\nnew_object: \n\n", {
-      ...resume_json,
-      ...object_modified(resume_json, key_splited, value),
-    })
-
     // mutation method put resume
     putResume(
       // resume table just with content
