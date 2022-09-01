@@ -81,7 +81,10 @@ const RecreateResume = ({ business_card, resume }) => {
 
   switch (template_name) {
     case "template1":
-      template = <Loader />
+      template = (
+        <Template2 {...{ business_card, resume: JSON.parse(resume.content) }} />
+      )
+
       // template = (
       //   <Template1 {...{ business_card, resume: JSON.parse(resume.content) }} />
       // )
