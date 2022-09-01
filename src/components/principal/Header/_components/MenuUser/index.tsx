@@ -1,12 +1,33 @@
 import Link from "next/link"
 import { useState } from "react"
-import { useDispatch } from "@redux/store"
+import { useDispatch, useSelector } from "@redux/store"
 
 import { api_reset } from "@redux/api"
 import { delete_token } from "@redux/slices"
 
-export const MenuUser = () => {
+const Logout = () => {
   const dispatch = useDispatch()
+
+  const { token, role } = useSelector((s) => s.app.auth)
+
+  if (role === "reader") return null
+
+  if (!token) return null
+
+  return (
+    <div
+      className="text-lg cursor-pointer"
+      onClick={() => {
+        dispatch(api_reset())
+        dispatch(delete_token())
+      }}
+    >
+      log out
+    </div>
+  )
+}
+
+export const MenuUser = () => {
   const [showMenu, setShowMenu] = useState(false)
   const [run_animation_out, set_run_animation_out_state] = useState(false)
 
@@ -46,36 +67,27 @@ export const MenuUser = () => {
 
       {/* Menu */}
       {showMenu && (
-        <div
+        <nav
           className={`
           animate-fade-in
           ${run_animation_out && "animate-fade-out"}
-          absolute left-[-31%] pt-2
+          absolute left-[-31%] top-1/2 pt-10
           `}
+          {...commonEvents}
         >
-          <nav {...commonEvents}>
-            <div
-              className="
+          <div
+            className="
             flex flex-col gap-4 p-3 
             border-1 drop-shadow-xl bg-white 
             rounded min-w-[100px]
             text-[29px] text-center
             "
-            >
-              <Link href="/login">Log In</Link>
-              <Link href="/sing_up">Sing up</Link>
-              <div
-                className="text-lg cursor-pointer"
-                onClick={() => {
-                  dispatch(api_reset())
-                  dispatch(delete_token())
-                }}
-              >
-                log out
-              </div>
-            </div>
-          </nav>
-        </div>
+          >
+            <Link href="/login">Log In</Link>
+            <Link href="/sing_up">Sing up</Link>
+            <Logout />
+          </div>
+        </nav>
       )}
     </div>
   )

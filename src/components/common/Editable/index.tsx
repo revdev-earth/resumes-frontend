@@ -1,5 +1,6 @@
 //field
 
+import { useSelector } from "@redux"
 import { useState } from "react"
 import { useEdition } from "./_components"
 
@@ -22,10 +23,9 @@ const useStyles = (stylesText) => {
 
     styles_div: `
       relative
-      flex border-solid 
-      rounded-md border-1 
-      border-transparent
-      p-[1px]
+      flex flex-col
+      rounded-md
+      border-[1px] border-transparent
       ${stylesText}
     `,
 
@@ -33,7 +33,7 @@ const useStyles = (stylesText) => {
       absolute left-[38%] -top-5 
       cursor-pointer 
       animate-fade-in 
-      pb-2
+      pb-2 px-5
     `,
   }
 }
@@ -57,6 +57,8 @@ const triple_click_detection = () => {
 }
 
 const useHandlers = (handleClickActiveEdition, handleClickSave) => {
+  const { role } = useSelector((s) => s.app.auth)
+
   const [show, set_show] = useState(false)
 
   const handle_mose_over = () => {
@@ -108,8 +110,8 @@ const useHandlers = (handleClickActiveEdition, handleClickSave) => {
   }
 
   return {
-    handlers_div,
-    handlers_text_area,
+    handlers_div: role !== "reader" ? handlers_div : {},
+    handlers_text_area: role !== "reader" ? handlers_text_area : {},
     show,
     handle_click_edition,
     handle_click_save,
@@ -167,8 +169,11 @@ export const Editable = ({
               value,
               className: styles_text_area,
               style: {
-                width: sizes.offsetWidth + 2,
-                height: sizes.offsetHeight,
+                width:
+                  sizes.offsetWidth < 80
+                    ? sizes.offsetWidth + 1
+                    : sizes.offsetWidth,
+                height: sizes.offsetWidth < 40 ? "26px" : sizes.offsetHeight,
                 resize: "none",
               },
               onChange: handleWriting,
@@ -177,7 +182,7 @@ export const Editable = ({
         </div>
       ) : (
         <div
-          className={styles_div}
+          className={`${styles_div}`}
           ref={refElement}
           onClick={handleClickActiveEdition}
           {...handlers_div}
