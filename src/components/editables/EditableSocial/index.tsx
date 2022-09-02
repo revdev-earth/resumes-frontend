@@ -47,7 +47,6 @@ export const EditableSocial = ({
 
   const text_area_props = (name: "icon" | "path" | "name") => ({
     onChange: handleWriting,
-    onDoubleClick: handleClickSave,
     name,
     value: social[name],
     className: text_area_style,

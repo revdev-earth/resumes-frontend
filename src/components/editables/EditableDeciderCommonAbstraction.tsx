@@ -65,10 +65,10 @@ const useHandlers = (handleClickActiveEdition, handleClickSave) => {
   }
 
   const handlers_saver = {
-    onMouseOver: handle_mose_over,
-    onMouseLeave: handle_mose_leave,
+    // onMouseOver: handle_mose_over,
+    // onMouseLeave: handle_mose_leave,
     onTouchStart: () => {
-      handle_mose_over()
+      // handle_mose_over()
       handle_click_text_area()
     },
     onClick: handle_click_text_area,
