@@ -5,6 +5,8 @@ import { useSelector } from "@redux"
 import { checkPublicIcon } from "@utils"
 
 import { useEdition } from "./_components"
+import { Loader } from "../Loader"
+import { EditableIsolationAndActionsMouseTouch } from "./EditableIsolationAndActionsMouseTouch"
 
 interface EditableProps {
   name: string
@@ -54,13 +56,7 @@ export const EditableProjectsLink = ({
     },
   })
 
-  // Div
-
-  const div_style = `
-    border-solid rounded-md border-1 
-    border-transparent p-[1px] mb-[6px]
-    ${stylesText}
-  `
+  // content_reader
 
   const content_reader = (
     <div
@@ -79,29 +75,43 @@ export const EditableProjectsLink = ({
     </div>
   )
 
-  return (
-    <>
-      {availableToEdit ? (
-        <>
-          <textarea {...text_area_props("icon")} />
-          <textarea {...text_area_props("path")} />
-          <textarea {...text_area_props("name")} />
-        </>
-      ) : (
-        <div
-          className={div_style}
-          ref={refElement}
-          onDoubleClick={handleClickActiveEdition}
-        >
-          {role === "writer" && content_reader}
+  // los_text_areas
 
-          {role === "reader" && (
-            <a className="font-bold" href={link.path}>
-              {content_reader}
-            </a>
-          )}
-        </div>
-      )}
+  const los_text_areas = (
+    <>
+      <textarea {...text_area_props("icon")} />
+      <textarea {...text_area_props("path")} />
+      <textarea {...text_area_props("name")} />
     </>
+  )
+
+  // components
+
+  const components = () => {
+    if (role === "writer") return content_reader
+
+    if (role === "reader") {
+      return (
+        <a className="font-bold" href={link.path}>
+          {content_reader}
+        </a>
+      )
+    }
+
+    return <Loader />
+  }
+
+  return (
+    <EditableIsolationAndActionsMouseTouch
+      {...{
+        availableToEdit,
+        divs: components(),
+        text_areas: los_text_areas,
+        handleClickActiveEdition,
+        handleClickSave,
+        stylesText,
+        refElement,
+      }}
+    />
   )
 }

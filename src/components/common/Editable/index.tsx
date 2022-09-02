@@ -153,6 +153,7 @@ const EditableBussinessCard = ({ ...args }: EditableProps) => {
 
 const EditableResumeContent = ({ stylesText = "", editor: resume_editor }) => {
   const { styles_text_area, styles_div, styles_button } = useStyles(stylesText)
+
   const {
     availableToEdit,
     handleClickActiveEdition,
