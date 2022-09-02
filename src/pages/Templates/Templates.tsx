@@ -24,14 +24,6 @@ const templates = [
     height: 200,
     width: 120,
   },
-  {
-    id: 3,
-    name: "template3",
-    src: "/screeanshot/template1.png",
-    alt: "alt",
-    height: 200,
-    width: 120,
-  },
 ]
 
 export const Templates = () => {
@@ -60,7 +52,7 @@ export const Templates = () => {
                   className="
                     w-1/3 h-36 md:w-[150px] md:h-[225px] 
                     shadow-button-primary cursor-pointer
-                    p-4 bg-p-w-1 rounded-md
+                    p-4 bg-p-w-1 rounded-md 
                   "
                   onClick={() => handleClickTemplate(name)}
                 >
@@ -70,6 +62,7 @@ export const Templates = () => {
                     key={id}
                     height={height}
                     width={width}
+                    className="cursor-pointer"
                   />
                 </div>
               </Link>
