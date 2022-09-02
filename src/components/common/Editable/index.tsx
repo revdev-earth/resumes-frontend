@@ -1,10 +1,12 @@
 //field
 
 import { useSelector } from "@redux"
+import { triple_click_detection } from "@utils/triple_click_detection"
 import { useState } from "react"
-import { useEdition } from "./_components"
+import { Loader } from "../Loader"
+import { useEditionResume, useEditionBusinessCard } from "./_components"
 
-interface EditableProps {
+type EditableProps = {
   name: string
   value: string
   stylesText?: string
@@ -37,24 +39,6 @@ const useStyles = (stylesText) => {
     `,
   }
 }
-let clicks_count = 0
-let time_out
-
-const triple_click_detection = () => {
-  // onclick:
-  clicks_count++
-  clearTimeout(time_out)
-  time_out = setTimeout(() => {
-    clicks_count = 0
-  }, 450)
-
-  if (clicks_count === 3) {
-    clicks_count = 0
-    return true
-  }
-
-  return false
-}
 
 const useHandlers = (handleClickActiveEdition, handleClickSave) => {
   const { role } = useSelector((s) => s.app.auth)
@@ -82,7 +66,7 @@ const useHandlers = (handleClickActiveEdition, handleClickSave) => {
   const handlers_div = {
     onMouseOver: handle_mose_over,
     onMouseLeave: handle_mose_leave,
-    ontouchstart: () => {
+    onTouchStart: () => {
       handle_mose_over()
       handle_click_div()
     },
@@ -92,7 +76,7 @@ const useHandlers = (handleClickActiveEdition, handleClickSave) => {
   const handlers_text_area = {
     onMouseOver: handle_mose_over,
     onMouseLeave: handle_mose_leave,
-    ontouchstart: () => {
+    onTouchStart: () => {
       handle_mose_over()
       handle_click_text_area()
     },
@@ -118,13 +102,57 @@ const useHandlers = (handleClickActiveEdition, handleClickSave) => {
   }
 }
 
-export const Editable = ({
-  name,
-  value: valueIncomming,
-  stylesText = "",
-}: EditableProps) => {
-  const { styles_text_area, styles_div, styles_button } = useStyles(stylesText)
+type TypesEditable = {
+  type_editable?: "resume" | "bussiness_card"
+  name: string
+  value: string
+  stylesText?: string
+}
 
+export const Editable = ({
+  type_editable = "resume",
+  ...args
+}: TypesEditable) => {
+  switch (type_editable) {
+    case "resume":
+      return <EditableResume {...args} />
+
+    case "bussiness_card":
+      return <EditableBussinessCard {...args} />
+
+    default:
+      return <Loader />
+  }
+}
+
+const EditableResume = ({ ...args }: EditableProps) => {
+  const editor = useEditionResume(args.value, args.name)
+
+  return (
+    <EditableResumeContent
+      {...{
+        ...args,
+        editor,
+      }}
+    />
+  )
+}
+
+const EditableBussinessCard = ({ ...args }: EditableProps) => {
+  const editor = useEditionBusinessCard(args.value, args.name)
+
+  return (
+    <EditableResumeContent
+      {...{
+        ...args,
+        editor,
+      }}
+    />
+  )
+}
+
+const EditableResumeContent = ({ stylesText = "", editor: resume_editor }) => {
+  const { styles_text_area, styles_div, styles_button } = useStyles(stylesText)
   const {
     availableToEdit,
     handleClickActiveEdition,
@@ -133,7 +161,7 @@ export const Editable = ({
     handleWriting,
     sizes,
     refElement,
-  } = useEdition(valueIncomming, name)
+  } = resume_editor
 
   const {
     handlers_div,
@@ -168,6 +196,7 @@ export const Editable = ({
               ...handlers_text_area,
               value,
               className: styles_text_area,
+              onChange: handleWriting,
               style: {
                 width:
                   sizes.offsetWidth < 80
@@ -176,16 +205,17 @@ export const Editable = ({
                 height: sizes.offsetWidth < 40 ? "26px" : sizes.offsetHeight,
                 resize: "none",
               },
-              onChange: handleWriting,
             }}
           />
         </div>
       ) : (
         <div
-          className={`${styles_div}`}
-          ref={refElement}
-          onClick={handleClickActiveEdition}
-          {...handlers_div}
+          {...{
+            ...handlers_div,
+            className: styles_div,
+            ref: refElement,
+            onClick: handleClickActiveEdition,
+          }}
         >
           <>
             {show && (

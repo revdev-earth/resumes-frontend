@@ -1,4 +1,4 @@
-import { EditableBussinessCard } from "@components/common/EditableBussinessCard"
+import { Editable } from "@components/common/Editable"
 
 import { BusinessCard } from "tree"
 
@@ -18,22 +18,28 @@ export const BussinessCard = ({
       p-[25px]"
   >
     <div className="flex flex-col gap-[10px]">
-      <EditableBussinessCard
+      <Editable
+        type_editable="bussiness_card"
         stylesText="text-[25px] font-bold"
         name={`name`}
         value={name}
       />
-      <EditableBussinessCard
+      <Editable
+        type_editable="bussiness_card"
         stylesText="text-[20px]"
         name={`profesion`}
         value={profesion}
       />
     </div>
     <div className="flex flex-col justify-between gap-[10px] items-end">
-      <EditableBussinessCard name={`email`} value={email} />
+      <Editable type_editable="bussiness_card" name={`email`} value={email} />
       <div className="flex gap-1">
-        <EditableBussinessCard name={`areaCode`} value={areaCode} />
-        <EditableBussinessCard name={`phone`} value={phone} />
+        <Editable
+          type_editable="bussiness_card"
+          name={`areaCode`}
+          value={areaCode}
+        />
+        <Editable type_editable="bussiness_card" name={`phone`} value={phone} />
       </div>
     </div>
   </header>

@@ -128,7 +128,7 @@ export const usePutResume = () => {
   }
 }
 
-export const useEdition = (incomingValue, name: string) => {
+export const useEditionResume = (incomingValue, name: string) => {
   const { update_resume_with } = usePutResume()
 
   const { role } = useSelector((s) => s.app.auth)

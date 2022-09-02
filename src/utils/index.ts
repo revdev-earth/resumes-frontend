@@ -1,3 +1,5 @@
+export * from "./triple_click_detection"
+
 export const checkPublicIcon = (
   url: string,
   default_url = "/assets/link.svg"

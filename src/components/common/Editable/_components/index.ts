@@ -1,1 +1,2 @@
-export * from "./useEdition"
+export * from "./useEditionResume"
+export * from "./useEditionBusinessCard"
