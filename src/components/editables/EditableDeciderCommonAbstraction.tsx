@@ -15,24 +15,33 @@ const useStyles = (stylesText) => ({
   `,
 
   styles_button: `
-      absolute left-[38%] -top-5 
+      absolute left-[38%] -top-10
       cursor-pointer 
       animate-fade-in 
-      pb-2 px-5
+      py-2 px-2 z-10
+      bg-white rounded-md
+      shadow-md hover:shadow-xl
+      text-[16px] font-semibold
     `,
 })
 
 const useHandlers = (handleClickActiveEdition, handleClickSave) => {
   const { role } = useSelector((s) => s.app.auth)
+  const [timer_id, set_timer_id] = useState<any>()
 
   const [show, set_show] = useState(false)
 
   const handle_mose_over = () => {
+    clearTimeout(timer_id)
     set_show(true)
   }
 
   const handle_mose_leave = () => {
-    set_show(false)
+    clearTimeout(timer_id)
+    const timer_before = setTimeout(() => {
+      set_show(false)
+    }, 500)
+    set_timer_id(timer_before)
   }
 
   const handle_click_text_area = () => {
@@ -84,7 +93,7 @@ const useHandlers = (handleClickActiveEdition, handleClickSave) => {
   }
 }
 
-export const EditableIsolationAndActionsMouseTouch = ({
+export const EditableDeciderCommonAbstraction = ({
   availableToEdit,
   divs,
   text_areas,
@@ -95,12 +104,10 @@ export const EditableIsolationAndActionsMouseTouch = ({
 }) => {
   //
 
-  // eslint-disable-next-line no-unused-vars
   const { styles_button, styles_div } = useStyles(stylesText)
 
   const {
     handlers_editer,
-    // eslint-disable-next-line no-unused-vars
     handlers_saver,
     show,
     handle_click_edition,
@@ -110,7 +117,7 @@ export const EditableIsolationAndActionsMouseTouch = ({
   const etwas = (
     <>
       {availableToEdit ? (
-        <div className="relative">
+        <div className="relative" {...handlers_saver}>
           <div className={styles_button} onClick={handle_click_save}>
             save
           </div>
@@ -123,7 +130,6 @@ export const EditableIsolationAndActionsMouseTouch = ({
             ...handlers_editer,
             className: styles_div,
             ref: refElement,
-            onClick: handleClickActiveEdition,
           }}
         >
           {show && (
@@ -131,6 +137,7 @@ export const EditableIsolationAndActionsMouseTouch = ({
               edit
             </div>
           )}
+
           {divs}
         </div>
       )}

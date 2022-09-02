@@ -5,7 +5,7 @@ import { useSelector } from "@redux"
 import { checkPublicIcon } from "@utils"
 
 import { useEdition } from "./_components"
-import { EditableIsolationAndActionsMouseTouch } from "./EditableIsolationAndActionsMouseTouch"
+import { EditableDeciderCommonAbstraction } from "../EditableDeciderCommonAbstraction"
 import { Loader } from "@components/common/Loader"
 
 interface EditableProps {
@@ -46,17 +46,26 @@ export const EditableProjectsLink = ({
   `
 
   const text_area_props = (name: "icon" | "path" | "name") => ({
-    onChange: handleWriting,
-    onDoubleClick: handleClickSave,
     name,
     value: link[name],
     className: text_area_style,
+    onChange: handleWriting,
     style: {
       width: sizes.offsetWidth,
     },
   })
 
-  // content_reader
+  // los_text_areas
+
+  const los_text_areas = (
+    <>
+      <textarea {...text_area_props("icon")} />
+      <textarea {...text_area_props("path")} />
+      <textarea {...text_area_props("name")} />
+    </>
+  )
+
+  // components
 
   const content_reader = (
     <div
@@ -75,18 +84,6 @@ export const EditableProjectsLink = ({
     </div>
   )
 
-  // los_text_areas
-
-  const los_text_areas = (
-    <>
-      <textarea {...text_area_props("icon")} />
-      <textarea {...text_area_props("path")} />
-      <textarea {...text_area_props("name")} />
-    </>
-  )
-
-  // components
-
   const components = () => {
     if (role === "writer") return content_reader
 
@@ -102,7 +99,7 @@ export const EditableProjectsLink = ({
   }
 
   return (
-    <EditableIsolationAndActionsMouseTouch
+    <EditableDeciderCommonAbstraction
       {...{
         availableToEdit,
         divs: components(),

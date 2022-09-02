@@ -8,7 +8,7 @@ import { Social_item } from "tree"
 
 import { useEdition } from "./_components"
 
-import { EditableIsolationAndActionsMouseTouch } from "../EditableIsolationAndActionsMouseTouch"
+import { EditableDeciderCommonAbstraction } from "../EditableDeciderCommonAbstraction"
 
 import { Loader } from "@components/common/Loader"
 
@@ -98,7 +98,7 @@ export const EditableSocial = ({
   }
 
   const return_nuevo = (
-    <EditableIsolationAndActionsMouseTouch
+    <EditableDeciderCommonAbstraction
       {...{
         availableToEdit,
         divs: components(),

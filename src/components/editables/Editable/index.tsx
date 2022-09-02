@@ -1,4 +1,4 @@
-import { EditableIsolationAndActionsMouseTouch } from "../EditableIsolationAndActionsMouseTouch"
+import { EditableDeciderCommonAbstraction } from "../EditableDeciderCommonAbstraction"
 import { Loader } from "../../common/Loader"
 import { useEditionResume, useEditionBusinessCard } from "./_components"
 
@@ -106,7 +106,7 @@ const EditableResumeContent = ({ stylesText = "", editor: resume_editor }) => {
   // return
 
   return (
-    <EditableIsolationAndActionsMouseTouch
+    <EditableDeciderCommonAbstraction
       {...{
         availableToEdit,
         divs: components,
