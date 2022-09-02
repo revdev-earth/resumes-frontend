@@ -5,6 +5,8 @@ import { useSelector } from "@redux"
 import { checkPublicIcon } from "@utils"
 import { Social_item } from "tree"
 import { useEdition } from "./_components"
+import { Loader } from "../Loader"
+import { EditableIsolationAndActionsMouseTouch } from "../EditableIsolationAndActionsMouseTouch"
 
 interface EditableProps {
   name: string
@@ -52,12 +54,6 @@ export const EditableSocial = ({
 
   // Div
 
-  const div_style = `
-    border-solid rounded-md border-1 
-    border-transparent p-[1px] mb-[6px]
-    ${stylesText}
-  `
-
   const content_reader = (
     <div
       className={`font-bold flex gap-1 ${
@@ -75,29 +71,41 @@ export const EditableSocial = ({
     </div>
   )
 
-  return (
+  const los_text_areas = (
     <>
-      {availableToEdit ? (
-        <>
-          <textarea {...text_area_props("icon")} />
-          <textarea {...text_area_props("path")} />
-          <textarea {...text_area_props("name")} />
-        </>
-      ) : (
-        <div
-          className={div_style}
-          ref={refElement}
-          onDoubleClick={handleClickActiveEdition}
-        >
-          {role === "writer" && content_reader}
-
-          {role === "reader" && (
-            <a className="font-bold" href={social.path}>
-              {content_reader}
-            </a>
-          )}
-        </div>
-      )}
+      <textarea {...text_area_props("icon")} />
+      <textarea {...text_area_props("path")} />
+      <textarea {...text_area_props("name")} />
     </>
   )
+
+  const components = () => {
+    if (role === "writer") return content_reader
+
+    if (role === "reader") {
+      return (
+        <a className="font-bold" href={social.path}>
+          {content_reader}
+        </a>
+      )
+    }
+
+    return <Loader />
+  }
+
+  const return_nuevo = (
+    <EditableIsolationAndActionsMouseTouch
+      {...{
+        availableToEdit,
+        divs: components(),
+        text_areas: los_text_areas,
+        handleClickActiveEdition,
+        handleClickSave,
+        stylesText,
+        refElement,
+      }}
+    />
+  )
+
+  return return_nuevo
 }
