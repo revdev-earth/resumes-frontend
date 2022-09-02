@@ -1,4 +1,4 @@
-import { EditableSocial } from "@components/common/EditableSocial"
+import { EditableSocial } from "@components/editables/EditableSocial"
 import { Social_item } from "tree"
 
 type ItemProps = {

@@ -1,4 +1,4 @@
-import { Editable } from "@components/common/Editable"
+import { Editable } from "@components/editables/Editable"
 
 import { BusinessCard } from "tree"
 

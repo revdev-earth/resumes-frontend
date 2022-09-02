@@ -3,10 +3,14 @@ import Image from "next/image"
 import { useSelector } from "@redux"
 
 import { checkPublicIcon } from "@utils"
+
 import { Social_item } from "tree"
+
 import { useEdition } from "./_components"
-import { Loader } from "../Loader"
+
 import { EditableIsolationAndActionsMouseTouch } from "../EditableIsolationAndActionsMouseTouch"
+
+import { Loader } from "@components/common/Loader"
 
 interface EditableProps {
   name: string

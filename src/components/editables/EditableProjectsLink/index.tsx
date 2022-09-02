@@ -5,8 +5,8 @@ import { useSelector } from "@redux"
 import { checkPublicIcon } from "@utils"
 
 import { useEdition } from "./_components"
-import { Loader } from "../Loader"
 import { EditableIsolationAndActionsMouseTouch } from "./EditableIsolationAndActionsMouseTouch"
+import { Loader } from "@components/common/Loader"
 
 interface EditableProps {
   name: string

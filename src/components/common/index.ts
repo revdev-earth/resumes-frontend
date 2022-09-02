@@ -1,2 +1,2 @@
 export * from "./Button"
-export * from "./Editable"
+export * from "../editables/Editable"

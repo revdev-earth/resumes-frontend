@@ -1,5 +1,5 @@
 import { EditableIsolationAndActionsMouseTouch } from "../EditableIsolationAndActionsMouseTouch"
-import { Loader } from "../Loader"
+import { Loader } from "../../common/Loader"
 import { useEditionResume, useEditionBusinessCard } from "./_components"
 
 type EditableProps = {
