@@ -3,7 +3,7 @@ import { BussinesCard } from "@redux/api/endpoints/user"
 import { Resume } from "tree"
 import { BussinessCard, ProfesionalPerfil } from "./_components"
 
-export const Template2 = ({
+export const Template = ({
   business_card,
   resume,
 }: {
