@@ -19,17 +19,18 @@ export const useHook_add_one = (category: string) => {
   const [updateResume] = usePutResumeMutation()
 
   const add_category = () => {
+    const new_one = {
+      ...tree.resume[category][0],
+      id: make_id(),
+    }
+
+    const new_resume = JSON.stringify({
+      ...resume,
+      [category]: [...resume[category], new_one],
+    })
+
     updateResume({
-      content: JSON.stringify({
-        ...resume,
-        [category]: [
-          ...resume[category],
-          {
-            ...tree.resume[category][0],
-            id: make_id(),
-          },
-        ],
-      }),
+      content: new_resume,
     })
   }
 

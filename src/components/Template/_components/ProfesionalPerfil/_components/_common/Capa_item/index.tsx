@@ -48,7 +48,6 @@ export const Capa_item = ({
     <div className="flex flex-col gap-[15px] relative" {...handlers}>
       {show_delete_button && (
         <button
-          // className="absolute left-1/2 animate-fade-in"
           className={`absolute cursor-pointer ${styles_button_add}`}
           onClick={handle_delete_item}
         >

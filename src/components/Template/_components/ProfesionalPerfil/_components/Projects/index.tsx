@@ -1,6 +1,10 @@
 import { Project_item } from "tree"
+
 import { Caparazon_category } from "../_common/Caparazon_category"
+import { Capa_item } from "../_common/Capa_item"
+
 import { useHook_remove_one } from "../_common/useHook_remove_one"
+
 import { Item } from "./_components"
 
 export const Projects = ({ projects }: { projects: Project_item[] }) => {
@@ -10,15 +14,15 @@ export const Projects = ({ projects }: { projects: Project_item[] }) => {
     <Caparazon_category category="projects" title="Projects:">
       {/* Content */}
       {/* Projects items */}
-      <div className="flex flex-col gap-[20px]">
-        {projects.map((item, index) => (
-          <Item
-            category="projects"
-            key={item.id}
-            {...{ ...item, index, remove_item }}
-          />
-        ))}
-      </div>
+      {projects.length > 0 && (
+        <div className="flex flex-col gap-[20px]">
+          {projects.map((item, index) => (
+            <Capa_item key={item.id} {...{ id: item.id, remove_item }}>
+              <Item category="projects" {...{ ...item, index }} />
+            </Capa_item>
+          ))}
+        </div>
+      )}
     </Caparazon_category>
   )
 }
