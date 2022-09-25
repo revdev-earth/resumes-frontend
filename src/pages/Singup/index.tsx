@@ -49,10 +49,10 @@ export const Singup = () => {
 
   const show_error = () => {
     if (isError) {
-      const {
-        data: { message },
-      } = error as { data: { message: string } }
-      return <div className="text-[18px] leading-6 text-red-600">{message}</div>
+      console.log(error)
+
+      // return <div className="text-[18px] leading-6 text-red-600">{message}</div>
+      return null
     }
   }
 

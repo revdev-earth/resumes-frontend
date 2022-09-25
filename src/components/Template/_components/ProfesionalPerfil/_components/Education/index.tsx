@@ -1,5 +1,6 @@
 import { Education_item } from "tree"
-import { Title } from "../common"
+import { Caparazon_category } from "../_common/Caparazon_category"
+import { useHook_remove_one } from "../_common/useHook_remove_one"
 import { Item } from "./_components"
 
 export const Education = ({
@@ -7,18 +8,20 @@ export const Education = ({
 }: {
   education: Education_item[]
 }) => {
+  const { remove_item } = useHook_remove_one("education")
   return (
-    <div className="flex flex-col gap-[25px]">
-      {/* Title */}
-      <Title>Education:</Title>
-
+    <Caparazon_category category="education" title="Education:">
       {/* Content */}
       {/* Education items */}
       <div className="flex flex-col gap-[20px]">
         {education_items.map((item, index) => (
-          <Item category="education" key={item.id} {...{ ...item, index }} />
+          <Item
+            category="education"
+            key={item.id}
+            {...{ ...item, index, remove_item }}
+          />
         ))}
       </div>
-    </div>
+    </Caparazon_category>
   )
 }
