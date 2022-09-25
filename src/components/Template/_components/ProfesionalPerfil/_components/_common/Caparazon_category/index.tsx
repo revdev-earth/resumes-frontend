@@ -1,6 +1,7 @@
 import { Title } from "../../common"
 import { useHook_tools } from "../useHook_tools"
 import { Categories } from "@Types"
+import { styles_button_add } from "@components/editables/_common/styles"
 
 export const Caparazon_category = ({
   category,
@@ -20,12 +21,13 @@ export const Caparazon_category = ({
       <Title {...handlers}>
         {title}
         {show_add_new_category && (
-          <div
-            className="absolute top-[-100%] cursor-pointer"
+          <button
+            // className="absolute top-[-100%] cursor-pointer"
+            className={`absolute top-[-100%] cursor-pointer ${styles_button_add}`}
             onClick={handle_click_add}
           >
             Add Experience
-          </div>
+          </button>
         )}
       </Title>
 

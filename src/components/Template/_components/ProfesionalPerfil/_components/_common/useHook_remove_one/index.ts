@@ -14,7 +14,6 @@ export const useHook_remove_one = (category: string) => {
         ...resume,
         [category]: [
           ...resume[category].filter((item) => {
-            console.log(`${id} === ${item.id}`)
             if (id === item.id) return false
             return true
           }),
