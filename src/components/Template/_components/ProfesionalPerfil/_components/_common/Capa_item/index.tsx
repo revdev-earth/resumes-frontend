@@ -34,7 +34,7 @@ export const Capa_item = ({
   children,
 }: {
   id: number
-  remove_item: any
+  remove_item: any // (id: number) => avoid
   children: React.ReactElement
 }) => {
   //
