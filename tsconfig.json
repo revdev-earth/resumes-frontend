@@ -16,30 +16,35 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@global/*": ["src/global/*"],
-      "@global": ["src/global"],
-      "@interfaces/*": ["src/interfaces/*"],
-      "@interfaces": ["src/interfaces"],
       "@components/*": ["src/components/*"],
       "@components": ["src/components"],
-      "@pages/*": ["src/pages/*"],
-      "@pages": ["src/pages"],
+
+      "@global/*": ["src/global/*"],
+      "@global": ["src/global"],
+
       "@hooks/*": ["src/hooks/*"],
       "@hooks": ["src/hooks"],
+
+      "@pages/*": ["src/pages/*"],
+      "@pages": ["src/pages"],
+
       "@public/*": ["public/*"],
       "@public": ["public"],
+
       "@redux/*": ["src/redux/*"],
       "@redux": ["src/redux"],
+
       "@utils/*": ["src/utils/*"],
       "@utils": ["src/utils"],
-      "@mocks/*": ["__mocks__/*"],
-      "@mocks": ["__mocks__"],
-      "@constants/*": ["src/constants/*"],
-      "@constants": ["src/constants"],
-      "@styled-components/*": ["src/styled-components/*"],
-      "@styled-components": ["src/styled-components"]
-    }
+
+      "@Types/*": ["src/Types/*"],
+      "@Types": ["src/Types"]
+    },
+
+    "noUnusedLocals": true /* Report errors on unused locals. */,
+    "noUnusedParameters": true /* Report errors on unused parameters. */
   },
+
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

@@ -65,7 +65,7 @@ const user = api.injectEndpoints({
     getUser: build.query<User, any>({
       query: () => `user`,
 
-      providesTags: (result, error, id) => [{ type: "User", id }],
+      providesTags: (_result, _error, id) => [{ type: "User", id }],
     }),
     //
     updateUser: build.mutation({

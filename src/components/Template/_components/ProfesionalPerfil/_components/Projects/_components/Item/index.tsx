@@ -1,8 +1,9 @@
-import { Editable } from "@components/common"
 import { Project_item } from "tree"
-import { Tecnologies } from "../../../common"
 
+import { Editable } from "@components/common"
 import { EditableProjectsLink } from "@components/editables/EditableProjectsLink"
+
+import { Tecnologies } from "../../../common"
 
 type ItemProps = Project_item & {
   index: number

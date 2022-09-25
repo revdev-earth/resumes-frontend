@@ -3,27 +3,15 @@ import { useSelector } from "@redux"
 import { triple_click_detection } from "@utils"
 
 import { useState } from "react"
+import { styles_button_edit, styles_button_save } from "./_common/styles"
 
 // styles
-const useStyles = (stylesText) => ({
-  styles_div: `
-      relative
-      flex flex-col
-      rounded-md
-      border-[1px] border-transparent
-      ${stylesText}
-  `,
-
-  styles_button: `
-      absolute left-[38%] -top-10
-      cursor-pointer 
-      animate-fade-in 
-      py-2 px-2 z-10
-      bg-white rounded-md
-      shadow-md hover:shadow-xl
-      text-[16px] font-semibold
-    `,
-})
+const styles_div = `
+relative
+flex flex-col
+rounded-md
+border-[1px] border-transparent
+`
 
 const useHandlers = (handleClickActiveEdition, handleClickSave) => {
   const { role } = useSelector((s) => s.app.auth)
@@ -99,12 +87,10 @@ export const EditableDeciderCommonAbstraction = ({
   text_areas,
   handleClickActiveEdition,
   handleClickSave,
-  stylesText,
+  // stylesText,
   refElement,
 }) => {
   //
-
-  const { styles_button, styles_div } = useStyles(stylesText)
 
   const {
     handlers_editer,
@@ -118,7 +104,7 @@ export const EditableDeciderCommonAbstraction = ({
     <>
       {availableToEdit ? (
         <div className="relative" {...handlers_saver}>
-          <div className={styles_button} onClick={handle_click_save}>
+          <div className={styles_button_save} onClick={handle_click_save}>
             save
           </div>
 
@@ -133,7 +119,7 @@ export const EditableDeciderCommonAbstraction = ({
           }}
         >
           {show && (
-            <div className={styles_button} onClick={handle_click_edition}>
+            <div className={styles_button_edit} onClick={handle_click_edition}>
               edit
             </div>
           )}

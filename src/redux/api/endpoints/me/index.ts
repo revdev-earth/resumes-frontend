@@ -21,7 +21,7 @@ const me = api.injectEndpoints({
     getMe: build.query<RecivedInformation | null, any>({
       query: ({ user_name }) => `me/${user_name}`,
 
-      providesTags: (result, error, id) => [{ type: "Me", id }],
+      providesTags: (_result, _error, id) => [{ type: "Me", id }],
     }),
   }),
 })

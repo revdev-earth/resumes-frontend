@@ -1,18 +1,12 @@
-import { Editable } from "@components/common"
 import { Experience_item } from "tree"
-import { Tecnologies } from "../../../common"
 
-type Categories =
-  | "about"
-  | "education"
-  | "experiences"
-  | "projects"
-  | "skills"
-  | "social"
+import { Editable } from "@components/common"
+
+import { Tecnologies } from "../../../common"
 
 type ItemProps = Experience_item & {
   index: number
-  category: Categories
+  category: "education"
 }
 
 export const Item = ({
@@ -24,7 +18,7 @@ export const Item = ({
   tecnologies,
   category,
 }: ItemProps) => (
-  <div className="flex flex-col gap-[15px]">
+  <>
     <div className="flex justify-between font-bold">
       <div className="flex flex-col gap-1">
         {/*  */}
@@ -48,5 +42,5 @@ export const Item = ({
 
     {/* tecnologies */}
     <Tecnologies {...{ tecnologies, last_index: index }} />
-  </div>
+  </>
 )
